@@ -1,0 +1,60 @@
+import { cn } from "@/lib/utils";
+import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react";
+import Button from "../Button/Button";
+
+interface InputProps extends ComponentPropsWithoutRef<"input"> {
+  className?: string;
+  prefixIcon?: ElementType;
+  suffixIcon?: ElementType;
+  SuffixOnClick?: () => void;
+  variants? : "primary" | "secondary"
+}
+
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      className,
+      prefixIcon: PrefixIcon,
+      suffixIcon: SuffixIcon,
+      SuffixOnClick,
+      variants = "primary",
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <div className={cn(
+        className,
+        variants === "primary" && "bg-[#f8f9ff] border border-[#c5c7cf] p-2 rounded-md w-full relative",
+        variants === "secondary" && "p-0 m-0  "
+      )}>
+        {PrefixIcon && (
+          <PrefixIcon className="absolute translate-y-1/2 bottom-1/2 text-2xl text-black/80" />
+        )}
+        <input
+          {...props}
+          ref={ref}
+          className={cn(
+            className,
+            "outline-none border-none",
+            PrefixIcon ? "ml-7" : "ml-2",
+          )}
+        />
+        {SuffixIcon && (
+          <Button
+            type="button"
+            variants="none"
+            className="absolute translate-y-1/2 right-2 bottom-1/2"
+            onClick={SuffixOnClick}
+          >
+            <SuffixIcon className=" text-2xl text-black/80" />
+          </Button>
+        )}
+      </div>
+    );
+  },
+);
+
+Input.displayName = "Input";
+
+export default Input;
