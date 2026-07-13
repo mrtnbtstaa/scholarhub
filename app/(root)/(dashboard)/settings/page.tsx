@@ -1,5 +1,7 @@
+import SettingsPage from "@/features/(dashboard)/settings/SettingsPage";
+
 const Page = () => {
-    return <h1>Hello Settngs</h1>
-}
+  return <SettingsPage />;
+};
 
 export default Page;

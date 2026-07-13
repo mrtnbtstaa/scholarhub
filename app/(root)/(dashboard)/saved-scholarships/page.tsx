@@ -1,5 +1,7 @@
+import SavedScholarshipsPage from "@/features/(dashboard)/saved-scholarships/SavedScholarshipsPage";
+
 const Page = () => {
-    return <h1>Hello Save Scholarships</h1>
+    return <SavedScholarshipsPage />
 }
 
 export default Page;

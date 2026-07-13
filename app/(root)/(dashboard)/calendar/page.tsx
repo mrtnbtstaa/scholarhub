@@ -1,5 +1,7 @@
+import CalendarPage from "@/features/(dashboard)/calendar/CalendarPage";
+
 const Page = () => {
-    return <h1>Hello Calendar</h1>
+    return <CalendarPage />
 }
 
 export default Page;

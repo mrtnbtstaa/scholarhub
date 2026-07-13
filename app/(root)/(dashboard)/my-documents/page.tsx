@@ -1,5 +1,7 @@
+import MyDocumentsPage from "@/features/(dashboard)/my-documents/MyDocumentsPage";
+
 const Page = () => {
-    return <h1>Hello My Documents</h1>
+    return <MyDocumentsPage />
 }
 
 export default Page;

@@ -4,7 +4,7 @@ const Divider = ({className}: {className?: string}) => {
     return (
         <hr className={cn(
             className,
-            "text-black/20 mb-2"
+            "text-black/10 mb-2"
         )} />
     )
 }

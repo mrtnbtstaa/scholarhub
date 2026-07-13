@@ -25,8 +25,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={cn(
         className,
-        variants === "primary" && "bg-[#f8f9ff] border border-[#c5c7cf] p-2 rounded-md w-full relative",
-        variants === "secondary" && "p-0 m-0  "
+        variants === "primary" && "border border-[#c5c7cf] p-2 rounded-md w-full relative",
+        variants === "secondary" && "p-0 m-0"
       )}>
         {PrefixIcon && (
           <PrefixIcon className="absolute translate-y-1/2 bottom-1/2 text-2xl text-black/80" />

@@ -1,14 +1,14 @@
 import { ElementType } from "react";
+import { IoMdDocument } from "react-icons/io";
 import {
-  MdApproval,
   MdBookmark,
-  MdCalendarMonth,
   MdDashboard,
   MdNotifications,
   MdPerson,
-  MdSearch,
   MdSettings,
 } from "react-icons/md";
+import { PiCalendarFill } from "react-icons/pi";
+import { RiSearchAiFill } from "react-icons/ri";
 
 interface SidebarMenuProps {
   title: string;
@@ -24,7 +24,7 @@ export const SidebarMenus: SidebarMenuProps[] = [
   },
   {
     title: "Browse Scholarships",
-    icon: MdSearch,
+    icon: RiSearchAiFill,
     href: "/browse-scholarships",
   },
   {
@@ -34,17 +34,17 @@ export const SidebarMenus: SidebarMenuProps[] = [
   },
   {
     title: "My Applications",
-    icon: MdApproval,
+    icon: IoMdDocument,
     href: "/my-applications",
   },
   {
     title: "My Documents",
-    icon: MdApproval,
+    icon: IoMdDocument  ,
     href: "/my-documents",
   },
   {
     title: "Calendar",
-    icon: MdCalendarMonth,
+    icon: PiCalendarFill,
     href: "/calendar",
   },
   {

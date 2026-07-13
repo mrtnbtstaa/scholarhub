@@ -1,5 +1,7 @@
+import NotificationsPage from "@/features/(dashboard)/notifications/NotificationsPage";
+
 const Page = () => {
-    return <h1>Hello Notifications</h1>
+    return <NotificationsPage />
 }
 
 export default Page;

@@ -1,5 +1,7 @@
+import ProfilePage from "@/features/(dashboard)/profile/ProfilePage";
+
 const Page = () => {
-    return <h1>Hello Profile</h1>
+    return <ProfilePage />
 }
 
 export default Page;

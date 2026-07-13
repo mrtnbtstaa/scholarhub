@@ -1,5 +1,7 @@
+import MyApplicationsPage from "@/features/(dashboard)/my-applications/MyApplicationsPage";
+
 const Page = () => {
-    return <h1>Hello My Applications</h1>
+    return <MyApplicationsPage />
 }
 
 export default Page;
