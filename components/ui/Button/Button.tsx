@@ -13,9 +13,10 @@ const Button = ({ className, children, variants = "primary", ...props }: ButtonP
     {...props}
       className={cn(
         className,
-        "rounded-md outline-none border-none cursor-pointer",
+        "rounded-md outline-none  cursor-pointer",
         // Conditional styles based on variants
         variants === "primary" && "bg-[#002045] text-white text-center",
+        variants === "outlined" && "border border-[#c5c7cf] rounded-full p-2 hover:border-secondary transition-colors duration-150 mb-4"
       )}
     >
       {children}

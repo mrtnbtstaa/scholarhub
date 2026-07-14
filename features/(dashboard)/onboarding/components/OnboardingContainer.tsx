@@ -10,7 +10,7 @@ type ContainerProps = {
 const OnboardingContainer = ({ children, className }: ContainerProps) => {
   return (
     <Card className={cn(
-        "flex-wrap mx-auto my-auto md:min-w-[40%] min-w-full",
+        "mx-auto my-auto md:min-w-[50%] min-w-full",
         className
     )}>
       {children}

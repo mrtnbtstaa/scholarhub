@@ -1,12 +1,76 @@
 import OnboardingContainer from "../OnboardingContainer";
-import OnboardingHeader from "../OnboardingHeader";
+import PreferencesContent from "../Preferences/PreferencesContent";
+import { PreferencesListProps } from "../../types/preferences.types";
+
+const countriesList: PreferencesListProps[] = [
+  {
+    name: "Japan",
+  },
+  {
+    name: "Canada",
+  },
+  {
+    name: "Australia",
+  },
+  {
+    name: "Germany",
+  },
+  {
+    name: "United Kingdom",
+  },
+  {
+    name: "USA",
+  },
+];
+const fundingList: PreferencesListProps[] = [
+  {
+    name: "Fully Funded",
+  },
+  {
+    name: "Partially Funded",
+  },
+  {
+    name: "NGO Sponsored",
+  },
+  {
+    name: "Corporate Grant",
+  },
+];
+const fieldInterestList: PreferencesListProps[] = [
+  {
+    name: "Computer Science",
+  },
+  {
+    name: "Business",
+  },
+  {
+    name: "Arts",
+  },
+  {
+    name: "Medicine",
+  },
+  {
+    name: "Engineering",
+  },
+  {
+    name: "Law",
+  },
+];
 
 const StepThree = () => {
-    return (
-        <OnboardingContainer>
-            <OnboardingHeader />
-        </OnboardingContainer>
-    )
-}
+  return (
+    <OnboardingContainer className="w-full p-4">
+      <PreferencesContent
+        title="WHERE WOULD YOU LIKE TO STUDY?"
+        items={countriesList}
+      />
+      <PreferencesContent title="FUNDING PRREFERENCES" items={fundingList} />
+      <PreferencesContent
+        title="FIELDS OF INTEREST"
+        items={fieldInterestList}
+      />
+    </OnboardingContainer>
+  );
+};
 
 export default StepThree;

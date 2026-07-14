@@ -1,6 +1,6 @@
 import { MdPerson } from "react-icons/md";
 import StepperIconProgress from "./StepperIconProgress";
-import { useStepperStore } from "@/store/useStepperStore";
+import { useStepperStore } from "@/features/(dashboard)/onboarding/store/useStepperStore";
 import { ElementType } from "react";
 import { FaGraduationCap } from "react-icons/fa";
 import { IoMdDocument, IoMdGlobe } from "react-icons/io";

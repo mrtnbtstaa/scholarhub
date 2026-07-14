@@ -1,10 +1,9 @@
 import OnboardingContainer from "../OnboardingContainer";
-import OnboardingHeader from "../OnboardingHeader";
 
 const StepFive = () => {
     return (
         <OnboardingContainer>
-            <OnboardingHeader />
+            <div>1</div>
         </OnboardingContainer>
     )
 }

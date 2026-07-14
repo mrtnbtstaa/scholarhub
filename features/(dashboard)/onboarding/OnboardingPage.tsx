@@ -7,7 +7,7 @@ import StepTwo from "./components/Stepper/StepTwo";
 import StepThree from "./components/Stepper/StepThree";
 import StepFour from "./components/Stepper/StepFour";
 import StepFive from "./components/Stepper/StepFive";
-import { useStepperStore } from "@/store/useStepperStore";
+import { useStepperStore } from "@/features/(dashboard)/onboarding/store/useStepperStore";
 import StepperProgress from "./components/StepperProgress";
 import OnboardingHeader from "./components/OnboardingHeader";
 import OnboardingFooter from "./components/OnboardingFooter";
