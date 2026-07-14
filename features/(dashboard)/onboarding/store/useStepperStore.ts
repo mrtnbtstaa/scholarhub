@@ -9,7 +9,7 @@ interface StepperState {
   };
 }
 export const useStepperStore = create<StepperState>((set) => ({
-  currentStep: 3,
+  currentStep: 0,
   currentStepProgress: 0,
   action: {
     setCurrentStep: (value) => {

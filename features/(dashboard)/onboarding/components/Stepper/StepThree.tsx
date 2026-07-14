@@ -1,5 +1,5 @@
 import OnboardingContainer from "../OnboardingContainer";
-import PreferencesContent from "../Preferences/PreferencesContent";
+import PreferencesContent from "../PreferencesContent";
 import { PreferencesListProps } from "../../types/preferences.types";
 
 const countriesList: PreferencesListProps[] = [

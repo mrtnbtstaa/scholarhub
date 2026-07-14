@@ -10,7 +10,7 @@ const Card = ({ children, className }: Card) => {
     <div className={
         cn(
             className,
-            "bg-white rounded-md"
+            "bg-white rounded-lg border border-[#c5c7cf]"
         )
     }>
         {children}

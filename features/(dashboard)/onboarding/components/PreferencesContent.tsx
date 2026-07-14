@@ -1,5 +1,5 @@
 import Button from "@/components/ui/Button/Button";
-import { PreferencesListProps } from "../../types/preferences.types";
+import { PreferencesListProps } from "../types/preferences.types";
 
 interface PreferencesProps {
   title: string;
