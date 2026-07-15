@@ -5,6 +5,7 @@ import { ElementType } from "react";
 import { FaGraduationCap } from "react-icons/fa";
 import { IoMdDocument, IoMdGlobe } from "react-icons/io";
 import { GiFinishLine } from "react-icons/gi";
+import LineProgress from "@/components/shared/LineProgress/LineProgress";
 
 type StepperIcon = { stepperIcon: ElementType };
 const progressIcons: StepperIcon[] = [
@@ -23,12 +24,7 @@ const StepperProgress = () => {
 
   return (
     <div className="mt-2 w-full p-2">
-      <div className="bg-[#e4efff] w-full h-2 rounded-full">
-        <div
-          className="w-full h-2 bg-[#6df9bb] rounded-full"
-          style={{ width: `${currentStepPrgoress}%` }}
-        ></div>
-      </div>
+      <LineProgress percentage={currentStepPrgoress} className="bg-[#6df9bb]" />
       <div className="flex items-center justify-between mt-4">
         {progressIcons && progressIcons.map((icon, index) => (
           <StepperIconProgress

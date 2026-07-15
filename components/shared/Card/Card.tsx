@@ -1,20 +1,25 @@
 import { cn } from "@/lib/utils";
+import { ElementType } from "react";
 
-type Card = {
+interface CardProps {
   children: React.ReactNode;
   className?: string;
+  variants?: "primary" | "secondary"
+  as?: ElementType; // Allows changing the HTML tag dynamically
 };
 
-const Card = ({ children, className }: Card) => {
+const Card = ({ children, className, variants="primary", as: Component = "div" }: CardProps) => {
   return (
-    <div className={
+    <Component className={
         cn(
             className,
-            "bg-white rounded-lg border border-[#c5c7cf]"
+            "rounded-lg transition-all duration-150 ease-in-out",
+            variants === "primary" && "bg-white border border-[#c5c7cf]",
+            variants === "secondary" && "bg-[#28436a]"
         )
     }>
         {children}
-    </div>
+    </Component>
   );
 };
 

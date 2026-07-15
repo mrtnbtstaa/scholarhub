@@ -11,8 +11,8 @@ const Sidebar = () => {
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 h-screen bg-[#fefffe] border-r border-[#c5c7cf] flex flex-col transition-all duration-200 ease-in-out",
-        isSidebarOpen ? " w-72" : "w-18",
+        "fixed left-0 top-0 h-screen bg-[#fefffe] border-r border-[#c5c7cf] flex flex-col transition-all duration-200 ease-in-out z-300",
+        isSidebarOpen ? " w-64" : "w-18",
       )}
     >
       <SidebarHeader isSidebarOpen={isSidebarOpen} />

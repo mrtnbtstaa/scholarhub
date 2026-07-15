@@ -13,10 +13,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className="w-full">
       <Header isSidebarOpen={isSidebarOpen} />
       <div className={cn(
-        isSidebarOpen ? "ml-76" : "ml-22"
+        isSidebarOpen ? "ml-64" : "ml-18"
       )}>
         <Sidebar />
-        <main className="flex flex-col mt-4">{children}</main>
+        <main className="flex flex-col mt-4 p-2">{children}</main>
       </div>
     </div>
   );

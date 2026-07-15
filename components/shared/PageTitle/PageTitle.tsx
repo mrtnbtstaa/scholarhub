@@ -1,8 +1,19 @@
-const PageTitle = ({ title }: { title: string }) => {
+const PageTitle = ({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) => {
   return (
-    <h1 className="font-bold tracking-wider text-3xl leading-none text-secondary">
-      {title}
-    </h1>
+    <div className="mb-4">
+      <h1 className="font-bold tracking-wider text-3xl leading-none text-secondary mb-2">
+        {title}
+      </h1>
+      <p className="text-gray-500 tracking-wide text-md lg:w-[50%]">
+        {description}
+      </p>
+    </div>
   );
 };
 

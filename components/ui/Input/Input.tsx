@@ -7,7 +7,8 @@ interface InputProps extends ComponentPropsWithoutRef<"input"> {
   prefixIcon?: ElementType;
   suffixIcon?: ElementType;
   SuffixOnClick?: () => void;
-  variants? : "primary" | "secondary"
+  withIcon?: boolean;
+  variants?: "primary" | "secondary";
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -17,40 +18,53 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       prefixIcon: PrefixIcon,
       suffixIcon: SuffixIcon,
       SuffixOnClick,
+      withIcon = true,
       variants = "primary",
       ...props
     },
     ref,
   ) => {
     return (
-      <div className={cn(
-        className,
-        variants === "primary" && "border border-[#c5c7cf] p-2 rounded-md w-full relative",
-        variants === "secondary" && "p-0 m-0"
-      )}>
-        {PrefixIcon && (
-          <PrefixIcon className="absolute translate-y-1/2 bottom-1/2 text-2xl text-black/80" />
-        )}
-        <input
-          {...props}
-          ref={ref}
-          className={cn(
-            className,
-            "outline-none border-none",
-            PrefixIcon ? "ml-7" : "ml-2",
-          )}
-        />
-        {SuffixIcon && (
-          <Button
-            type="button"
-            variants="none"
-            className="absolute translate-y-1/2 right-2 bottom-1/2"
-            onClick={SuffixOnClick}
+      <>
+        {withIcon ? (
+          <div
+            className={cn(
+              className,
+              variants === "primary" &&
+                "border border-[#c5c7cf] focus-visible:border-secondary rounded-2xl w-full relative bg-[#fefffe]",
+              variants === "secondary" && "",
+            )}
           >
-            <SuffixIcon className=" text-2xl text-black/80" />
-          </Button>
+            {PrefixIcon && (
+              <PrefixIcon className="absolute translate-y-1/2 bottom-1/2 text-2xl text-black/80 z-100" />
+            )}
+            <input
+              {...props}
+              ref={ref}
+              className={cn(
+                "outline-none border-none w-full ",
+                PrefixIcon ? "ml-7" : "ml-2",
+              )}
+            />
+            {SuffixIcon && (
+              <Button
+                type="button"
+                variants="none"
+                className="absolute translate-y-1/2 right-2 bottom-1/2"
+                onClick={SuffixOnClick}
+              >
+                <SuffixIcon className=" text-2xl text-black/80" />
+              </Button>
+            )}
+          </div>
+        ) : (
+          <input
+            {...props}
+            ref={ref}
+            className="outline-none border-none w-full"
+          />
         )}
-      </div>
+      </>
     );
   },
 );
