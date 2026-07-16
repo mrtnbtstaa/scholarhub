@@ -1,20 +1,19 @@
 import { cn } from "@/lib/utils";
 
-interface ProgressProps{
-    percentage: number;
-    className?: string;
+interface ProgressProps {
+  percentage: number;
+  textPercentage?: string;
+  className?: string;
 }
 
-const LineProgress = ({percentage, className}: ProgressProps) => {
+const LineProgress = ({ percentage, textPercentage, className }: ProgressProps) => {
   return (
-    <div className="bg-[#e4efff] w-full h-2 rounded-full">
+    <div className="bg-[#e4efff] w-full h-2 rounded-full flex items-center gap-2">
       <div
-        className={cn(
-            "w-full h-2 rounded-full",
-            className
-        )}
+        className={cn("w-full h-2 rounded-full", className)}
         style={{ width: `${percentage}%` }}
       ></div>
+      {textPercentage && <span className="text-secondary text-sm tracking-wider leading-none">{textPercentage}%</span>}
     </div>
   );
 };

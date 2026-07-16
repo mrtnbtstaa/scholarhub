@@ -7,7 +7,7 @@ const SidebarMenu = ({isSidebarOpen}: {isSidebarOpen: boolean}) => {
       {SidebarMenus &&
         SidebarMenus.map((menu) => (
           <Navigate
-            icon={menu.icon}
+            suffixIcon={menu.icon}
             variants="sidebar"
             href={menu.href}
             key={menu.title}

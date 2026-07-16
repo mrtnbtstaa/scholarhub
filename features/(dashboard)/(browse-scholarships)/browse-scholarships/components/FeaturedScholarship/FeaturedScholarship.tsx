@@ -1,7 +1,7 @@
 import Card from "@/components/shared/Card/Card";
 import Button from "@/components/ui/Button/Button";
-import { MdTimer } from "react-icons/md";
 import Image from "next/image";
+import Deadline from "@/components/shared/Deadline/Deadline";
 
 const FeaturedScholarship = () => {
   return (
@@ -14,7 +14,7 @@ const FeaturedScholarship = () => {
           fill
           priority
           loading="eager"
-          sizes="(max-width: 768px) 100vw, 30vw"    
+          sizes="(max-width: 768px) 100vw, 30vw"
         />
       </div>
       <div className="flex flex-col items-start p-8 gap-4">
@@ -44,12 +44,7 @@ const FeaturedScholarship = () => {
           >
             Explore Opportunity
           </Button>
-          <div className="inline-flex items-center gap-1">
-            <MdTimer className="text-2xl" />
-            <p className="font-semibold tracking-wide text-md">
-              Apply by Dec 1, 2024
-            </p>
-          </div>
+          <Deadline content="Apply by Dec 1, 2024" />
         </div>
       </div>
     </Card>
