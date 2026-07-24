@@ -8,7 +8,7 @@ const HeaderMenu = () => {
 
   return (
     <Button
-      variants="none"
+      variants="custom"
       aria-label="Sidebar Menu"
       onClick={() => toggleSidebar(isSidebarOpen)}
     >

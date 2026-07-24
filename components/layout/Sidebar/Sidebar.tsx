@@ -5,8 +5,10 @@ import SidebarHeader from "./SidebarHeader";
 import SidebarMenu from "./SidebarMenu";
 import { useSidebarStore } from "@/store/useSidebarStore";
 import { cn } from "@/lib/utils";
+import { ADMIN_SIDEBAR_MENUS } from "./constants/AdminSidebarMenu";
+import { STUDENT_SIDEBAR_MENUS } from "./constants/StudentSidebarMenu";
 
-const Sidebar = () => {
+const Sidebar = ({ isAdmin }: { isAdmin?: boolean }) => {
   const isSidebarOpen = useSidebarStore((state) => state.isSidebarOpen);
   return (
     <aside
@@ -15,12 +17,12 @@ const Sidebar = () => {
         isSidebarOpen ? " w-64" : "w-18",
       )}
     >
-      <SidebarHeader isSidebarOpen={isSidebarOpen} />
-      <nav
-        aria-label="Main Navigation"
-        className="flex flex-1 flex-col justify-between"
-      >
-        <SidebarMenu isSidebarOpen={isSidebarOpen} />
+      <SidebarHeader isSidebarOpen={isSidebarOpen} isAdmin={isAdmin} />
+      <nav aria-label="Main Navigation" className="flex flex-1 flex-col justify-between">
+        <SidebarMenu
+          isSidebarOpen={isSidebarOpen}
+          menus={isAdmin ? ADMIN_SIDEBAR_MENUS : STUDENT_SIDEBAR_MENUS}
+        />
         <SidebarProfile isSidebarOpen={isSidebarOpen} />
       </nav>
     </aside>

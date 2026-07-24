@@ -1,6 +1,6 @@
 const Section = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className="mx-4 transition-all duration-200">{children}</section>
+    <section className="mx-4 transition-all duration-200 overflow-x-hidden">{children}</section>
   );
 };
 

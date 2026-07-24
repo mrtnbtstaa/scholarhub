@@ -7,25 +7,31 @@ interface TableProps extends ComponentPropsWithoutRef<"table"> {
 
 const TableRoot = ({ children, className, ...props }: TableProps) => {
   return (
-    <div className={cn("min-w-75 overflow-x-auto", className)}>
-      <table {...props} className="w-full p-4 table-auto min-w-150 scrollbar-thumb-sky-600 scrollbar-track-sky-100 scrollbar-thin">
+    <div className={cn("min-w-75 overflow-x-auto scrollbar-thin scrollbar-thumb-secondary", className)}>
+      <table {...props} className="w-full p-4 table-auto min-w-200">
         {children}
       </table>
     </div>
   );
 };
 
-const Thead = ({ children, ...props }: ComponentPropsWithoutRef<"thead">) => {
+const Thead = ({ children, className, ...props }: ComponentPropsWithoutRef<"thead">) => {
   return (
-    <thead {...props} className="bg-[#fafcff] w-full">
+    <thead {...props} className={
+      cn(
+        "bg-[#f7f9fd] w-full rounded-full", className
+      )
+    }>
       {children}
     </thead>
   );
 };
 
-const Tr = ({ children, ...props }: ComponentPropsWithoutRef<"tr">) => {
+const Tr = ({ className, children, ...props }: ComponentPropsWithoutRef<"tr">) => {
   return (
-    <tr {...props} className="border-b border-[#c5c7cf]">
+    <tr {...props} className={cn(
+      "border-b border-[#c5c7cf]", className
+    )}>
       {children}
     </tr>
   );
@@ -35,7 +41,7 @@ const Th = ({ children, ...props }: ComponentPropsWithoutRef<"th">) => {
   return (
     <th
       {...props}
-      className="text-gray-500 text-sm tracking-wider p-4 text-left"
+      className="text-gray-800 text-xs tracking-widest p-4 text-left"
     >
       {children}
     </th>

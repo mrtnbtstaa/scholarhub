@@ -8,7 +8,7 @@ interface InputProps extends ComponentPropsWithoutRef<"input"> {
   suffixIcon?: ElementType;
   SuffixOnClick?: () => void;
   withIcon?: boolean;
-  variants?: "primary" | "secondary";
+  variants?: "primary" | "secondary" | "custom";
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -49,7 +49,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {SuffixIcon && (
               <Button
                 type="button"
-                variants="none"
+                variants="custom"
                 className="absolute translate-y-1/2 right-2 bottom-1/2"
                 onClick={SuffixOnClick}
               >

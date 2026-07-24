@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import { ElementType } from "react";
+import { ComponentPropsWithoutRef, ElementType } from "react";
 
-interface CardProps {
+interface CardProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;
   className?: string;
   variants?: "primary" | "secondary" | "custom";
@@ -13,14 +13,17 @@ const Card = ({
   className,
   variants = "primary",
   as: Component = "div",
+  ...props
 }: CardProps) => {
   return (
     <Component
+      {...props}
       className={cn(
         className,
         "rounded-lg transition-all duration-150 ease-in-out",
-        variants === "primary" && "bg-white border border-[#c5c7cf]",
-        variants === "secondary" && "bg-[#28436a]",
+        variants === "primary" &&
+          cn("bg-white border border-[#c5c7cf]", className),
+        variants === "secondary" && cn("bg-[#28436a]", className),
       )}
     >
       {children}

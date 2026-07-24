@@ -15,10 +15,12 @@ interface NavigateProps extends ComponentPropsWithoutRef<typeof Link> {
   variants?:
     | "primary"
     | "secondary"
+    | "success"
     | "redirect"
     | "sidebar"
     | "default"
-    | "outlined";
+    | "outlined"
+    | "custom";
 }
 
 const Navigate = ({
@@ -50,10 +52,11 @@ const Navigate = ({
         !isActive && variants === "sidebar" && "ml-2",
         // Conditional styles based on variants and isActive
         variants === "redirect" && "text-secondary tracking-wide font-medium text-md",
-        variants === "sidebar" && isActive && cn("tracking-wider font-medium bg-secondary w-full p-3 text-white rounded-lg", !isSidebarOpen && "p-2"),
-        variants === "primary" && "bg-secondary text-white tracking-wide font-semibold rounded-md text-md",
+        variants === "sidebar" && isActive && cn("tracking-wider font-medium bg-secondary w-full p-3 text-white rounded-lg", !isSidebarOpen && "p-2",),
+        variants === "primary" && cn("bg-secondary text-white tracking-wide font-semibold rounded-md text-md", className),
         variants === "default" && "text-gray-600 tracking-wide text-md font-semibold",
-        variants === "outlined" && "border border-secondary rounded-lg"
+        variants === "outlined" && cn("font-semibold border border-secondary rounded-lg text-md", className),
+        variants === "success" && "bg-[#006c49] rounded-lg text-white text-center font-semibold"
       )}
     >
       {SuffixIcon ? (
@@ -62,7 +65,7 @@ const Navigate = ({
             <SuffixIcon
               className={cn(
                 "text-2xl",
-                isActive ? "text-gray-300" : "text-black",  
+                isActive ? "text-gray-300" : "text-black",
               )}
             />
           }
@@ -71,7 +74,11 @@ const Navigate = ({
       ) : PrefixIcon ? (
         <div className="inline-flex gap-2 items-center">
           {children}
-          {<PrefixIcon className={cn("text-2xl text-white", prefixClassName)} />}
+          {
+            <PrefixIcon
+              className={cn("text-2xl text-white", prefixClassName)}
+            />
+          }
         </div>
       ) : (
         children

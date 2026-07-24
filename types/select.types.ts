@@ -1,4 +1,5 @@
 export interface GenericSelect{
     label: string;
-    value: string;
+    value?: string;
+    default?: string;
 }
