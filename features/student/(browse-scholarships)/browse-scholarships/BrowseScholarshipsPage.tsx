@@ -1,5 +1,5 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import ScholarshipRecommendation from "./components/Recommended/ScholarshipRecommendation";
 import ScholarshipFilter from "./components/ScholarshipFilter/ScholarshipFilter";
 import FeaturedScholarship from "./components/FeaturedScholarship/FeaturedScholarship";
@@ -7,7 +7,7 @@ import ScholarshipGrid from "./components/ScholarshipGrid/ScholarshipGrid";
 
 const BrowseScholarshipsPage = () => {
   return (
-    <Section>
+    <Main>
       <PageHeader
         title="Browse Scholarships"
         description="Discover verified academic opportunities worldwide. Our intelligence engine has matched you with over 45 international grants based on your profile."
@@ -18,7 +18,7 @@ const BrowseScholarshipsPage = () => {
         <ScholarshipFilter />
         <ScholarshipGrid />
       </div>
-    </Section>
+    </Main>
   );
 };
 

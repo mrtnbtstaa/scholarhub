@@ -1,4 +1,4 @@
-import OnboardingPage from "@/features/(dashboard)/onboarding/OnboardingPage";
+import OnboardingPage from "@/features/student/onboarding/OnboardingPage";
 
 const Page = () => {
     return <OnboardingPage />

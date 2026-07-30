@@ -1,6 +1,6 @@
 import { ElementType } from "react";
 import Card from "../Card/Card";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 type DashboardCardProps = {
   icon: ElementType;

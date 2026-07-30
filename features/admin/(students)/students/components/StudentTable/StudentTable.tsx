@@ -1,7 +1,8 @@
 "use client";
 
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
+import { routes } from "@/lib/constants/routes";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
 interface StudentTableData {
@@ -199,7 +200,7 @@ const StudentTable = () => {
       columns={columns}
       withPagination={false}
       type="table"
-      actions={{actionList: ["delete", "view"]}}
+      actions={{type: "view", href: routes.admin.students}}
     />
   );
 };

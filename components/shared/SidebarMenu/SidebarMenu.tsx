@@ -2,7 +2,7 @@
 
 import Button from "@/components/ui/Button/Button";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { MenuProps } from "@/types/menu.types";
 import Navigate from "@/components/ui/Navigate/Navigate";
 

@@ -4,9 +4,9 @@ import SidebarProfile from "./SidebarProfile";
 import SidebarHeader from "./SidebarHeader";
 import SidebarMenu from "./SidebarMenu";
 import { useSidebarStore } from "@/store/useSidebarStore";
-import { cn } from "@/lib/utils";
-import { ADMIN_SIDEBAR_MENUS } from "./constants/AdminSidebarMenu";
-import { STUDENT_SIDEBAR_MENUS } from "./constants/StudentSidebarMenu";
+import { cn } from "@/lib/cn";
+import { ADMIN_SIDEBAR_MENUS } from "../../../config/adminSidebarMenu";
+import { STUDENT_SIDEBAR_MENUS } from "../../../config/studentSidebarMenu";
 
 const Sidebar = ({ isAdmin }: { isAdmin?: boolean }) => {
   const isSidebarOpen = useSidebarStore((state) => state.isSidebarOpen);

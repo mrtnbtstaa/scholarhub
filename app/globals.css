@@ -4,8 +4,9 @@
   --background: #f8f9ff;
   --foreground: #171717;
 
-  --text-prmary: #0a1c31;
+  --text-primary: #0a1c31;
   --text-secondary: #002045;
+  --bg-primary: #0054FC;
 }
 
 @theme inline {
@@ -16,6 +17,7 @@
 
   --color-primary: var(--text-primary);
   --color-secondary: var(--text-secondary);
+  --color-btn-primary: var(--bg-primary)
 }
 
 /* @media (prefers-color-scheme: dark) {

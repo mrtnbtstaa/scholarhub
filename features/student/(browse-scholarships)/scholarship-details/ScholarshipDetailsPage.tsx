@@ -1,4 +1,4 @@
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import AboutScholarship from "./components/AboutScholarship/AboutScholarship";
 import ScholarshipDetailInfo from "./components/ScholarshipInformation/ScholarshipDetailInfo";
 import BenefitsCoverage from "./components/CoverageCard/BenefitsCoverage";
@@ -11,7 +11,7 @@ import ScholarshipDuration from "./components/ScholarshipDuration/ScholarshipDur
 
 const ScholarshipDetailsPage = () => {
   return (
-    <Section>
+    <Main>
       <ScholarshipHeader />
       <div className="flex md:flex-row flex-col-reverse gap-4 items-start min-w-full">
         <main className="w-full flex-col flex">
@@ -27,7 +27,7 @@ const ScholarshipDetailsPage = () => {
           <ScholarshipVerified />
         </aside>
       </div>
-    </Section>
+    </Main>
   );
 };
 

@@ -1,6 +1,6 @@
 import Select from "@/components/ui/Select/Select";
 import ScholarshipCard from "./ScholarshipCard";
-import { DegreeData } from "../../data/degree.data";
+import { DegreeData } from "@/config/degreeData";
 
 const ScholarshipGrid = () => {
   return (

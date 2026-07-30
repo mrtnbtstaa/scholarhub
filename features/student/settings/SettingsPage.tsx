@@ -1,6 +1,6 @@
 import Divider from "@/components/shared/Divider/Divider";
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import Notification from "./components/NotificationPreferences/Notification";
 import SecurityAndAccess from "./components/SecurityAccess/SecurityAndAccess";
 import DataExport from "./components/DataExport/DataExport";
@@ -8,7 +8,7 @@ import DangerZone from "./components/DangerZone/DangerZone";
 
 const SettingsPage = () => {
   return (
-    <Section>
+    <Main>
       <PageHeader
         title="Settings"
         description="Manage your account preferences, notifications, privacy, security, and your personalized application experience."
@@ -20,7 +20,7 @@ const SettingsPage = () => {
           <DataExport />
           <DangerZone />
         </div>
-    </Section>
+    </Main>
   );
 };
 

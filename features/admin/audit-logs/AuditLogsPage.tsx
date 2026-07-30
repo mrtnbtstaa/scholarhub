@@ -1,11 +1,11 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 
 const AuditLogsPage = () => {
     return (
-        <Section>
+        <Main>
             <PageHeader title="Audit Logs" />
-        </Section>
+        </Main>
     )
 }
 

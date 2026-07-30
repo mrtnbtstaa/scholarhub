@@ -1,4 +1,4 @@
-import CalendarPage from "@/features/(dashboard)/calendar/CalendarPage";
+import CalendarPage from "@/features/student/calendar/CalendarPage";
 
 const Page = () => {
     return <CalendarPage />

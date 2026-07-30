@@ -1,7 +1,8 @@
 "use client";
 
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
-import { cn, getInitials } from "@/lib/utils";
+import { cn } from "@/lib/cn";
+import { getInitials } from "@/lib/utils";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
 interface ActivityData {

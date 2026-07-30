@@ -2,7 +2,7 @@
 
 import Header from "@/components/layout/Header/Header";
 import Sidebar from "@/components/layout/Sidebar/Sidebar";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { useSidebarStore } from "@/store/useSidebarStore";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {

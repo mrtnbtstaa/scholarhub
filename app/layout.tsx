@@ -1,5 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { cn } from "@/lib/cn";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
 
 export const metadata: Metadata = {
   title: "ScholarHub",
@@ -12,8 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">{children}</body>
+    <html
+      lang="en"
+      className="scrollbar-thin"
+    >
+      <body className={`antialiased ${inter.variable} ${jetbrainsMono.variable}`}>{children}</body>
     </html>
   );
 }

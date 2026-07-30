@@ -1,5 +1,5 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import ScholarshipAnalytic from "./components/ScholarshipAnalytic/ScholarshipAnalytic";
 import ScholarshipGrid from "./components/SaveScholarship/ScholarshipGrid";
 import ScholarshipFilter from "./components/ScholarshipFilter/ScholarshipFilter";
@@ -7,7 +7,7 @@ import ScholarshipTimeline from "./components/ScholarshipTimeline/ScholarshipTim
 
 const SavedScholarshipsPage = () => {
   return (
-    <Section>
+    <Main>
       <PageHeader
         title="Saved Scholarships"
         description="You currently have 18 saved scholarships. Three of them are closing within the next 14 days."
@@ -22,7 +22,7 @@ const SavedScholarshipsPage = () => {
           <ScholarshipTimeline />
         </aside>
       </div>
-    </Section>
+    </Main>
   );
 };
 

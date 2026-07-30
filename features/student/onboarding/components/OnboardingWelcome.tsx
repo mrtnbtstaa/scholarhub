@@ -3,7 +3,7 @@ import OnboardingCard from "./OnboardingCard";
 import { MdArtTrack, MdNotifications, MdStar } from "react-icons/md";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import Button from "@/components/ui/Button/Button";
-import { useStepperStore } from "@/features/(dashboard)/onboarding/store/useStepperStore";
+import { useStepperStore } from "../store/useStepperStore";
 
 const OnboardingWelcome = () => {
 

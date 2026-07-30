@@ -1,13 +1,17 @@
+import { ElementType } from "react";
+
 const PageHeader = ({
   title,
   description,
+  as: Component = "header"
 }: {
   title: string;
   description?: string;
+  as?: ElementType
 }) => {
   return (
-    <header className="mb-4">
-      <h1 className="font-bold tracking-wider lg:text-3xl md:text-2xl text-lg leading-none text-secondary mb-2">
+    <Component className="mb-2">
+      <h1 className="font-bold tracking-wider lg:text-3xl text-2xl leading-none text-secondary mb-2">
         {title}
       </h1>
       {description && (
@@ -15,7 +19,7 @@ const PageHeader = ({
           {description}
         </p>
       )}
-    </header>
+    </Component>
   );
 };
 

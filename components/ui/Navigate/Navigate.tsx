@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { useSidebarStore } from "@/store/useSidebarStore";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -52,10 +52,10 @@ const Navigate = ({
         !isActive && variants === "sidebar" && "ml-2",
         // Conditional styles based on variants and isActive
         variants === "redirect" && "text-secondary tracking-wide font-medium text-md",
-        variants === "sidebar" && isActive && cn("tracking-wider font-medium bg-secondary w-full p-3 text-white rounded-lg", !isSidebarOpen && "p-2",),
-        variants === "primary" && cn("bg-secondary text-white tracking-wide font-semibold rounded-md text-md", className),
+        variants === "sidebar" && isActive && cn("tracking-wider font-medium bg-btn-primary w-full p-3 text-white rounded-lg", !isSidebarOpen && "p-2",),
+        variants === "primary" && cn("bg-btn-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md", className),
         variants === "default" && "text-gray-600 tracking-wide text-md font-semibold",
-        variants === "outlined" && cn("font-semibold border border-secondary rounded-lg text-md", className),
+        variants === "outlined" && cn("font-semibold border border-btn-primary rounded-lg text-md", className),
         variants === "success" && "bg-[#006c49] rounded-lg text-white text-center font-semibold"
       )}
     >
@@ -65,7 +65,7 @@ const Navigate = ({
             <SuffixIcon
               className={cn(
                 "text-2xl",
-                isActive ? "text-gray-300" : "text-black",
+                isActive ? "text-white" : "text-black",
               )}
             />
           }

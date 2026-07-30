@@ -1,7 +1,7 @@
 "use client";
 
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
 interface RecentSholarshipsData {

@@ -1,6 +1,6 @@
 "use client";
 
-import Badge from "@/components/shared/Badge/Badge";
+import Badge from "@/components/ui/Badge/Badge";
 import Card from "@/components/shared/Card/Card";
 import Divider from "@/components/shared/Divider/Divider";
 import Navigate from "@/components/ui/Navigate/Navigate";

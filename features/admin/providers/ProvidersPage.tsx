@@ -1,4 +1,4 @@
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import ProviderHeader from "./components/ProviderHeader/ProviderHeader";
 import ProviderAnalytics from "./components/ProviderAnalytics/ProviderAnalytics";
 import ProviderTable from "./components/ProviderTable/ProviderTable";
@@ -22,7 +22,7 @@ const chartData = {
 
 const ProvidersPage = () => {
   return (
-    <Section>
+    <Main>
       <ProviderHeader />
       <ProviderAnalytics />
       <div className="grid grid-cols-4 grid-rows 1 gap-4">
@@ -49,7 +49,7 @@ const ProvidersPage = () => {
           <SummaryGrid />
         </div>
       </div>
-    </Section>
+    </Main>
   );
 };
 

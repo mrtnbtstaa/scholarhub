@@ -1,12 +1,19 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   htmlFor: string;
   children: React.ReactNode;
   className?: string;
+  isRequired?: boolean;
 }
 
-const Label = ({ htmlFor, children, className, ...props }: LabelProps) => {
+const Label = ({
+  htmlFor,
+  children,
+  className,
+  isRequired = false,
+  ...props
+}: LabelProps) => {
   return (
     <label
       htmlFor={htmlFor}
@@ -16,7 +23,10 @@ const Label = ({ htmlFor, children, className, ...props }: LabelProps) => {
         className,
       )}
     >
-      {children}
+      <div className="flex items-center gap-1">
+        {children}
+        {isRequired && <span className="text-xs text-red-600">*</span>}
+      </div>
     </label>
   );
 };

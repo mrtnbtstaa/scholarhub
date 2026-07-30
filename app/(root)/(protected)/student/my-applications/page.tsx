@@ -1,4 +1,4 @@
-import MyApplicationsPage from "@/features/(dashboard)/my-applications/MyApplicationsPage";
+import MyApplicationsPage from "@/features/student/my-applications/MyApplicationsPage";
 
 const Page = () => {
     return <MyApplicationsPage />

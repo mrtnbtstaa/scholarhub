@@ -1,6 +1,6 @@
 import Banner from "@/components/shared/Banner/Banner";
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import DocumentCards from "./components/DocumentCard/DocumentCards";
 import UrgentAttention from "./components/UrgentAttention/UrgentAttention";
 import DocumentFilter from "./components/DocumentFilter/DocumentFilter";
@@ -8,7 +8,7 @@ import DocumentTable from "./components/DocumentTable/DocumentTable";
 
 const MyDocumentsPage = () => {
   return (
-    <Section>
+    <Main>
       <PageHeader
         title="My Documents"
         description="Upload, organize, and reuse your scholarship documents across multiple applications. Keep everything in one secure place so you're always prepared for your next opportunity."
@@ -28,7 +28,7 @@ const MyDocumentsPage = () => {
           <UrgentAttention />
         </div>
       </div>
-    </Section>
+    </Main>
   );
 };
 

@@ -1,11 +1,11 @@
 import { MdPerson } from "react-icons/md";
 import StepperIconProgress from "./StepperIconProgress";
-import { useStepperStore } from "@/features/(dashboard)/onboarding/store/useStepperStore";
 import { ElementType } from "react";
 import { FaGraduationCap } from "react-icons/fa";
 import { IoMdDocument, IoMdGlobe } from "react-icons/io";
 import { GiFinishLine } from "react-icons/gi";
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
+import { useStepperStore } from "../store/useStepperStore";
 
 type StepperIcon = { stepperIcon: ElementType };
 const progressIcons: StepperIcon[] = [

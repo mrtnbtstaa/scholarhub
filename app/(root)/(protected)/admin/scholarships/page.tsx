@@ -1,4 +1,4 @@
-import ScholarshipsPage from "@/features/admin/scholarships/ScholarshipsPage";
+import ScholarshipsPage from "@/features/admin/(scholarships)/scholarships/ScholarshipsPage";
 
 const Page = () => {
   return <ScholarshipsPage />;

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react";
 import Button from "../Button/Button";
 
@@ -36,14 +36,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             )}
           >
             {PrefixIcon && (
-              <PrefixIcon className="absolute translate-y-1/2 bottom-1/2 text-2xl text-black/80 z-100" />
+              <PrefixIcon className="absolute left-2 translate-y-1/2 bottom-1/2 text-2xl text-black/50 z-100" />
             )}
             <input
               {...props}
               ref={ref}
               className={cn(
-                "outline-none border-none w-full ",
-                PrefixIcon ? "ml-7" : "ml-2",
+                "outline-none border-none w-full p-3",
+                PrefixIcon ? "ml-6" : "ml-2",
               )}
             />
             {SuffixIcon && (
@@ -61,7 +61,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <input
             {...props}
             ref={ref}
-            className="outline-none border-none w-full"
+            className="outline-none border-none w-full p-3"
           />
         )}
       </>

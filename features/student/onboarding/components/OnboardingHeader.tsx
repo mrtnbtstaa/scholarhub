@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import { useStepperStore } from "@/features/(dashboard)/onboarding/store/useStepperStore";
+import { cn } from "@/lib/cn";
 import { FaGraduationCap } from "react-icons/fa";
+import { useStepperStore } from "../store/useStepperStore";
 
 
 

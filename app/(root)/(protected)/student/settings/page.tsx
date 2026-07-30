@@ -1,4 +1,4 @@
-import SettingsPage from "@/features/(dashboard)/settings/SettingsPage";
+import SettingsPage from "@/features/admin/settings/SettingsPage";
 
 const Page = () => {
   return <SettingsPage />;

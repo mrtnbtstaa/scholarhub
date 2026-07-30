@@ -5,7 +5,7 @@ const ApplicationPrioritiesItem = () => {
   return (
     <Card className="p-4 flex items-center gap-6">
       <Checkbox />
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-center w-full">
         <div>
           <h2 className="font-semibold lg:text-lg md:text-md text-sm tracking-wide leading-none">
             MEXT Personal Statement

@@ -1,5 +1,5 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import PersonalInformation from "./components/PersonalInformation/PersonalInformation";
 import Card from "@/components/shared/Card/Card";
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
@@ -7,7 +7,7 @@ import OverviewCard from "./components/OverviewCard/OverviewCard";
 
 const ProfilePage = () => {
   return (
-    <Section>
+    <Main>
       <PageHeader
         title="Profile"
         description="Complete your profile to unlock 100% accurate scholarship recommendations."
@@ -43,7 +43,7 @@ const ProfilePage = () => {
           Academic History
         </h3>
       </Card>
-    </Section>
+    </Main>
   );
 };
 

@@ -1,4 +1,4 @@
-import ScholarshipDetailsPage from "@/features/(dashboard)/(browse-scholarships)/scholarship-details/ScholarshipDetailsPage";
+import ScholarshipDetailsPage from "@/features/student/(browse-scholarships)/scholarship-details/ScholarshipDetailsPage";
 
 const Page = () => {
     return <ScholarshipDetailsPage />

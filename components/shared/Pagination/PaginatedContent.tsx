@@ -6,12 +6,14 @@ import {
 import { Table } from "../Table/Table";
 import Pagination from "./Pagination";
 import Card from "../Card/Card";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import Button from "@/components/ui/Button/Button";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { Actions, PaginatedProps } from "./pagination.types";
 import { useState } from "react";
+import { Actions, PaginatedProps } from "@/types/pagination";
+import { IoMdEye } from "react-icons/io";
+import { MdEdit } from "react-icons/md";
 
 type Id = {
   id: string;
@@ -20,24 +22,43 @@ type Id = {
 const ActionCard = ({
   actions,
   isVisible,
+  id,
 }: {
-  actions?: Actions;
+  actions?: Actions[];
   isVisible: boolean;
+  id: string;
 }) => {
   return (
     <>
       {isVisible && (
-        <Card className="p-4 flex flex-col items-start gap-4 absolute">
+        <Card className="flex flex-col items-start gap-4 absolute right-4">
           {actions &&
-            actions.actionList?.map((value) => (
-              <Button
-                className="text-md tracking-widest"
-                variants="custom"
-                key={value}
-              >
-                {value}
-              </Button>
-            ))}
+            actions.map((action) => {
+              switch (action.type) {
+                case "view":
+                case "edit":
+                  return (
+                    <Navigate
+                      key={action.type}
+                      variants="custom"
+                      href={`${action.href}/${id}`}
+                      className="hover:bg-btn-primary duration-75 ease-in-out px-6 py-3 w-full rounded-t-lg transition-colors hover:text-white"
+                    >
+                      {action.type}
+                    </Navigate>
+                  );
+                default:
+                  return (
+                    <Button
+                      key={action.type}
+                      variants="custom"
+                      onClick={action.onClick}
+                    >
+                      {action.type}
+                    </Button>
+                  );
+              }
+            })}
         </Card>
       )}
     </>
@@ -54,7 +75,6 @@ const PaginatedContent = <T extends Id>({
   header,
   actions,
 }: PaginatedProps<T>) => {
-
   const [viewAction, setViewAction] = useState<string | null>(null);
 
   const table = useReactTable({
@@ -79,7 +99,7 @@ const PaginatedContent = <T extends Id>({
         </div>
       ) : (
         <Card
-          className="mt-4 bg-white rounded-2xl border-none"
+          className="mt-4 bg-white rounded-t-2xl border-none overflow-hidden"
           variants="custom"
         >
           {header && (
@@ -87,16 +107,21 @@ const PaginatedContent = <T extends Id>({
               <h3 className="md:text-lg md:text-md text-sm text-secondary tracking-widest font-semibold">
                 {header.title}
               </h3>
-              <Navigate
-                href={header.href}
-                variants="custom"
-                className="text-secondary whitespace-nowrap font-semibold tracking-wider md:text-md text-sm"
-              >
+              {header.href && (
+                <Navigate
+                  href={header.href}
+                  variants="custom"
+                  className="text-secondary whitespace-nowrap font-semibold tracking-wider md:text-md text-sm"
+                >
+                  {header.actionTitle}
+                </Navigate>
+              )}
+              <p className="text-secondary whitespace-nowrap font-semibold tracking-wider md:text-md text-sm">
                 {header.actionTitle}
-              </Navigate>
+              </p>
             </header>
           )}
-          <Table className="border border-[#e6e6ef] rounded-lg relative">
+          <Table className="border border-[#e6e6ef] rounded-t-lg relative">
             <Table.Thead className={`${header && "rounded-none"}`}>
               {table.getHeaderGroups().map((headerGroup) => (
                 <Table.Tr key={headerGroup.id}>
@@ -108,7 +133,7 @@ const PaginatedContent = <T extends Id>({
                       )}
                     </Table.Th>
                   ))}
-                  {actions?.actionList && <Table.Th>ACTION</Table.Th>}
+                  {actions && <Table.Th>ACTION</Table.Th>}
                 </Table.Tr>
               ))}
             </Table.Thead>
@@ -123,7 +148,7 @@ const PaginatedContent = <T extends Id>({
                       )}
                     </Table.Td>
                   ))}
-                  {actions?.actionList?.length && (
+                  {actions && (
                     <Table.Td className="relative">
                       <Button
                         variants="custom"
@@ -138,6 +163,7 @@ const PaginatedContent = <T extends Id>({
                       <ActionCard
                         isVisible={viewAction === row.original.id}
                         actions={actions}
+                        id={row.original.id}
                       />
                     </Table.Td>
                   )}
@@ -145,9 +171,9 @@ const PaginatedContent = <T extends Id>({
               ))}
             </Table.Tbody>
           </Table>
+          {withPagination && data.length > 0 && <Pagination />}
         </Card>
       )}
-      {withPagination && data.length > 0 && <Pagination />}
     </>
   );
 };

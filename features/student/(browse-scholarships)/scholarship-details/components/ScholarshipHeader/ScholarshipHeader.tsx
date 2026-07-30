@@ -1,4 +1,4 @@
-import Badge from "@/components/shared/Badge/Badge";
+import Badge from "@/components/ui/Badge/Badge";
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { FaGraduationCap } from "react-icons/fa";
 import { IoMdGlobe } from "react-icons/io";

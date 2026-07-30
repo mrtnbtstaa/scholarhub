@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 const getStatusConfig = (days: number) => {
   if (days <= 5) {

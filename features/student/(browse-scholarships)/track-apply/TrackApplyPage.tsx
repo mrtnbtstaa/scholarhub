@@ -1,5 +1,5 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import ScholarshipProvider from "./components/ScholarshipProvider";
 import TimelinePreview from "./components/TimelinePreview/TimelinePreview";
 import Apply from "./components/ReadyApply/Apply";
@@ -12,7 +12,7 @@ import Banner from "@/components/shared/Banner/Banner";
 
 const TrackApplyPage = () => {
   return (
-    <Section>
+    <Main>
       <PageHeader
         title="Track & Apply"
         description="Before continuing to the official scholarship website, add this scholarship to your personal application tracker. You'll be able to monitor progress, organize required documents, save notes, and receive deadline reminders."
@@ -42,7 +42,7 @@ const TrackApplyPage = () => {
           <OverviewCard />
         </aside>
       </div>
-    </Section>
+    </Main>
   );
 };
 

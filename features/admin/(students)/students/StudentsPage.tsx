@@ -1,5 +1,5 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import StudentAnalytics from "./components/StudentAnalytics/StudentAnalytics";
 import StudentTable from "./components/StudentTable/StudentTable";
 import StudentGrowth from "./components/StudentGrowth/StudentGrowth";
@@ -10,7 +10,7 @@ import StudentBadge from "./components/StudentBadge/StudentBadge";
 
 const StudentsPage = () => {
   return (
-    <Section>
+    <Main>
       <PageHeader
         title="Student Management"
         description="Manage registered students, monitor engagement, verify accounts, review activity, and maintain a secure scholarship platform."
@@ -28,7 +28,7 @@ const StudentsPage = () => {
           <EngagementPerformance />
         </div>
       </div>
-    </Section>
+    </Main>
   );
 };
 

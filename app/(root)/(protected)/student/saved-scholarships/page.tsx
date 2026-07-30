@@ -1,4 +1,4 @@
-import SavedScholarshipsPage from "@/features/(dashboard)/saved-scholarships/SavedScholarshipsPage";
+import SavedScholarshipsPage from "@/features/student/saved-scholarships/SavedScholarshipsPage";
 
 const Page = () => {
     return <SavedScholarshipsPage />

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import HeaderMenu from "./HeaderMenu";
 
 const Header = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {

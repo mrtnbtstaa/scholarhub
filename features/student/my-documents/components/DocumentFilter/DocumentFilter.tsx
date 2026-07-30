@@ -1,7 +1,7 @@
 import Card from "@/components/shared/Card/Card";
 import Input from "@/components/ui/Input/Input";
 import Select from "@/components/ui/Select/Select";
-import { ApplicationStatusData } from "@/features/(dashboard)/my-applications/data/applicationStatus.data";
+import { ApplicationStatusData } from "@/features/student/my-applications/data/applicationStatus.data";
 import { MdSearch } from "react-icons/md";
 
 const DocumentFilter = () => {

@@ -1,14 +1,14 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import Stats from "./components/Stats/Stats";
 import ApplicationPriorities from "./components/ApplicationPriorities/ApplicationPriorities";
-import StatusOverview from "./components/StatusOverview/StatusOverview";
-import MyApplications from "./components/MyApplication/MyApplications";
-import TopMatches from "./components/TopMatches/TopMatches";
+import StatusOverview from "./components/StatusOverview";
+import MyApplications from "./components/MyApplications";
+import TopMatches from "./components/TopMatches";
 
 const DashboardPage = () => {
   return (
-    <Section>
+    <Main>
       <div className="mb-4">
         <PageHeader
           title="Dashboard"
@@ -17,17 +17,18 @@ Your Fulbright dream is calling, and your scholarship is just around the cornerâ
         />
       </div>
       <Stats />
-      <div className="lg:flex grid grid-cols-1 grid-rows-1 items-start gap-4 mt-4 w-full">
-        <div className="flex flex-col w-full">
+      <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_320px]">
+        <div className="flex flex-col gap-4">
           <ApplicationPriorities />
           <MyApplications />
         </div>
-        <div className="flex flex-col gap-4 lg:shrink-0">
+
+        <div className="flex flex-col gap-4">
           <StatusOverview />
           <TopMatches />
         </div>
       </div>
-    </Section>
+    </Main>
   );
 };
 

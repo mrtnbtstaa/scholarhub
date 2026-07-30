@@ -1,4 +1,4 @@
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import AddedScholarships from "./components/AddedScholarships/AddedScholarships";
 import PlatformDistribution from "./components/PlatformDistribution/PlatformDistribution";
 import ActiveProviders from "./components/ActiveProviders/ActiveProviders";
@@ -10,7 +10,7 @@ import DashboardHeader from "./components/DashboardHeader/DashboardHeader";
 
 const DashboardPage = () => {
   return (
-    <Section>
+    <Main>
       <DashboardHeader />
       <Analytics />
       <QuickActions />
@@ -25,7 +25,7 @@ const DashboardPage = () => {
           <ActiveProviders />
         </div>
       </div>
-    </Section>
+    </Main>
   );
 };
 

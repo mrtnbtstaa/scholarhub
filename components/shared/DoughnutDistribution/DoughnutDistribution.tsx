@@ -8,7 +8,7 @@ import {
   ChartOptions,
 } from "chart.js";
 import DoughnutChart from "../DoughnutChart/DoughnutChart";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

@@ -1,4 +1,4 @@
-import MyDocumentsPage from "@/features/(dashboard)/my-documents/MyDocumentsPage";
+import MyDocumentsPage from "@/features/student/my-documents/MyDocumentsPage";
 
 const Page = () => {
     return <MyDocumentsPage />

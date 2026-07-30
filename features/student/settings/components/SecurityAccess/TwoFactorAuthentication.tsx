@@ -1,6 +1,6 @@
 import Card from "@/components/shared/Card/Card";
 import Navigate from "@/components/ui/Navigate/Navigate";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 const TwoFactorAuthentication = ({ isEnabled }: { isEnabled?: boolean }) => {
   return (

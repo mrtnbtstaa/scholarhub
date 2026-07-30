@@ -1,4 +1,4 @@
-import Badge from "@/components/shared/Badge/Badge";
+import Badge from "@/components/ui/Badge/Badge";
 
 const StudentBadge = () => {
     return (

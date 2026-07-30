@@ -1,5 +1,5 @@
 import Input from "@/components/ui/Input/Input";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { ComponentPropsWithoutRef } from "react";
 
 interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {
@@ -15,7 +15,7 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
       variants="custom"
       className={cn(
         className,
-        "lg:scale-200 md:scale-120 scale-115 accent-[#002045] outline-none border-none rounded-full appearance-none w-full",
+        "scale-115 accent-btn-primary utline-none border-none rounded-full appearance-none w-full",
       )}
     />
   );

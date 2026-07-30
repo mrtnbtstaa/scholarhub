@@ -1,7 +1,7 @@
 "use client";
 
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import ApplicationCards from "./components/ApplicationCards/ApplicationCards";
 import ApplicationBanner from "./components/ApplicationBanner/ApplicationBanner";
 import ApplicationPriority from "./components/ApplicationPriority/ApplicationPriority";
@@ -10,7 +10,7 @@ import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
 import { ApplicationData } from "./types/applicationData";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 const dummyApplicationData: ApplicationData[] = [
   {
@@ -140,7 +140,7 @@ const columns = [
 
 const MyApplicationsPage = () => {
   return (
-    <Section>
+    <Main>
       <PageHeader
         title="My Applications"
         description="Manage all your scholarship applications in one place. Keep track of deadlines, required documents, and submission statuses."
@@ -155,7 +155,7 @@ const MyApplicationsPage = () => {
         columns={columns}
         withPagination={false}  
       />
-    </Section>
+    </Main>
   );
 };
 

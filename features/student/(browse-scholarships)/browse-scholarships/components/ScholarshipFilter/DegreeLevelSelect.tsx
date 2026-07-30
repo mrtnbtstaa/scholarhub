@@ -1,5 +1,5 @@
 import Select from "@/components/ui/Select/Select";
-import { DegreeData } from "../../data/degree.data";
+import { DegreeData } from "@/config/degreeData";
 
 const DegreeLevelSelect = () => {
   return (

@@ -1,5 +1,5 @@
 import Card from "@/components/shared/Card/Card";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { ElementType } from "react";
 import { MdEditDocument } from "react-icons/md";
 

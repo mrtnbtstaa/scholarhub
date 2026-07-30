@@ -1,4 +1,4 @@
-import Section from "@/components/shared/Section/Section";
+import Main from "@/components/shared/Section/Main";
 import CalendarCards from "./components/CalendarCard/CalendarCards";
 import Calendar from "./components/Calendar/Calendar";
 import CalendarBanner from "./components/CalendarBanner/CalendarBanner";
@@ -11,12 +11,12 @@ const CalendarPage = () => {
     <>
       <AddNewEvent />
       <RightSidebar />
-      <Section>
+      <Main>
         <CalendarHeader />
         <CalendarBanner />
         <CalendarCards />
         <Calendar />
-      </Section>
+      </Main>
     </>
   );
 };

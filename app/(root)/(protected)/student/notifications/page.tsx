@@ -1,4 +1,4 @@
-import NotificationsPage from "@/features/(dashboard)/notifications/NotificationsPage";
+import NotificationsPage from "@/features/student/notifications/NotificationsPage";
 
 const Page = () => {
     return <NotificationsPage />

@@ -3,10 +3,10 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import Button from "@/components/ui/Button/Button";
 import { MdAdd } from "react-icons/md";
-import { useOpenEventStore } from "../../store/useOpenEventStore";
+import { useModalStore } from "@/store/useModalStore";
 
 const CalendarHeader = () => {
-  const { setEventVisibility } = useOpenEventStore((state) => state.action);
+  const { setModalVisibility } = useModalStore((state) => state.action);
   return (
     <div className="w-full md:flex-row flex-col flex items-center justify-between">
       <PageHeader
@@ -17,7 +17,7 @@ const CalendarHeader = () => {
         aria-label="Open Event Button"
         className="p-2 whitespace-nowrap mb-4 md:w-auto w-full"
         suffixIcon={MdAdd}
-        onClick={() => setEventVisibility(true)}
+        onClick={() => setModalVisibility(true)}
       >
         Add Personal Event
       </Button>

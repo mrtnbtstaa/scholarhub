@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { FaGraduationCap } from "react-icons/fa";
 
 const SidebarHeader = ({
@@ -15,8 +15,8 @@ const SidebarHeader = ({
         isSidebarOpen && "mx-2",
       )}
     >
-      <div className="bg-secondary p-2 rounded-lg" aria-hidden="true">
-        <FaGraduationCap className={cn("text-white/50 text-4xl")} />
+      <div className="bg-btn-primary p-2 rounded-lg" aria-hidden="true">
+        <FaGraduationCap className={cn("text-white text-4xl")} />
       </div>
       <div className={cn(isSidebarOpen ? "block" : "hidden")}>
         <p className="text-secondary tracking-wider text-2xl font-semibold leading-none">

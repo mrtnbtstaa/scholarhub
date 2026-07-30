@@ -1,6 +1,6 @@
 import Divider from "@/components/shared/Divider/Divider";
 import Button from "@/components/ui/Button/Button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import Image from "next/image";
 import { MdLogout } from "react-icons/md";
 
@@ -29,7 +29,7 @@ const SidebarProfile = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
             </p>
           </div>
           <Button
-            variants="none"
+            variants="custom"
             aria-label="Log out"
             className={cn(!isSidebarOpen && "-ml-4")}
           >

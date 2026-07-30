@@ -5,7 +5,7 @@ const CategoryDistributionItem = ({
 }: {
   color: string;
   title: string;
-  percentage: number;
+  percentage: number | string;
 }) => {
   return (
     <div className="flex items-center justify-between w-full">

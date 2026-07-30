@@ -32,9 +32,10 @@ interface BarProps {
   data: ChartData<"bar", number[], string>;
   options?: ChartOptions<"bar">;
   datasetIdKey?: string;
+  minHeight?: string;
 }
 
-const BarChart = ({ data, options, datasetIdKey = "id" }: BarProps) => {
+const BarChart = ({ data, options, datasetIdKey = "id", minHeight }: BarProps) => {
   const mergedOptions: ChartOptions<"bar"> = {
     ...defaultOptions,
     ...options,
@@ -49,7 +50,9 @@ const BarChart = ({ data, options, datasetIdKey = "id" }: BarProps) => {
   };
 
   return (
-    <Bar datasetIdKey={datasetIdKey} data={data} options={mergedOptions} />
+    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: minHeight }}>
+      <Bar datasetIdKey={datasetIdKey} data={data} options={mergedOptions} />
+    </div>
   );
 };
 

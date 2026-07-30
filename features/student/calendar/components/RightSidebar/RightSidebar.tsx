@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button/Button";
 import { IoMdCalendar } from "react-icons/io";
 import { IoTimer } from "react-icons/io5";
 import { useRightSidebarStore } from "../../store/useRightSidebarStore";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { CiCircleCheck } from "react-icons/ci";
 import CloseButton from "@/components/shared/CloseButton/CloseButton";
 import { useDisableScroll } from "@/hooks/useDisableScroll";
