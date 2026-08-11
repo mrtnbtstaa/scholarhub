@@ -19,7 +19,7 @@ const Thead = ({ children, className, ...props }: ComponentPropsWithoutRef<"thea
   return (
     <thead {...props} className={
       cn(
-        "bg-[#f7f9fd] w-full rounded-full", className
+        "bg-[#f4f6f8] w-full rounded-full", className
       )
     }>
       {children}

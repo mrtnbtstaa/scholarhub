@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/cn";
-import { useSidebarStore } from "@/store/useSidebarStore";
+import { useDropdownMenuStore } from "@/store/useDropdownMenuStore";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ComponentPropsWithoutRef, ElementType } from "react";
@@ -33,14 +33,12 @@ const Navigate = ({
   href,
   ...props
 }: NavigateProps) => {
-  const isSidebarOpen = useSidebarStore((state) => state.isSidebarOpen);
+  const isSidebarOpen = useDropdownMenuStore((state) => state.isMenuOpen);
 
   const path = usePathname();
 
   const hrefString = typeof href === "string" ? href : href.pathname || "";
-
-  const isActive =
-    hrefString === "/" ? path === "/" : path.startsWith(hrefString);
+  const isActive = hrefString === "/" ? path === "/" : path.startsWith(hrefString);
 
   return (
     <Link
@@ -52,7 +50,7 @@ const Navigate = ({
         !isActive && variants === "sidebar" && "ml-2",
         // Conditional styles based on variants and isActive
         variants === "redirect" && "text-secondary tracking-wide font-medium text-md",
-        variants === "sidebar" && isActive && cn("tracking-wider font-medium bg-btn-primary w-full p-3 text-white rounded-lg", !isSidebarOpen && "p-2",),
+        variants === "sidebar" && isActive && "tracking-wider font-medium bg-btn-primary w-full p-3 text-white rounded-lg",
         variants === "primary" && cn("bg-btn-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md", className),
         variants === "default" && "text-gray-600 tracking-wide text-md font-semibold",
         variants === "outlined" && cn("font-semibold border border-btn-primary rounded-lg text-md", className),

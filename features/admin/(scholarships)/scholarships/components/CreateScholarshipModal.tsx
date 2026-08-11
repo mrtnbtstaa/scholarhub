@@ -95,7 +95,7 @@ const CreateScholarshipModal = () => {
       <Divider />
       <footer
         className={cn(
-          "flex items-center p-4 bg-[#eff5fe] rounded-b-lg",
+          "flex items-center p-4 rounded-b-lg",
           stepperIndex === 0 ? "justify-end" : "justify-between",
         )}
       >

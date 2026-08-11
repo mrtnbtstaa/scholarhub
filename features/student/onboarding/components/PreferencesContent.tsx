@@ -12,7 +12,7 @@ const PreferencesContent = ({ title, items }: PreferencesProps) => {
       <h2 className="text-secondary tracking-wide font-semibold text-md">
         {title}
       </h2>
-      <div className="flex gap-4 items-start mt-2">
+      <div className="grid md:grid-cols-3 grid-cols-3 grid-rows-1 gap-4 mt-2">
         {items &&
           items.map(({ name }) => (
             <Button

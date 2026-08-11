@@ -198,9 +198,9 @@ const StudentTable = () => {
     <PaginatedContent
       data={data}
       columns={columns}
-      withPagination={false}
+      withPagination={true}
       type="table"
-      actions={{type: "view", href: routes.admin.students}}
+      actions={[{type: "view", href: routes.admin.students}]}
     />
   );
 };

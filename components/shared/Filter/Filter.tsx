@@ -3,15 +3,17 @@
 import Input from "@/components/ui/Input/Input";
 import Card from "../Card/Card";
 import { MdSearch } from "react-icons/md";
-import { ChangeEvent, ComponentPropsWithoutRef, useState } from "react";
+import { ChangeEvent, ComponentPropsWithoutRef, useRef, useState } from "react";
 import Button from "@/components/ui/Button/Button";
 import { IoFilterOutline } from "react-icons/io5";
 import { cn } from "@/lib/cn";
 import Divider from "../Divider/Divider";
-import { GenericSelect } from "@/types/select.types";
+import { GenericSelect } from "@/types/shared/select.types";
 import FormField from "@/components/ui/FormField/FormField";
 import Label from "@/components/ui/Label/Label";
 import Select from "@/components/ui/Select/Select";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 interface Filters {
   label: string;
@@ -33,8 +35,17 @@ const Filter = ({
   ...props
 }: FilterbarProps) => {
   const [filterVisible, setFilterVisible] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    gsap.fromTo(
+      ref.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5, ease: "power2.out" },
+    );
+  }, [filterVisible]);
+
   return (
-    <div className="mt-4 flex md:flex-row flex-col items-center gap-2 relative">
+    <div className="mt-4 flex items-center gap-2 relative">
       <div className="w-full">
         <Input
           {...props}
@@ -47,15 +58,15 @@ const Filter = ({
         iconClass="text-gray-600"
         suffixIcon={IoFilterOutline}
         variants="custom"
-        className="p-3 border border-[#dee1e7] rounded-lg bg-[#f8f9ff] text-sm text-gray-600 tracking-wider font-medium"
+        className="p-3 border border-primary-border rounded-lg bg-[#fefffe] text-sm text-gray-600 tracking-wider font-medium"
       >
         Filter
       </Button>
       {filterVisible && (
-        <Card
+        <Card ref={ref} 
           className={cn(
             className,
-            "absolute top-15 right-0 z-1000 flex flex-col w-1/4 transition-transform duration-75 ease-in-out",
+            "absolute top-15 right-0 z-1000 flex flex-col lg:w-1/4 w-full transition-transform duration-75 ease-in-out",
           )}
         >
           <h3 className="text-sm font-medium tracking-widest my-3 mx-4">

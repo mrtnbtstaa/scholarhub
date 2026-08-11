@@ -1,15 +1,14 @@
 import Button from "@/components/ui/Button/Button";
-import OnboardingContainer from "../OnboardingContainer";
 import FormField from "@/components/ui/FormField/FormField";
 import Label from "@/components/ui/Label/Label";
 import Input from "@/components/ui/Input/Input";
-import { MdCalendarMonth, MdFlag, MdPhone } from "react-icons/md";
+import { MdFlag, MdPhone } from "react-icons/md";
 import { IoMdGlobe } from "react-icons/io";
 import { IoCamera } from "react-icons/io5";
 
 const StepOne = () => {
   return (
-    <OnboardingContainer className="w-full p-4">
+    <div className="w-full p-4 flex flex-col items-center justify-center">
       <div className="mt-4 text-center">
         <p className="text-4xl tracking-wide text-secondary font-semibold leading-none">
           Tell Us About Yourself
@@ -24,7 +23,7 @@ const StepOne = () => {
             <div className="relative w-32 h-32 leading-none bg-[#eff5fe] rounded-full border border-dashed flex flex-col items-center justify-center space-y-4 text-center mx-auto mb-4">
               <Input type="file" className="hidden" />
               <div>
-                <Button aria-label="Camera Button Upload" variants="none">
+                <Button aria-label="Camera Button Upload" variants="custom">
                   <IoCamera className="text-3xl text-black/70" />
                 </Button>
                 <p className="text-xs text-gray-400 tracking-wide">Photo</p>
@@ -37,7 +36,7 @@ const StepOne = () => {
           <div className="lg:flex grid grid-cols-1 grid-rows-1 w-full gap-2">
             <FormField className="w-full">
               <Label htmlFor="date of birth">Date of Birth</Label>
-              <Input type="date" prefixIcon={MdCalendarMonth} />
+              <Input type="date" />
             </FormField>
             <FormField className="w-full">
               <Label htmlFor="gender">Gender</Label>
@@ -74,7 +73,7 @@ const StepOne = () => {
           </FormField>
         </div>
       </form>
-    </OnboardingContainer>
+    </div>
   );
 };
 

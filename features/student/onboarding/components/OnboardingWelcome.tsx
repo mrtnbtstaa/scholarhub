@@ -4,6 +4,7 @@ import { MdArtTrack, MdNotifications, MdStar } from "react-icons/md";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import Button from "@/components/ui/Button/Button";
 import { useStepperStore } from "../store/useStepperStore";
+import { routes } from "@/lib/constants/routes";
 
 const OnboardingWelcome = () => {
 
@@ -53,7 +54,7 @@ const OnboardingWelcome = () => {
               setCurrentStep(1)
               setStepProgress(20)
             }}>Start My Journey</Button>
-            <Navigate href="/" variants="default">
+            <Navigate href={routes.student.dashboard} variants="default">
               Skip for now
             </Navigate>
           </div>

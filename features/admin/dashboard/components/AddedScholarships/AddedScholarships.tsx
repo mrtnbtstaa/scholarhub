@@ -2,7 +2,7 @@
 
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
 import { cn } from "@/lib/cn";
-import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
+import { buildColumns } from "@/lib/table/columnBuilder";
 
 interface RecentSholarshipsData {
   id: string;
@@ -40,82 +40,56 @@ const data: RecentSholarshipsData[] = [
   },
 ];
 
-const columnHelper = createColumnHelper<RecentSholarshipsData>();
-
-const columns = [
-  columnHelper.accessor("scholarship", {
-    header: () => "SCHOLARSHIP",
-    cell: (info) => {
-      return (
-        <h4 className="text-secondary font-semibold text-sm tracking-wider">
-          {info.getValue()}
-        </h4>
-      );
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("provider", {
-    header: () => "PROVIDER",
-    cell: (info) => {
-      return (
-        <span className="text-sm text-gray-700 tracking-wider">
-          {info.getValue()}
-        </span>
-      );
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("country", {
-    header: () => "COUNTRY",
-    cell: (info) => {
-      return (
-        <span className="text-sm text-gray-700 tracking-wider">
-          {info.getValue()}
-        </span>
-      );
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("createdBy", {
-    header: () => "CREATED BY",
-    cell: (info) => {
-      return (
-        <span className="text-sm text-gray-700 tracking-wider">
-          {info.getValue()}
-        </span>
-      );
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("status", {
-    header: () => "STATUS",
-    cell: (info) => {
-      const status = info.getValue();
+const columns = buildColumns<RecentSholarshipsData>({
+  scholarship: {
+    cell: (value) => (
+      <h4 className="text-secondary font-semibold text-sm tracking-wider">
+        {value}
+      </h4>
+    ),
+  },
+  provider: {
+    cell: (value) => (
+      <span className="text-sm text-gray-700 tracking-wider">{value}</span>
+    ),
+  },
+  country: {
+    cell: (value) => (
+      <span className="text-sm text-gray-700 tracking-wider">{value}</span>
+    ),
+  },
+  createdBy: {
+    header: "CREATED BY",
+    cell: (value) => (
+      <span className="text-sm text-gray-700 tracking-wider">{value}</span>
+    ),
+  },
+  status: {
+    cell: (value) => {
       return (
         <div
           className={cn(
             "px-3 rounded-full inline-block",
-            status === "published" && "bg-[#6df9bb]",
-            status === "draft" && "bg-[#d3e4fe]",
-            status === "pending" && "bg-[#fedbd6]",
+            value === "published" && "bg-[#6df9bb]",
+            value === "draft" && "bg-[#d3e4fe]",
+            value === "pending" && "bg-[#fedbd6]",
           )}
         >
           <span
             className={cn(
               "text-xs tracking-wider font-medium",
-              status === "published" && "text-[#015347]",
-              status === "draft" && "text-[#50585e]",
-              status === "pending" && "text-[#93010b]",
+              value === "published" && "text-[#015347]",
+              value === "draft" && "text-[#50585e]",
+              value === "pending" && "text-[#93010b]",
             )}
           >
-            {status.toUpperCase()}
+            {value.toUpperCase()}
           </span>
         </div>
       );
     },
-    footer: (info) => info.column.id,
-  }),
-] as ColumnDef<RecentSholarshipsData, unknown>[];
+  },
+});
 
 const AddedScholarships = () => {
   return (

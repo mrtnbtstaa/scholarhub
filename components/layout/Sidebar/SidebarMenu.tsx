@@ -1,7 +1,7 @@
 import Navigate from "@/components/ui/Navigate/Navigate";
-import { MenuProps } from "@/types/menu.types";
+import { MenuProps } from "@/types/shared/menu.types";
 
-const SidebarMenu = ({isSidebarOpen, menus}: {isSidebarOpen: boolean, menus: MenuProps[]}) => {
+const SidebarMenu = ({menus}: { menus: MenuProps[]}) => {
   return (
     <div className="mt-8 flex flex-col gap-6 mx-4 transition-all duration-150">
       {menus &&
@@ -13,7 +13,7 @@ const SidebarMenu = ({isSidebarOpen, menus}: {isSidebarOpen: boolean, menus: Men
             key={menu.title}
             className="whitespace-nowrap"
           >
-            {isSidebarOpen && menu.title}
+            {menu.title}
           </Navigate>
         ))}
     </div>

@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f9ff;
+  --background: #fafbfb;
   --foreground: #171717;
 
   --text-primary: #0a1c31;
   --text-secondary: #002045;
   --bg-primary: #0054FC;
+
+  --primary-border: #edeff5;
 }
 
 @theme inline {
@@ -17,7 +19,8 @@
 
   --color-primary: var(--text-primary);
   --color-secondary: var(--text-secondary);
-  --color-btn-primary: var(--bg-primary)
+  --color-btn-primary: var(--bg-primary);
+  --color-primary-border: var(--primary-border);
 }
 
 /* @media (prefers-color-scheme: dark) {

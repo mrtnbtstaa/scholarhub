@@ -1,4 +1,3 @@
-
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import Main from "@/components/shared/Section/Main";
 import ApplicationDetailsAnalytics from "./components/ApplicationDetailsAnalytics";

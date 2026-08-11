@@ -5,12 +5,12 @@ import Card from "@/components/shared/Card/Card";
 const ApplicationGrowth = () => {
   const chartData = {
     labels: [
-      "Philippines",
-      "United Kingdom",
-      "United States",
-      "Japan",
-      "China",
-      "Korea",
+      "JAN",
+      "FEB",
+      "MAR",
+      "APR",
+      "MAY",
+      "JUN"
     ],
     datasets: [
       {
@@ -38,7 +38,12 @@ const ApplicationGrowth = () => {
       <h3 className="text-secondary tracking-wider text-md mb-4">
         APPLICATION GROWTH TRENDS
       </h3>
-        <BarChart minHeight="100px" datasetIdKey="id" data={chartData} />
+      <BarChart
+        minHeight="364px"
+        datasetIdKey="id"
+        data={chartData}
+        options={{maintainAspectRatio: false}}
+      />
     </Card>
   );
 };

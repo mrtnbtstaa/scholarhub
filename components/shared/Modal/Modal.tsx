@@ -4,7 +4,6 @@ import { cn } from "@/lib/cn";
 import { useDisableScroll } from "@/hooks/useDisableScroll";
 import { useModalStore } from "@/store/useModalStore";
 import { useId } from "react";
-import Divider from "../Divider/Divider";
 
 const Modal = ({
   modalTitle,

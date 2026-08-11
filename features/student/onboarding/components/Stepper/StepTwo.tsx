@@ -1,14 +1,11 @@
 import FormField from "@/components/ui/FormField/FormField";
-import OnboardingContainer from "../OnboardingContainer";
 import Label from "@/components/ui/Label/Label";
 import Input from "@/components/ui/Input/Input";
 import { BiSolidInstitution } from "react-icons/bi";
-import Card from "@/components/shared/Card/Card";
-import { MdInfo } from "react-icons/md";
 
 const StepTwo = () => {
   return (
-    <OnboardingContainer className="w-full p-4">
+    <div className="w-full p-4 flex flex-col items-center justify-center">
       <div className="mt-4 text-center">
         <p className="text-4xl tracking-wide text-secondary font-semibold leading-none">
           Academic Background
@@ -59,7 +56,7 @@ const StepTwo = () => {
           </div>
         </div>
       </form>
-    </OnboardingContainer>
+    </div>
   );
 };
 

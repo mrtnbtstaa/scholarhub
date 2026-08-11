@@ -31,7 +31,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             className={cn(
               className,
               variants === "primary" &&
-                "border border-[#c5c7cf] focus-visible:border-secondary rounded-lg w-full relative bg-[#fefffe]",
+                "border border-primary-border focus-visible:border-secondary rounded-lg w-full relative bg-[#fefffe]",
               variants === "secondary" && "",
             )}
           >

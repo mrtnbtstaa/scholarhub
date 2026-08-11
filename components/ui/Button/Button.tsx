@@ -23,8 +23,8 @@ const Button = ({
     <button
       {...props}
       className={cn(
-        className,
         "rounded-md outline-none cursor-pointer",
+        className,
         // Conditional styles based on variants
         variants === "primary" && "bg-btn-primary text-white text-center",
         variants === "outlined" &&
@@ -32,7 +32,7 @@ const Button = ({
             "border border-gray-600/50 hover:border-btn-primary rounded-lg p-2 transition-colors duration-150 mb-4",
             className,
           ),
-        variants === "danger" && "bg-red-600 text-white p-3"
+        variants === "danger" && "bg-red-600 text-white p-3",
       )}
     >
       {SuffixIcon ? (
@@ -41,7 +41,7 @@ const Button = ({
           {children}
         </div>
       ) : PrefixIcon ? (
-        <div className="flex items-center gap-2 md:text-start text-center justify-start">
+        <div className="flex items-center gap-2 md:text-start text-center justify-center">
           {children}
           <PrefixIcon className={cn("text-white text-2xl", iconClass)} />
         </div>

@@ -2,8 +2,8 @@
 
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
 import { cn } from "@/lib/cn";
+import { buildColumns } from "@/lib/table/columnBuilder";
 import { getInitials } from "@/lib/utils";
-import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
 interface ActivityData {
   id: string;
@@ -41,87 +41,67 @@ const data: ActivityData[] = [
   },
 ];
 
-const columnHelper = createColumnHelper<ActivityData>();
-
-const columns = [
-  columnHelper.accessor("fullName", {
-    header: () => "ADMIN",
-    cell: (info) => {
+const columns = buildColumns<ActivityData>({
+  fullName: {
+    header: "ADMIN",
+    cell: (value) => {
       return (
         <div className="flex items-center gap-2">
           <div className="bg-[#002045] rounded-full w-10 h-10 flex items-center justify-center">
             <span className="text-white text-xs tracking-wider font-semibold">
-              {getInitials(info.getValue())}
+              {getInitials(value)}
             </span>
           </div>
           <span className="text-md font-semibold text-secondary tracking-wider">
-            {info.getValue()}
+            {value}
           </span>
         </div>
       );
     },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("action", {
-    header: () => "ACTION",
-    cell: (info) => {
-      return (
-        <span className="text-gray-700 tracking-wider text-sm">
-          {info.getValue()}
-        </span>
-      );
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("resource", {
-    header: () => "RESOURCE",
-    cell: (info) => {
-      return (
-        <span className="text-gray-700 tracking-wider text-sm font-semibold">
-          {info.getValue()}
-        </span>
-      );
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("timestamp", {
-    header: () => "TIMESTAMP",
-    cell: (info) => {
-      return (
-        <span className="text-gray-700 tracking-wider text-sm">
-          {info.getValue()} hrs ago
-        </span>
-      );
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("status", {
-    header: () => "STATUS",
-    cell: (info) => {
-      const status = info.getValue();
+  },
+  action: {
+    cell: (value) => (
+      <span className="text-gray-700 tracking-wider text-sm">{value}</span>
+    ),
+  },
+  resource: {
+    cell: (value) => (
+      <span className="text-gray-700 tracking-wider text-sm font-semibold">
+        {value}
+      </span>
+    ),
+  },
+  timestamp: {
+    cell: (value) => (
+      <span className="text-gray-700 tracking-wider text-sm">
+        {value} hrs ago
+      </span>
+    ),
+  },
+  status: {
+    cell: (value) => {
       return (
         <div
           className={cn(
             "px-3 rounded-full inline-block",
-            status === "success" && "bg-[#6df9bb]",
-            status === "warning" && "bg-[#fedbd6]",
+            value === "success" && "bg-[#6df9bb]",
+            value === "warning" && "bg-[#fedbd6]",
           )}
         >
           <span
             className={cn(
               "text-xs font-medium tracking-wider",
-              status === "success" && "text-[#105336]",
-              status === "warning" && "text-[#93010b]",
+              value === "success" && "text-[#105336]",
+              value === "warning" && "text-[#93010b]",
             )}
           >
-            {info.getValue().toUpperCase()}
+            {value.toUpperCase()}
           </span>
         </div>
       );
     },
-    footer: (info) => info.column.id,
-  }),
-] as ColumnDef<ActivityData, unknown>[];
+  },
+});
 
 const AdminActivity = () => {
   return (
@@ -133,7 +113,7 @@ const AdminActivity = () => {
       header={{
         title: "Admin Activity",
         actionTitle: "View Full Log",
-        href: "/"
+        href: "/",
       }}
     />
   );

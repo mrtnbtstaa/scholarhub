@@ -3,7 +3,7 @@ import FormField from "@/components/ui/FormField/FormField";
 import Input from "@/components/ui/Input/Input";
 import Label from "@/components/ui/Label/Label";
 import Select from "@/components/ui/Select/Select";
-import { GenericSelect } from "@/types/select.types";
+import { GenericSelect } from "@/types/shared/select.types";
 
 const tuitionSelectData: GenericSelect[] = [
   {

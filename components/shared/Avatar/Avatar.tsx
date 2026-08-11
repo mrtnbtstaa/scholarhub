@@ -1,15 +1,31 @@
+import { cn } from "@/lib/cn";
 import Image from "next/image";
 
-const Avatar = ({ source }: { source: string }) => {
+const Avatar = ({
+  source,
+  alt,
+  className,
+  sizes = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+}: {
+  source: string;
+  alt: string;
+  className?: string;
+  sizes?: string;
+}) => {
   return (
-    <div className="w-18 h-18 relative">
+    <div
+      className={cn(
+        "w-18 h-18 relative rounded-full overflow-hidden",
+        className,
+      )}
+    >
       <Image
-        alt=""
+        alt={alt}
         src={source}
         loading="eager"
         priority
         fill
-        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        sizes={sizes}
         className="rounded-full aspect-square object-cover"
       />
     </div>

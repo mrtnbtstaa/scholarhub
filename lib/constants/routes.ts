@@ -12,12 +12,12 @@ export const routes = {
     viewScholarship: "/admin/scholarships/view",
     providers: "/admin/providers",
     students: "/admin/students",
-    viewStudent: (id: string) => {
-      return `/admin/students/${id}`
-    },
-    deleteStudent: (id: string) => {
-      return `/admin/students/${id}`
-    },
+    // viewStudent: (id: string) => {
+    //   return `/admin/students/${id}`
+    // },
+    // deleteStudent: (id: string) => {
+    //   return `/admin/students/${id}`
+    // },
     applications: "/admin/applications",
   },
 };

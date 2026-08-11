@@ -2,7 +2,7 @@ import { IoMdDocument } from "react-icons/io";
 import { MdBookmark, MdDashboard, MdPerson, MdSettings } from "react-icons/md";
 import { PiCalendarFill } from "react-icons/pi";
 import { RiSearchAiFill } from "react-icons/ri";
-import { MenuProps } from "@/types/menu.types";
+import { MenuProps } from "@/types/shared/menu.types";
 import { routes } from "@/lib/constants/routes";
 
 export const ADMIN_SIDEBAR_MENUS: MenuProps[] = [

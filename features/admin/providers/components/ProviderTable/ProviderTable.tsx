@@ -2,7 +2,7 @@
 
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
 import { cn } from "@/lib/cn";
-import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
+import { buildColumns } from "@/lib/table/columnBuilder";
 
 interface ProviderTableData {
   id: string;
@@ -89,82 +89,62 @@ const data: ProviderTableData[] = [
   },
 ];
 
-const columnHelper = createColumnHelper<ProviderTableData>();
-
-const columns = [
-  columnHelper.accessor("providerName", {
-    header: () => "PROVIDER NAME",
-    cell: (info) => {
-      const id = info.row.original.id;
+const columns = buildColumns<ProviderTableData>({
+  providerName: {
+    header: "PROVIDER NAME",
+    cell: (value, row) => {
       return (
         <div className="flex flex-col items-start gap-1">
-          <h4 className="font-semibold text-md tracking-wider">
-            {info.getValue()}
-          </h4>
-          <span className="text-sm tracking-wider font-normal">{id}</span>
+          <h4 className="font-semibold text-md tracking-wider">{value}</h4>
+          <span className="text-sm tracking-wider font-normal">{row.id}</span>
         </div>
       );
     },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("type", {
-    header: () => "TYPE",
-    cell: (info) => {
-      return <span className="text-md tracking-wider">{info.getValue()}</span>;
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("country", {
-    header: () => "COUNTRY",
-    cell: (info) => {
-      return <span className="text-md tracking-wider">{info.getValue()}</span>;
-    },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("stats", {
-    header: () => "STATS",
-    cell: (info) => {
-      const studentCount = info.row.original.studentCount;
+  },
+  type: {
+    cell: (value) => <span className="text-md tracking-wider">{value}</span>,
+  },
+  country: {
+    cell: (value) => <span className="text-md tracking-wider">{value}</span>,
+  },
+  stats: {
+    cell: (value, row) => {
       return (
         <div className="flex flex-col items-start">
-          <span className="text-lg font-semibold">{info.getValue()}</span>
+          <span className="text-lg font-semibold">{value}</span>
           <span className="text-sm tracking-wider">
-            {studentCount} STUDENTS
+            {row.studentCount} STUDENTS
           </span>
         </div>
       );
     },
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("status", {
-    header: () => "STATUS",
-    cell: (info) => {
-      const status = info.getValue();
+  },
+  status: {
+    cell: (value) => {
       return (
         <div
           className={cn(
             "px-3 py-1 rounded-full inline-block",
-            status === "verified" && "bg-[#d3fceb]",
-            status === "pending" && "bg-[#fdf2f2]",
-            status === "archived" && "bg-[#e0f718]",
+            value === "verified" && "bg-[#d3fceb]",
+            value === "pending" && "bg-[#fdf2f2]",
+            value === "archived" && "bg-[#e0f718]",
           )}
         >
           <span
             className={cn(
               "text-xs tracking-wider font-normal",
-              status === "verified" && "text-[#4b7067]",
-              status === "pending" && "text-[#ae012e]",
-              status === "archived" && "text-[#616916]",
+              value === "verified" && "text-[#4b7067]",
+              value === "pending" && "text-[#ae012e]",
+              value === "archived" && "text-[#616916]",
             )}
           >
-            {info.getValue()}
+            {value}
           </span>
         </div>
       );
     },
-    footer: (info) => info.column.id,
-  }),
-] as ColumnDef<ProviderTableData, unknown>[];
+  },
+});
 
 const ProviderTable = () => {
   return (
@@ -172,7 +152,7 @@ const ProviderTable = () => {
       data={data}
       columns={columns}
       type="table"
-      withPagination={false}
+      withPagination={true}
     />
   );
 };

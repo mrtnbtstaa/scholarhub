@@ -33,9 +33,18 @@ interface BarProps {
   options?: ChartOptions<"bar">;
   datasetIdKey?: string;
   minHeight?: string;
+  width?: string;
+  height?: string;
 }
 
-const BarChart = ({ data, options, datasetIdKey = "id", minHeight }: BarProps) => {
+const BarChart = ({
+  data,
+  options,
+  datasetIdKey = "id",
+  minHeight,
+  width = "100%",
+  height = "100%",
+}: BarProps) => {
   const mergedOptions: ChartOptions<"bar"> = {
     ...defaultOptions,
     ...options,
@@ -50,7 +59,14 @@ const BarChart = ({ data, options, datasetIdKey = "id", minHeight }: BarProps) =
   };
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: minHeight }}>
+    <div
+      style={{
+        position: "relative",
+        minHeight: minHeight,
+        width: width,
+        height: height,
+      }}
+    >
       <Bar datasetIdKey={datasetIdKey} data={data} options={mergedOptions} />
     </div>
   );

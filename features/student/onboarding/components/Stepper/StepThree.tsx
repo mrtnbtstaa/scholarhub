@@ -1,4 +1,3 @@
-import OnboardingContainer from "../OnboardingContainer";
 import PreferencesContent from "../PreferencesContent";
 import { PreferencesListProps } from "../../types/preferences.types";
 
@@ -59,7 +58,7 @@ const fieldInterestList: PreferencesListProps[] = [
 
 const StepThree = () => {
   return (
-    <OnboardingContainer className="w-full p-4">
+    <div className="w-full p-4 flex flex-col items-center justify-center">
       <PreferencesContent
         title="WHERE WOULD YOU LIKE TO STUDY?"
         items={countriesList}
@@ -69,7 +68,7 @@ const StepThree = () => {
         title="FIELDS OF INTEREST"
         items={fieldInterestList}
       />
-    </OnboardingContainer>
+    </div>
   );
 };
 

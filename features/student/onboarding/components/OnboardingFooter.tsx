@@ -2,6 +2,7 @@ import Divider from "@/components/shared/Divider/Divider";
 import Button from "@/components/ui/Button/Button";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import { useStepperStore } from "../store/useStepperStore";
+import { routes } from "@/lib/constants/routes";
 
 const OnboardingFooter = ({ stepLength }: { stepLength: number }) => {
 
@@ -13,14 +14,15 @@ const OnboardingFooter = ({ stepLength }: { stepLength: number }) => {
   return (
     <>
       <Divider />
-      <div className="m-4">
+      <div className="p-4 w-full">
         <div className="flex items-center justify-between w-full">
           {currentStepper === 1 ? (
-            <Navigate href={"/"} variants="redirect" aria-label="Skip Button">
+            <Navigate href={routes.student.dashboard} variants="redirect" aria-label="Skip Button">
               Skip for now
             </Navigate>
           ) : (
             <Button
+              variants="custom"
               className="p-2"
               aria-label="Previous Button"
               onClick={() => {

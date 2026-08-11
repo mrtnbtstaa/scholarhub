@@ -1,17 +1,19 @@
 "use client";
 
 import Header from "@/components/layout/Header/Header";
+import DropdownMenu from "@/components/layout/Menu/DropdownMenu";
 import Sidebar from "@/components/layout/Sidebar/Sidebar";
-import { cn } from "@/lib/cn";
-import { useSidebarStore } from "@/store/useSidebarStore";
+import { ADMIN_SIDEBAR_MENUS } from "@/config/adminSidebarMenu";
+import { STUDENT_SIDEBAR_MENUS } from "@/config/studentSidebarMenu";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const isSidebarOpen = useSidebarStore((state) => state.isSidebarOpen);
-
   return (
     <div className="w-full">
-      <Header isSidebarOpen={isSidebarOpen} />
-      <div className={cn(isSidebarOpen ? "ml-64" : "ml-18")}>
+      <Header />
+      <DropdownMenu
+        menus={true ? ADMIN_SIDEBAR_MENUS : STUDENT_SIDEBAR_MENUS}
+      />
+      <div className="md:ml-64">
         <Sidebar isAdmin={true} />
         {children}
       </div>

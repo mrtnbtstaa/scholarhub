@@ -3,10 +3,10 @@ import { ElementType } from "react";
 
 const StepperIconProgress = ({
   icon: Icon,
-  isCurrentStep,
+  currentStep: isCurrentStep,
 }: {
   icon: ElementType;
-  isCurrentStep: boolean;
+  currentStep: boolean;
 }) => {
   return (
     <div className={

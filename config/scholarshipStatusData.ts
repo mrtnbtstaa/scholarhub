@@ -1,4 +1,4 @@
-import { GenericSelect } from "@/types/select.types";
+import { GenericSelect } from "@/types/shared/select.types";
 
 export const scholarshipStatusData: GenericSelect[] = [
   {

@@ -24,15 +24,22 @@ const StepperProgress = () => {
 
   return (
     <div className="mt-2 w-full p-2">
-      <LineProgress percentage={currentStepPrgoress} className="bg-[#6df9bb]" />
+      <LineProgress percentage={currentStepPrgoress} className="bg-btn-primary" />
       <div className="flex items-center justify-between mt-4">
-        {progressIcons && progressIcons.map((icon, index) => (
-          <StepperIconProgress
-            key={index}
-            icon={icon.stepperIcon}
-            isCurrentStep={currentStep === index + 1}
-          />
-        ))}
+        {progressIcons &&
+          progressIcons.map((icon, index) => {
+
+            const isActive = currentStep === index + 1;
+            const isCompleted = index < currentStep;
+
+            return (
+              <StepperIconProgress
+                key={index}
+                icon={icon.stepperIcon}
+                currentStep={isActive || isCompleted}
+              />
+            );
+          })}
       </div>
     </div>
   );

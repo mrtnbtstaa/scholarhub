@@ -1,29 +1,33 @@
 "use client";
 
-import SidebarProfile from "./SidebarProfile";
-import SidebarHeader from "./SidebarHeader";
 import SidebarMenu from "./SidebarMenu";
-import { useSidebarStore } from "@/store/useSidebarStore";
 import { cn } from "@/lib/cn";
 import { ADMIN_SIDEBAR_MENUS } from "../../../config/adminSidebarMenu";
 import { STUDENT_SIDEBAR_MENUS } from "../../../config/studentSidebarMenu";
+import Button from "@/components/ui/Button/Button";
+import Divider from "@/components/shared/Divider/Divider";
+import { MdLogout } from "react-icons/md";
+import BrandHeader from "@/components/shared/BrandHeader/BrandHeader";
 
 const Sidebar = ({ isAdmin }: { isAdmin?: boolean }) => {
-  const isSidebarOpen = useSidebarStore((state) => state.isSidebarOpen);
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 h-screen bg-[#fefffe] border-r border-[#c5c7cf] flex flex-col transition-all duration-200 ease-in-out z-300",
-        isSidebarOpen ? " w-64" : "w-18",
+        "fixed left-0 top-0 h-screen w-64 bg-[#fefffe] border-r border-primary-border md:flex hidden flex-col transition-all duration-200 ease-in-out z-300",
       )}
     >
-      <SidebarHeader isSidebarOpen={isSidebarOpen} isAdmin={isAdmin} />
-      <nav aria-label="Main Navigation" className="flex flex-1 flex-col justify-between">
+      <BrandHeader className="mt-2 ml-2" isAdmin={isAdmin} />
+      <nav
+        aria-label="Main Navigation"
+        className="flex flex-1 flex-col justify-between"
+      >
         <SidebarMenu
-          isSidebarOpen={isSidebarOpen}
           menus={isAdmin ? ADMIN_SIDEBAR_MENUS : STUDENT_SIDEBAR_MENUS}
         />
-        <SidebarProfile isSidebarOpen={isSidebarOpen} />
+        <div className="m-2">
+          <Divider />
+          <Button prefixIcon={MdLogout} className="p-3 mt-2 w-full" variants="danger">Logout</Button>
+        </div>
       </nav>
     </aside>
   );

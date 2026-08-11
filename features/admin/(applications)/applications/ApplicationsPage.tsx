@@ -14,11 +14,11 @@ const ApplicationsPage = () => {
       />
       <ApplicationFilterBar />
       <ApplicationTable />
-      <div className="grid grid-cols-4 grid-rows-1 gap-4 mt-4">
-        <div className="col-span-1">
+      <div className="grid grid-cols-4 grid-rows-1 gap-4 my-4">
+        <div className="lg:col-span-2 col-span-4">
           <StatusDistribution />
         </div>
-        <div className="col-span-3 h-32">
+        <div className="lg:col-span-2 col-span-4">
           <ApplicationGrowth />
         </div>
       </div>

@@ -43,7 +43,7 @@ const LineChart = ({
   datasetIdKey = "id",
   minHeight,
   width = "100%",
-  height = "10%%",
+  height = "100%",
 }: LineProps) => {
   const mergedOptions: ChartOptions<"line"> = {
     ...defaultOptions,

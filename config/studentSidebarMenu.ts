@@ -7,7 +7,7 @@ import {
 } from "react-icons/md";
 import { PiCalendarFill } from "react-icons/pi";
 import { RiSearchAiFill } from "react-icons/ri";
-import { MenuProps } from "@/types/menu.types";
+import { MenuProps } from "@/types/shared/menu.types";
 
 export const STUDENT_SIDEBAR_MENUS: MenuProps[] = [
   {

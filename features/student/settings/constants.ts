@@ -1,4 +1,4 @@
-import { MenuProps } from "@/types/menu.types";
+import { MenuProps } from "@/types/shared/menu.types";
 import { LuDownload, LuLock, LuPaintBucket, LuTriangleAlert } from "react-icons/lu";
 import { MdNotifications, MdSecurity } from "react-icons/md";
 
