@@ -1,9 +1,13 @@
-import { ElementType } from "react";
+"use client"
+import { ElementType, useEffect, useState } from "react";
 import Card from "../Card/Card";
 import { cn } from "@/lib/cn";
+import NumberFlow from "@number-flow/react";
 
 type DashboardCardProps = {
   icon: ElementType;
+  className?:string; // for customization
+  iconColor?: string;  //for customize of icon color
   count: number | string;
   title: string;
   status: string;
@@ -12,18 +16,28 @@ type DashboardCardProps = {
 
 const DashboardCard = ({
   icon: Icon,
+  className,
+  iconColor,
   count,
   title,
   status,
   variants = "new",
 }: DashboardCardProps) => {
+  //test numberflow for static value only
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    setValue(Number(count));
+  }, [count]);
+
   return (
-    <Card className="w-full p-2">
+    <Card className={cn("w-full p-2", className)}>
       <div className="flex items-center justify-between px-2 mt-2">
-        <Icon className="text-2xl" />
+
+        <Icon className={`${iconColor} text-2xl`} />
         <div
           className={cn(
-            "p-2 rounded-2xl",
+            "py-1 px-2 rounded-xl",
             variants === "new" && "bg-[#d3fceb]",
             variants === "active" && "bg-[#f3f6ff]",
             variants === "urgent" && "bg-[#fedbd6]",
@@ -45,9 +59,9 @@ const DashboardCard = ({
       </div>
       <div className="flex flex-col items-start px-2 mt-4 mb-2">
         <span className="text-secondary text-2xl font-bold tracking-wide">
-          {count}
+          <NumberFlow format={{ notation: "compact" }} value={value} respectMotionPreference={false} />
         </span>
-        <h2 className="text-gray-400 tracking-wider leading-none text-md">
+        <h2 className="text-gray-400 tracking-wider whitespace-nowrap leading-none text-sm xl:text-base">
           {title}
         </h2>
       </div>

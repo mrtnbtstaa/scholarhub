@@ -24,7 +24,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         {...props}
         className={cn(
-          "rounded-lg transition-all shadow-xs shadow-slate-200 duration-150 ease-in-out",
+          "rounded-xl transition-all shadow-xs shadow-slate-200 duration-150 ease-in-out",
           variants === "primary" &&
           cn("bg-white border border-primary-border", className),
           variants === "secondary" && cn("bg-[#28436a]", className),
