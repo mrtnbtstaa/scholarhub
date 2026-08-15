@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import Image from "next/image";
 
 const Avatar = ({

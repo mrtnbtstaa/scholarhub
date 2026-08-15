@@ -1,5 +1,5 @@
 import Input from "@/components/ui/Input/Input";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { ComponentPropsWithoutRef } from "react";
 
 interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {

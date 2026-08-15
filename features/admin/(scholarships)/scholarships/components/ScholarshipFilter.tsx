@@ -1,7 +1,7 @@
 import Filter from "@/components/shared/Filter/Filter";
-import { DegreeData } from "@/config/degreeData";
-import { providerData } from "@/config/providerData";
-import { scholarshipStatusData } from "@/config/scholarshipStatusData";
+import { DegreeData } from "@/data/degreeData";
+import { providerData } from "@/data/providerData";
+import { scholarshipStatusData } from "@/data/scholarshipStatusData";
 
 const ScholarshipFilter = () => {
   return (

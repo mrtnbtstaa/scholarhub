@@ -10,7 +10,7 @@ import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
 import { ApplicationData } from "./types/applicationData";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 
 const dummyApplicationData: ApplicationData[] = [
   {

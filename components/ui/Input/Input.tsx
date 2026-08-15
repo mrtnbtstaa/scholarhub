@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react";
 import Button from "../Button/Button";
 
@@ -29,6 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {withIcon ? (
           <div
             className={cn(
+              "overflow-hidden",
               className,
               variants === "primary" &&
                 "border border-primary-border focus-visible:border-secondary rounded-lg w-full relative bg-[#fefffe]",

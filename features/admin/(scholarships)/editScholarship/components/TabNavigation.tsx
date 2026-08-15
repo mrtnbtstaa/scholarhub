@@ -1,6 +1,6 @@
 import Divider from "@/components/shared/Divider/Divider";
 import Button from "@/components/ui/Button/Button";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { NavigationIndex } from "../types/tabNavigation";
 
 const tabNavigation = [

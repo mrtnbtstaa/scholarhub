@@ -3,7 +3,7 @@ import CardHeader from "@/components/shared/CardHeader/CardHeader";
 import Button from "@/components/ui/Button/Button";
 import { LuListFilter } from "react-icons/lu";
 import { Table } from "@/components/shared/Table/Table";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
 import { BiDotsVertical } from "react-icons/bi";
 

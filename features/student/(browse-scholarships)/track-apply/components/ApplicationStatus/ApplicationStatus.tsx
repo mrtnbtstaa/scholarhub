@@ -6,7 +6,7 @@ import Label from "@/components/ui/Label/Label";
 import Select from "@/components/ui/Select/Select";
 import { PriorityData } from "../../data/priorityLevel.data";
 import Button from "@/components/ui/Button/Button";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { ApplicationStatusData } from "../../data/applicationStatus.data";
 import { useState } from "react";
 

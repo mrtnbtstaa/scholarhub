@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button/Button";
 import Select from "@/components/ui/Select/Select";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { GenericSelect } from "@/types/shared/select.types";
 import { Table } from "@tanstack/react-table";
 import {

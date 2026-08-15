@@ -1,6 +1,6 @@
 import { MdInfo } from "react-icons/md";
 import Card from "../Card/Card";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import React from "react";
 
 interface BannerProps {

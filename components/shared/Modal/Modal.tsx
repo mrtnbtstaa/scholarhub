@@ -1,6 +1,6 @@
 import Card from "@/components/shared/Card/Card";
 import CloseButton from "@/components/shared/CloseButton/CloseButton";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { useDisableScroll } from "@/hooks/useDisableScroll";
 import { useModalStore } from "@/store/useModalStore";
 import { useId } from "react";

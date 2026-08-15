@@ -3,7 +3,7 @@ import Input from "@/components/ui/Input/Input";
 import Label from "@/components/ui/Label/Label";
 import Select from "@/components/ui/Select/Select";
 import TextArea from "@/components/ui/TextArea/TextArea";
-import { DegreeData } from "@/config/degreeData";
+import { DegreeData } from "@/data/degreeData";
 import { fundingData } from "@/features/student/saved-scholarships/data/funding.data";
 
 const BasicInfoForm = () => {

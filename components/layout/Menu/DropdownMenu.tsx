@@ -1,7 +1,7 @@
 import Card from "@/components/shared/Card/Card";
 import Button from "@/components/ui/Button/Button";
 import Navigate from "@/components/ui/Navigate/Navigate";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { useDropdownMenuStore } from "@/store/useDropdownMenuStore";
 import { MenuProps } from "@/types/shared/menu.types";
 import { MdLogout } from "react-icons/md";

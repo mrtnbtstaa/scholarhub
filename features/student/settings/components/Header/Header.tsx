@@ -1,5 +1,5 @@
 import Divider from "@/components/shared/Divider/Divider";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 
 const Header = ({
   title,

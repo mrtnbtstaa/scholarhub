@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 
 interface TagProps{
   variants?: "deadline" | "personal" | "document" | "interview";

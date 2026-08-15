@@ -1,7 +1,7 @@
 import Avatar from "@/components/shared/Avatar/Avatar";
 import Card from "@/components/shared/Card/Card";
 import Navigate from "@/components/ui/Navigate/Navigate";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { LuMedal } from "react-icons/lu";
 
 interface KeyValueDetail {

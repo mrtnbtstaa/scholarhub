@@ -1,8 +1,8 @@
 import Card from "@/components/shared/Card/Card";
 import Select from "@/components/ui/Select/Select";
 import { fundingData } from "../../data/funding.data";
-import { DegreeData } from "@/config/degreeData";
-import { CountryData } from "@/config/countryData";
+import { DegreeData } from "@/data/degreeData";
+import { CountryData } from "@/data/countryData";
 
 const ScholarshipFilter = () => {
   return (

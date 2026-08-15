@@ -1,10 +1,10 @@
 "use client";
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { routes } from "@/lib/constants/routes";
 import { buildColumns } from "@/lib/table/columnBuilder";
-import { getInitials } from "@/lib/utils";
+import { getInitials } from "@/lib/helpers/utils";
 
 interface ApplicationTableData {
   id: string;

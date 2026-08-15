@@ -1,6 +1,6 @@
 import Filter from "@/components/shared/Filter/Filter";
 import { accountStatusData } from "../../constants/accountStatusData";
-import { CountryData } from "../../../../../../config/countryData";
+import { CountryData } from "../../../../../../data/countryData";
 
 const StudentFilterBar = () => {
   return (

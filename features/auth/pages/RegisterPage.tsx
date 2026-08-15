@@ -1,5 +1,4 @@
 import RegisterForm from "../components/form/RegisterForm";
-
 const RegisterPage = () => {
   return (
     <div className="w-full p-4 flex flex-col items-start justify-center bg-[#fefffe] h-full px-8">

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { cn } from "@/lib/cn";
+import { QueryProvider } from "@/providers/QueryProvider";
+import ToastProvider from "@/providers/ToastProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,7 +31,12 @@ export default function RootLayout({
       lang="en"
       className="scrollbar-thin"
     >
-      <body className={`antialiased ${inter.variable} ${jetbrainsMono.variable}`}>{children}</body>
+      <body className={`antialiased ${inter.variable} ${jetbrainsMono.variable}`}>
+        <ToastProvider />
+        <QueryProvider>
+          {children}
+        </QueryProvider>
+      </body>
     </html>
   );
 }

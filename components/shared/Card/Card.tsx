@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react";
 
 interface CardProps extends ComponentPropsWithoutRef<"div"> {

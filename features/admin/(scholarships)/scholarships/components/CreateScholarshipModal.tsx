@@ -8,7 +8,7 @@ import EligibilityForm from "./form/EligibilityForm";
 import DetailsForm from "./form/DetailsForm";
 import { useRef, useState } from "react";
 import gsap from "gsap";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { MdCheck } from "react-icons/md";
 import { useGSAP } from "@gsap/react";
 

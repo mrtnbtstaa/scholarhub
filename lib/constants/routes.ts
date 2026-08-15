@@ -4,6 +4,10 @@ export const routes = {
     browseScholarships: "/student/browse-scholarships",
     savedScholarships: "/student/saved-scholarships",
     applications: "/student/my-applications",
+    documents: "/student/my-documents",
+    calendar: "/student/calendar",
+    profile: "/student/profile",
+    settings: "/student/settings"
   },
   admin: {
     dashboard: "/admin/dashboard",
@@ -11,13 +15,11 @@ export const routes = {
     editScholarship: "/admin/scholarships/edit",
     viewScholarship: "/admin/scholarships/view",
     providers: "/admin/providers",
-    students: "/admin/students",
-    // viewStudent: (id: string) => {
-    //   return `/admin/students/${id}`
-    // },
-    // deleteStudent: (id: string) => {
-    //   return `/admin/students/${id}`
-    // },
+    students: "/admin/students",            
     applications: "/admin/applications",
   },
+  public:{
+    login: "/login",
+    register: "/register",
+  }
 };

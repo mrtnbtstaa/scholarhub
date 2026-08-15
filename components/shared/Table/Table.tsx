@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import React, { ComponentPropsWithoutRef } from "react";
 
 interface TableProps extends ComponentPropsWithoutRef<"table"> {

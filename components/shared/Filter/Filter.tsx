@@ -6,7 +6,7 @@ import { MdSearch } from "react-icons/md";
 import { ChangeEvent, ComponentPropsWithoutRef, useRef, useState } from "react";
 import Button from "@/components/ui/Button/Button";
 import { IoFilterOutline } from "react-icons/io5";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import Divider from "../Divider/Divider";
 import { GenericSelect } from "@/types/shared/select.types";
 import FormField from "@/components/ui/FormField/FormField";

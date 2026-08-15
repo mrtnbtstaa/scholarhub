@@ -2,7 +2,7 @@
 
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { buildColumns } from "@/lib/table/columnBuilder";
 
 interface ScholarshipTableData {

@@ -3,8 +3,8 @@ import FormField from "@/components/ui/FormField/FormField";
 import Input from "@/components/ui/Input/Input";
 import Label from "@/components/ui/Label/Label";
 import Select from "@/components/ui/Select/Select";
-import { CountryData } from "@/config/countryData";
-import { DegreeData } from "@/config/degreeData";
+import { CountryData } from "@/data/countryData";
+import { DegreeData } from "@/data/degreeData";
 
 const BasicInformation = () => {
   return (

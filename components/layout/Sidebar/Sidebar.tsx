@@ -1,9 +1,9 @@
 "use client";
 
 import SidebarMenu from "./SidebarMenu";
-import { cn } from "@/lib/cn";
-import { ADMIN_SIDEBAR_MENUS } from "../../../config/adminSidebarMenu";
-import { STUDENT_SIDEBAR_MENUS } from "../../../config/studentSidebarMenu";
+import { cn } from "@/lib/helpers/cn";
+import { ADMIN_SIDEBAR_MENUS } from "../../../data/adminSidebarMenu";
+import { STUDENT_SIDEBAR_MENUS } from "../../../data/studentSidebarMenu";
 import Button from "@/components/ui/Button/Button";
 import Divider from "@/components/shared/Divider/Divider";
 import { MdLogout } from "react-icons/md";

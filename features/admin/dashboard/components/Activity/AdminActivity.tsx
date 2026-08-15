@@ -1,9 +1,9 @@
 "use client";
 
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { buildColumns } from "@/lib/table/columnBuilder";
-import { getInitials } from "@/lib/utils";
+import { getInitials } from "@/lib/helpers/utils";
 
 interface ActivityData {
   id: string;

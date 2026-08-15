@@ -1,12 +1,12 @@
 import Card from "@/components/shared/Card/Card";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { useNotificationDropdownStore } from "@/store/useNotificationDropdownStore";
 import Heading from "@/components/shared/Heading/Heading";
 import Button from "@/components/ui/Button/Button";
 import { useState } from "react";
 import NotificationList from "./components/NotificationList";
 import { NoticationLabel } from "./types/notificationsData";
-import { capitalize } from "@/lib/utils";
+import { capitalize } from "@/lib/helpers/utils";
 
 
 const notificationBtns: NoticationLabel[] = [

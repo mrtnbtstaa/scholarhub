@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
 import { Id, PaginatedProps } from "@/types/shared/pagination";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import PaginatedTable from "./PaginatedTable";
 import Pagination from "./Pagination";
 

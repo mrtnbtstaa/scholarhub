@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "../Button/Button";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 
 const Switcher = ({ isActive = true }: { isActive?: boolean }) => {
   const [currentIsActive, setCurrentIsActive] = useState<boolean>(isActive);

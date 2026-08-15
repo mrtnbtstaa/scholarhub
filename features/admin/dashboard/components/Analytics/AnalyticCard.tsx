@@ -1,5 +1,5 @@
 import Card from "@/components/shared/Card/Card";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { FaGraduationCap } from "react-icons/fa";
 
 interface AnalyticProps {

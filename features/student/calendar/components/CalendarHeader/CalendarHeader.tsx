@@ -1,7 +1,7 @@
 "use client";
 import { CalendarRef } from "@fullcalendar/react";
 import Button from "@/components/ui/Button/Button";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { RefObject } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 

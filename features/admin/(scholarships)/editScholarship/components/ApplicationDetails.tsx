@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button/Button";
 import FormField from "@/components/ui/FormField/FormField";
 import Input from "@/components/ui/Input/Input";
 import Label from "@/components/ui/Label/Label";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { useState } from "react";
 import { BiTrash } from "react-icons/bi";
 import { MdAdd } from "react-icons/md";

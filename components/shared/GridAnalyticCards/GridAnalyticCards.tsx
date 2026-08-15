@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 
 const GridAnalyticCards = ({children, className}: {children: React.ReactNode, className?:string}) => {
     return (

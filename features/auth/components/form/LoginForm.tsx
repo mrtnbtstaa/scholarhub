@@ -6,36 +6,41 @@ import Input from "@/components/ui/Input/Input";
 import Label from "@/components/ui/Label/Label";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import { useState } from "react";
-import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import { MdEmail, MdLock } from "react-icons/md";
+import { ICONS } from "@/lib/constants/icons";
 import AuthFooter from "../AuthFooter";
+import { useLogin } from "../../hooks/use-login";
 
 const LoginForm = () => {
-  const [toggleVisibility, setToggleVisibility] = useState<boolean>(false);
 
+  const [toggleVisibility, setToggleVisibility] = useState<boolean>(false);
+  const {form, onSubmit, isPending, error} = useLogin();
   return (
     <>
-      <form className="mt-4 w-full">
-        <FormField>
-          <Label htmlFor="Email Address">Email Address</Label>
+      <form method="POST" onSubmit={onSubmit} className="mt-4 w-full">
+        <FormField error={error.email}>
+          <Label htmlFor="emailAddress">Email Address</Label>
           <Input
+            id="emailAddress"
             type="email"
             placeholder="name@university.edu"
             className="w-full"
-            prefixIcon={MdEmail}
-            required
+            prefixIcon={ICONS.MdEmail}
+            {...form.register("email")}
+            // required
           />
         </FormField>
-        <FormField>
-          <Label htmlFor="Password">Password</Label>
+        <FormField error={error.password}>
+          <Label htmlFor="password">Password</Label>
           <Input
+            id="password"
             type={toggleVisibility ? "text" : "password"}
             placeholder="••••••••"
             className="w-full"
-            prefixIcon={MdLock}
-            suffixIcon={toggleVisibility ? BsEyeFill : BsEyeSlashFill}
+            prefixIcon={ICONS.MdLock}
+            suffixIcon={toggleVisibility ? ICONS.BsEyeFill : ICONS.BsEyeSlashFill}
             SuffixOnClick={() => setToggleVisibility(!toggleVisibility)}
-            required
+            {...form.register("password")}
+            // required
           />
         </FormField>
         <div className="flex items-center justify-between mb-4">
@@ -53,11 +58,13 @@ const LoginForm = () => {
             Forgot Password?
           </Navigate>
         </div>
-        <Button className="p-2 float-right w-full">Sign In</Button>
+        <Button disabled={isPending} type="submit" className="p-3 float-right w-full">
+          {isPending ? "Signing In"  : "Sign In"}
+        </Button>
       </form>
       <AuthFooter
-        title="Don't have an account?&nbsp;"
-        navigateTitle="Create an account"
+        title="Don't have an account?"
+        navigateTitle="Sign up"
         href="/register"
       />
     </>

@@ -1,7 +1,7 @@
 import { DeadlineNotification } from "../types/notificationsData";
 
 const DeadlineContent = ({deadlines}: {deadlines: DeadlineNotification}) => {
-  const {isUrgent, deadlineTitle, timestamp} = deadlines;
+  const {isUrgent, deadlineTitle, timestamp, status} = deadlines;
   return (
     <div className="w-full p-4 cursor-pointer transition-colors duration-100 ease-linear hover:bg-[#f7f9ff]">
       <div className="mx-4">

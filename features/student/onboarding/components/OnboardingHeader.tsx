@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { FaGraduationCap } from "react-icons/fa";
 import { useStepperStore } from "../store/useStepperStore";
 

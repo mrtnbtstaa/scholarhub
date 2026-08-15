@@ -1,7 +1,7 @@
 "use client";
 
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { routes } from "@/lib/constants/routes";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 

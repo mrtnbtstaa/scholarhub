@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { GenericSelect } from "@/types/shared/select.types";
 import { ComponentPropsWithoutRef } from "react";
 

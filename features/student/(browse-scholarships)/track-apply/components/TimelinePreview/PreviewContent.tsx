@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/helpers/cn";
 import { ElementType } from "react";
 import { MdCheck } from "react-icons/md";
 

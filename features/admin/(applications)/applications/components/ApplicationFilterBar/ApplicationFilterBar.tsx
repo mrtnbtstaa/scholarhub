@@ -1,7 +1,7 @@
 import Filter from "@/components/shared/Filter/Filter";
-import { CountryData } from "@/config/countryData";
-import { DegreeData } from "@/config/degreeData";
-import { providerData } from "@/config/providerData";
+import { CountryData } from "@/data/countryData";
+import { DegreeData } from "@/data/degreeData";
+import { providerData } from "@/data/providerData";
 import { GenericSelect } from "@/types/shared/select.types";
 
 const scholarshipData: GenericSelect[] = [
