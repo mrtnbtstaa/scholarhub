@@ -1,8 +1,14 @@
-import { axiosClient } from "@/lib/client/axios.client";
 import { ApiResponse } from "@/types/api/api.response";
 import { ServiceResponse } from "@/types/service/service.response";
 import axios, { AxiosRequestConfig } from "axios";
 import z from "zod";
+
+
+// Nextjs -> django
+const serverApi = axios.create({
+    baseURL: process.env.API_URL,
+    withCredentials: true
+})
 
 export const genericService = async <T = null, M = null> (
     schema: z.ZodType,
@@ -23,7 +29,7 @@ export const genericService = async <T = null, M = null> (
 
     try{
 
-        const response = await axiosClient.request<ApiResponse<T, M>>({
+        const response = await serverApi.request<ApiResponse<T, M>>({
             ...config,
             data: result.data
         })

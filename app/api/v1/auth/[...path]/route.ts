@@ -46,8 +46,8 @@ export async function POST(
                     httpOnly: true,
                     secure: isProd,
                     sameSite: "lax",
-                    maxAge: 1 * 60, // 60 seconds
-                    expires: new Date(Date.now() + 1 * 60 * 1000)
+                    maxAge: 15 * 60, // 900 seconds
+                    expires: new Date(Date.now() + 15 * 60 * 1000)
                 })
 
                 cookieStore.set({
@@ -89,12 +89,12 @@ export async function POST(
 
                 cookieStore.set({
                     name: "access_token",
-                    value: result.data.access_token,
+                    value: result.data.refresh_token,
                     httpOnly: true,
                     secure: isProd,
                     sameSite: "lax",
-                    maxAge: 1 * 60, // 60 seconds
-                    expires: new Date(Date.now() + 1 * 60 * 1000)
+                    maxAge: 15 * 60, // 900 seconds
+                    expires: new Date(Date.now() + 15 * 60 * 1000)
                 })
 
                 cookieStore.set({
