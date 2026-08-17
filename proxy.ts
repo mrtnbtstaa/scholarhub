@@ -60,6 +60,7 @@ export async function proxy(request: NextRequest) {
       new URL(routes.public.login, request.nextUrl)
     )
     response.cookies.delete("access_token")
+    response.cookies.delete("refresh_token")
     return response
   }
 

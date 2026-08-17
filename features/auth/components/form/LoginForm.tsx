@@ -11,12 +11,12 @@ import AuthFooter from "../AuthFooter";
 import { useLogin } from "../../hooks/use-login";
 
 const LoginForm = () => {
-
   const [toggleVisibility, setToggleVisibility] = useState<boolean>(false);
-  const {form, onSubmit, isPending, error} = useLogin();
+  const {form, handleSubmit, isPending, error} = useLogin();
+
   return (
     <>
-      <form method="POST" onSubmit={onSubmit} className="mt-4 w-full">
+      <form method="POST" onSubmit={handleSubmit} className="mt-4 w-full">
         <FormField error={error.email}>
           <Label htmlFor="emailAddress">Email Address</Label>
           <Input
@@ -52,20 +52,20 @@ const LoginForm = () => {
           </div>
           <Navigate
             href="/forgot-password"
-            className="text-sm"
+            className="text-xs"
             variants="redirect"
           >
             Forgot Password?
           </Navigate>
         </div>
-        <Button disabled={isPending} type="submit" className="p-3 float-right w-full">
-          {isPending ? "Signing In"  : "Sign In"}
+        <Button isLoading={isPending} className="p-3 float-right w-full">
+          Sign In
         </Button>
       </form>
       <AuthFooter
         title="Don't have an account?"
         navigateTitle="Sign up"
-        href="/register"
+        href={"/register"}
       />
     </>
   );

@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { Register, useMutation } from "@tanstack/react-query";
 import { registerUser } from "../api/auth.api";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,10 +42,11 @@ export const useRegister = () => {
     },
   });
 
+  const onSubmit = (data: RegisterInput) => mutation.mutate(data);
 
   return {
     form,
-    onSubmit: form.handleSubmit((data) => mutation.mutate(data)),
+    handleSubmit: form.handleSubmit(onSubmit),
     isPending: mutation.isPending,
     error: form.formState.errors,
   };

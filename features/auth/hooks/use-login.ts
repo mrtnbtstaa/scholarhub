@@ -33,13 +33,15 @@ export const useLogin = () => {
             router.push(routes.student.dashboard)
         },
         onError(error){
-            showToast({message: error.response?.data.message ?? "Something went wrong", type: "error"})
+            showToast({message: error.response?.data.message ?? "Unathenticated", type: "error"})
         }
     })
 
+    const onSubmit = (data: LoginInput) => mutation.mutate(data);
+
     return {
         form,
-        onSubmit: form.handleSubmit((data) => mutation.mutate(data)),
+        handleSubmit: form.handleSubmit(onSubmit),
         isPending: mutation.isPending,
         error: form.formState.errors,
     }

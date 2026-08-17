@@ -19,6 +19,7 @@ export const genericService = async <T = null, M = null> (
 
     const result = schema.safeParse(input)
 
+    // Zod validation
     if(!result.success){
         return {
             success: false,
@@ -36,6 +37,7 @@ export const genericService = async <T = null, M = null> (
 
         const apiData = response.data;
 
+        // Success response
         if(apiData.success){
             return {
                 success: true,
@@ -45,7 +47,8 @@ export const genericService = async <T = null, M = null> (
                 status: response.status,
             }
         }
-
+        
+        // Error response
         return {
             success: false,
             message: apiData.message,

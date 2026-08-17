@@ -1,11 +1,23 @@
+"use client";
+
+import { routes } from "@/lib/constants/routes";
+import { cn } from "@/lib/helpers/cn";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
+  const path = usePathname();
+  console.log("CUrrent path", path);
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between min-h-screen">
-      <div className="md:w-1/2 md:flex flex-col w-full h-screen md:h-disabled min-h-screen md:min-h-0 hidden">
+    <div className={
+      cn(
+        "flex flex-col md:flex-row items-center justify-between",
+        // min-h-screen
+      )
+    }>
+      {path !== routes.public.forgotPassword && <div className="md:w-1/2 md:flex flex-col w-full h-screen md:h-disabled min-h-screen md:min-h-0 hidden">
         <div className="bg-btn-primary p-6 md:p-12 flex flex-col justify-center w-full">
           <div className="inline-flex gap-2 items-center mt-4">
             <FaGraduationCap className="text-white/50 text-4xl" />
@@ -27,11 +39,11 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
             src={"/assets/hero.png"}
             fill
             loading="eager"
-            priority
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover aspect-square"
           />
         </div>
-      </div>
+      </div>}
       <div className="md:w-1/2 w-full h-screen">{children}</div>
     </div>
   );

@@ -3,7 +3,7 @@ import { routes } from "../constants/routes";
 
 // Browser -> NextJS
 export const axiosClient = axios.create({
-    baseURL: "/api/v1/", // /api/
+    baseURL: "/api/v1/", // /api/v1/
     withCredentials: true,
 })
 
@@ -13,57 +13,59 @@ axiosClient.interceptors.request.use((config) => {
 });
 
 
-let refreshPromise: Promise<void> | null = null;
+// const whitelisted = []
 
-axiosClient.interceptors.response.use(
-    (response) => {
-        console.log("CLIENT API RESPONSE:", response.status);
-        return response
-    },
+// let refreshPromise: Promise<void> | null = null;
 
-    async (error) => {
+// axiosClient.interceptors.response.use(
+//     (response) => {
+//         console.log("CLIENT API RESPONSE:", response.status);
+//         return response
+//     },
 
-        console.log("RUNNING INTERCEPTOR!")
+//     async (error) => {
 
-        const originalRequest = error.config as InternalAxiosRequestConfig & {
-            _retry?: boolean;
-        };
+//         console.log("RUNNING INTERCEPTOR!")
 
-        // Skip if not 401, already retried, or if the failed request IS the refresh endpoint itself
-        if (
-            error.response?.status !== 401 ||
-            originalRequest._retry ||
-            originalRequest.url?.includes("auth/refresh")
-        ) {
-            return Promise.reject(error);
-        }
+//         const originalRequest = error.config as InternalAxiosRequestConfig & {
+//             _retry?: boolean;
+//         };
 
-        originalRequest._retry = true;
+//         // Skip if not 401, already retried, or if the failed request IS the refresh endpoint itself
+//         if (
+//             error.response?.status !== 401 ||
+//             originalRequest._retry ||
+//             originalRequest.url?.includes("auth/refresh")
+//         ) {
+//             return Promise.reject(error);
+//         }
 
-        try {
-            if (!refreshPromise) {
-                //  Use plain axios to call your internal Next.js Route Handler (bypasses this interceptor)
-                refreshPromise = axios
-                    .post("/api/v1/auth/refresh", {}, {withCredentials: true, headers: {"Content-Type": "application/json"}})
-                    .then(() => undefined)
-                    .finally(() => {
-                        refreshPromise = null;
-                    });
-            }
+//         originalRequest._retry = true;
 
-            await refreshPromise;
+//         try {
+//             if (!refreshPromise) {
+//                 //  Use plain axios to call your internal Next.js Route Handler (bypasses this interceptor)
+//                 refreshPromise = axios
+//                     .post("/api/v1/auth/refresh", {}, {withCredentials: true, headers: {"Content-Type": "application/json"}})
+//                     .then(() => undefined)
+//                     .finally(() => {
+//                         refreshPromise = null;
+//                     });
+//             }
 
-            // Retry the original request
-            return axiosClient(originalRequest);
-        } catch (refreshError) {
-            console.error("Failed to refresh token:", refreshError);
+//             await refreshPromise;
 
-            if (typeof window !== "undefined") {
-                window.location.href = routes.public.login;
-            }
+//             // Retry the original request
+//             return axiosClient(originalRequest);
+//         } catch (refreshError) {
+//             console.error("Failed to refresh token:", refreshError);
 
-            // Return the rejected promise
-            return Promise.reject(refreshError);
-        }
-    }
-);
+//             if (typeof window !== "undefined") {
+//                 window.location.href = routes.public.login;
+//             }
+
+//             // Return the rejected promise
+//             return Promise.reject(refreshError);
+//         }
+//     }
+// );

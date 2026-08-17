@@ -13,7 +13,6 @@ export const register = async (input: RegisterInput, idempotencyKey: string | nu
             method: "POST",
             url: "v1/auth/register/",
             headers: {
-                "Content-Type": "application/json",
                 "Idempotency-Key": idempotencyKey
             },
         }
@@ -27,9 +26,6 @@ export const login = async (input: LoginInput) : Promise<ServiceResponse<LoginRe
         {
             method: "POST",
             url: "v1/auth/login/",
-            headers: {
-                "Content-Type": "application/json"
-            }
         }
     )
 )
@@ -41,9 +37,17 @@ export const refresh = async (input: RefreshInput) : Promise<ServiceResponse<Ref
         {
             method: "POST",
             url: "v1/auth/refresh/",
-            headers: {
-                "Content-Type": "application/json"
-            },
+        }
+    )
+}
+
+export const logout = async (input: RefreshInput) : Promise<ServiceResponse<null>> => {
+    return genericService(
+        refreshSchema,
+        input,
+        {
+            method: "POST",
+            url: "v1/auth/logout",
         }
     )
 }

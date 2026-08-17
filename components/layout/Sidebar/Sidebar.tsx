@@ -8,8 +8,12 @@ import Button from "@/components/ui/Button/Button";
 import Divider from "@/components/shared/Divider/Divider";
 import { MdLogout } from "react-icons/md";
 import BrandHeader from "@/components/shared/BrandHeader/BrandHeader";
+import { useLogout } from "@/features/auth/hooks/use-logout";
 
 const Sidebar = ({ isAdmin }: { isAdmin?: boolean }) => {
+
+  const {handleSubmit, isPending} = useLogout();
+
   return (
     <aside
       className={cn(
@@ -26,7 +30,9 @@ const Sidebar = ({ isAdmin }: { isAdmin?: boolean }) => {
         />
         <div className="m-2">
           <Divider />
-          <Button prefixIcon={MdLogout} className="p-3 mt-2 w-full" variants="danger">Logout</Button>
+          <form onSubmit={handleSubmit} method="POST">
+            <Button isLoading={isPending} type="submit" prefixIcon={MdLogout} className="p-3 mt-2 w-full" variants="danger">Logout</Button>
+          </form>
         </div>
       </nav>
     </aside>
