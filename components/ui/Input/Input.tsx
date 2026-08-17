@@ -36,7 +36,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             )}
           >
             {PrefixIcon && (
-              <PrefixIcon className="absolute left-2 translate-y-1/2 bottom-1/2 text-2xl text-black/50 z-100" />
+              <PrefixIcon className="absolute left-2 translate-y-1/2 bottom-1/2 text-2xl text-black/80 z-100" />
             )}
             <input
               {...props}

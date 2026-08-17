@@ -21,6 +21,7 @@ export const routes = {
   public:{
     login: "/login",
     register: "/register",
-    forgotPassword: "/forgot-password"
+    forgotPassword: "/forgot-password",
+    resetPassword: "/reset-password"
   }
 };

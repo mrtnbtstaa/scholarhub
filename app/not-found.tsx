@@ -1,14 +1,8 @@
-"use client";
-
 import Image from 'next/image'
 import Heading from '@/components/shared/Heading/Heading'
-import { useRouter } from 'next/navigation'
-import Button from '@/components/ui/Button/Button'
-import { ICONS } from '@/lib/constants/icons';
-
+import BackButton from '@/components/shared/BackButton/BackButton';
 
 export default function NotFound() {
-  const router = useRouter()
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
         <div className="relative w-112 h-112">
@@ -24,9 +18,7 @@ export default function NotFound() {
             Page Not Found
         </Heading>
         <p className="tracking-wider text-md text-gray-500 text-center">The scholarship opportunity or page you are looking for has moved or no longer exists. Let{"'"} get you back on track.</p>
-        <Button onClick={() => router.back()} suffixIcon={ICONS.MdArrowForward} className="w-full max-w-sm p-3 mt-4">
-            Go Back
-        </Button>
+        <BackButton title="Go Back" />
     </div>
   )
 }

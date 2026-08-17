@@ -7,6 +7,11 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
 
+const _routes = [
+  routes.public.forgotPassword,
+  routes.public.resetPassword
+]
+
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   const path = usePathname();
   console.log("CUrrent path", path);
@@ -17,7 +22,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         // min-h-screen
       )
     }>
-      {path !== routes.public.forgotPassword && <div className="md:w-1/2 md:flex flex-col w-full h-screen md:h-disabled min-h-screen md:min-h-0 hidden">
+      {!_routes.includes(path) && <div className="md:w-1/2 md:flex flex-col w-full h-screen md:h-disabled min-h-screen md:min-h-0 hidden">
         <div className="bg-btn-primary p-6 md:p-12 flex flex-col justify-center w-full">
           <div className="inline-flex gap-2 items-center mt-4">
             <FaGraduationCap className="text-white/50 text-4xl" />

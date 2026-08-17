@@ -47,7 +47,7 @@ export const genericService = async <T = null, M = null> (
                 status: response.status,
             }
         }
-        
+        console.error("ERROR FOUND!!!", apiData.error_code)
         // Error response
         return {
             success: false,
@@ -59,6 +59,7 @@ export const genericService = async <T = null, M = null> (
         };
         
     }catch(error){
+        console.error("ERROR FOUND!!!", error)
         if(axios.isAxiosError<ApiResponse<never, M>>(error)){
             const errorResponse = error.response?.data;
             return {

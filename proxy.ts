@@ -42,8 +42,6 @@ function isTokenExpired(token: string) : boolean {
 
 export async function proxy(request: NextRequest) {
 
-  console.log("PROXY RUNNING!")
-
   const path = request.nextUrl.pathname;
 
   const isPublicRoutes = publicRoutes.includes(path)
@@ -71,7 +69,6 @@ export async function proxy(request: NextRequest) {
 
   // Public routes and has access token automatically redirect to protected routes 
   if(isPublicRoutes && accessToken){
-    console.log("Inside public routes")
     return NextResponse.redirect(new URL(routes.student.dashboard, request.nextUrl))
   }
 

@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button/Button";
 import Divider from "@/components/shared/Divider/Divider";
 import { MdLogout } from "react-icons/md";
 import BrandHeader from "@/components/shared/BrandHeader/BrandHeader";
-import { useLogout } from "@/features/auth/hooks/use-logout";
+import { useLogout } from "@/features/auth/hooks/use-auth";
 
 const Sidebar = ({ isAdmin }: { isAdmin?: boolean }) => {
 
