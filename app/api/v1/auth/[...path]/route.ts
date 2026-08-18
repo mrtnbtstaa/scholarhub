@@ -1,4 +1,4 @@
-import { login, refresh, register } from "@/features/auth/services/auth.service";
+import { login, logout, refresh, register } from "@/features/auth/services/auth.service";
 import { ENDPOINTS } from "@/lib/constants/endpoints";
 import { cookies, headers } from "next/headers";
 import { NextResponse } from "next/server";
@@ -67,10 +67,30 @@ export async function POST(
             return NextResponse.json(result, {status: result.status})
         }
 
-        if(path.includes(ENDPOINTS.logout)){
+        if (path.includes(ENDPOINTS.logout)) {
+        
+          const cookieStore = await cookies();
+        
+          const refreshToken = cookieStore.get("refresh_token")?.value;
+        
+          const clear = () => {
+            cookieStore.delete("access_token");
+            cookieStore.delete("refresh_token");
+          };
 
+          if (!refreshToken) {
+            clear();
+            return NextResponse.json(
+              { success: true, message: "Logged out", status: 200 },
+              { status: 200 }
+            );
+          }
 
+          const result = await logout({ refresh: refreshToken });
 
+          clear();
+
+          return NextResponse.json(result, { status: result.status });
         }
 
         if(path.includes(ENDPOINTS.refreshToken)){
