@@ -1,4 +1,4 @@
-import { axiosClient } from "@/lib/client/axios.client";
+import { serverApi } from "@/lib/api/api-server";
 import { ApiResponse } from "@/types/api/api.response";
 import { ServiceResponse } from "@/types/service/service.response";
 import axios, { AxiosRequestConfig } from "axios";
@@ -23,7 +23,7 @@ export const genericService = async <T = null, M = null> (
 
     try{
 
-        const response = await axiosClient.request<ApiResponse<T, M>>({
+        const response = await serverApi.request<ApiResponse<T, M>>({
             ...config,
             data: result.data
         })
