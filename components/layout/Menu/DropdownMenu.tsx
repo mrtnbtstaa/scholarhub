@@ -1,13 +1,17 @@
 import Card from "@/components/shared/Card/Card";
 import Button from "@/components/ui/Button/Button";
 import Navigate from "@/components/ui/Navigate/Navigate";
+import { ADMIN_SIDEBAR_MENUS } from "@/data/adminSidebarMenu";
+import { STUDENT_SIDEBAR_MENUS } from "@/data/studentSidebarMenu";
+import { useAuthStore } from "@/features/auth/store/authStore";
 import { cn } from "@/lib/helpers/cn";
 import { useDropdownMenuStore } from "@/store/useDropdownMenuStore";
-import { MenuProps } from "@/types/shared/menu.types";
 import { MdLogout } from "react-icons/md";
 
-const DropdownMenu = ({ menus }: { menus: MenuProps[] }) => {
+const DropdownMenu = () => {
+  const user = useAuthStore((state) => state.user);
   const isMenuOpen = useDropdownMenuStore((state) => state.isMenuOpen);
+  const menus = user?.role === "admin" ? ADMIN_SIDEBAR_MENUS : STUDENT_SIDEBAR_MENUS;
   return (
     <Card
       variants="custom"

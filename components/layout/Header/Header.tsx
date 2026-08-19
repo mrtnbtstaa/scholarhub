@@ -5,8 +5,11 @@ import { MdNotifications } from "react-icons/md";
 import MenuButton from "../Menu/MenuButton";
 import { useNotificationDropdownStore } from "@/store/useNotificationDropdownStore";
 import Notification from "@/features/notifications/Notification";
+import { useAuthStore } from "@/features/auth/store/authStore";
 
 const Header = () => {
+  const user = useAuthStore((state) => state.user);
+  console.log(`User: ${user?.email}`)
   const isNotificationOpen = useNotificationDropdownStore((state) => state.isNotificationOpen);
   const {toggleNotification} = useNotificationDropdownStore((state) => state.action);
 

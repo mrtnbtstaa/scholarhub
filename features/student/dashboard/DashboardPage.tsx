@@ -13,7 +13,7 @@ const DashboardPage = () => {
         <PageHeader
           title="Dashboard"
           description="Welcome back, Martin! 🌟
-Your Fulbright dream is calling, and your scholarship is just around the corner—let’s go find it!"
+          Your Fulbright dream is calling, and your scholarship is just around the corner—let’s go find it!"
         />
       </div>
       <Stats />

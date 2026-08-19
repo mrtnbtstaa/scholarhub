@@ -13,14 +13,29 @@ interface NavigateProps extends ComponentPropsWithoutRef<typeof Link> {
   prefixIcon?: ElementType;
   variants?:
     | "primary"
-    | "secondary"
-    | "success"
     | "redirect"
     | "sidebar"
     | "default"
     | "outlined"
     | "custom";
 }
+
+const variantStyles: Record<
+  NonNullable<NavigateProps["variants"]>,
+  string
+> = {
+  primary: "bg-btn-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md",
+  redirect: "text-secondary tracking-wide font-medium text-md",
+  sidebar: "",
+  default: "text-gray-600 tracking-wide text-md font-semibold",
+  outlined: "font-semibold border border-btn-primary rounded-lg text-md",
+  custom: "",
+};
+
+const sidebarStyles = {
+  active: "tracking-wider font-medium bg-btn-primary w-full p-3 text-white rounded-lg",
+  inactive: "ml-2",
+};
 
 const Navigate = ({
   children,
@@ -32,53 +47,52 @@ const Navigate = ({
   href,
   ...props
 }: NavigateProps) => {
+  const pathname = usePathname();
 
-  const path = usePathname();
+  const hrefString = typeof href === "string" ? href : href?.pathname ?? "";
 
-  const hrefString = typeof href === "string" ? href : href.pathname || "";
-  const isActive = hrefString === "/" ? path === "/" : path.startsWith(hrefString);
+  const isActive = hrefString === "/" ? pathname === "/" : pathname.startsWith(hrefString);
+
+  const isSidebar = variants === "sidebar";
+
+  const content = SuffixIcon ? (
+    <div className="inline-flex items-center gap-4">
+      <SuffixIcon
+        className={cn(
+          "text-2xl",
+          isActive ? "text-white" : "text-black"
+        )}
+      />
+      {children}
+    </div>
+  ) : PrefixIcon ? (
+    <div className="inline-flex items-center gap-2">
+      {children}
+      <PrefixIcon
+        className={cn("text-2xl text-white", prefixClassName)}
+      />
+    </div>
+  ) : (
+    children
+  );
 
   return (
     <Link
       href={href}
       {...props}
       className={cn(
-        className,
         "leading-none",
-        !isActive && variants === "sidebar" && "ml-2",
-        // Conditional styles based on variants and isActive
-        variants === "redirect" && cn("text-secondary tracking-wide font-medium text-md", className),
-        variants === "sidebar" && isActive && "tracking-wider font-medium bg-btn-primary w-full p-3 text-white rounded-lg",
-        variants === "primary" && cn("bg-btn-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md", className),
-        variants === "default" && "text-gray-600 tracking-wide text-md font-semibold",
-        variants === "outlined" && cn("font-semibold border border-btn-primary rounded-lg text-md", className),
-        variants === "success" && "bg-[#006c49] rounded-lg text-white text-center font-semibold"
+        variantStyles[variants],
+
+        isSidebar &&
+          (isActive
+            ? sidebarStyles.active
+            : sidebarStyles.inactive),
+
+        className
       )}
     >
-      {SuffixIcon ? (
-        <div className="inline-flex gap-4 items-center">
-          {
-            <SuffixIcon
-              className={cn(
-                "text-2xl",
-                isActive ? "text-white" : "text-black",
-              )}
-            />
-          }
-          {children}
-        </div>
-      ) : PrefixIcon ? (
-        <div className="inline-flex gap-2 items-center">
-          {children}
-          {
-            <PrefixIcon
-              className={cn("text-2xl text-white", prefixClassName)}
-            />
-          }
-        </div>
-      ) : (
-        children
-      )}
+      {content}
     </Link>
   );
 };

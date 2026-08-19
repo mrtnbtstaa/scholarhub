@@ -14,7 +14,6 @@ const _routes = [
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   const path = usePathname();
-  console.log("CUrrent path", path);
   return (
     <div className={
       cn(

@@ -7,7 +7,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
   suffixIcon?: ElementType;
   prefixIcon?: ElementType;
   iconClass?: string;
-  variants?: "primary" | "secondary" | "outlined" | "danger" | "custom";
+  variants?: "primary" | "outlined" | "danger" | "custom";
   isLoading?: boolean;
 }
 
@@ -34,6 +34,13 @@ const Spinner = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const variantStyle: Record<NonNullable<ButtonProps["variants"]>, string> = {
+  primary: "bg-btn-primary text-white text-center p-2",
+  outlined: "border border-gray-600/50 hover:border-btn-primary rounded-lg p-2 transition-colors duration-150 mb-4",
+  danger: "bg-red-600 text-white p-3",
+  custom: ""
+}
+
 const Button = ({
   className,
   children,
@@ -53,11 +60,7 @@ const Button = ({
       disabled={isButtonDisabled}
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-md outline-none cursor-pointer transition-all duration-150",
-        // Variants
-        variants === "primary" && "bg-btn-primary text-white text-center p-2",
-        variants === "outlined" &&
-          "border border-gray-600/50 hover:border-btn-primary rounded-lg p-2 transition-colors duration-150 mb-4",
-        variants === "danger" && "bg-red-600 text-white p-3",
+        variantStyle[variants],        
         // Disabled & Loading state
         isButtonDisabled && "opacity-70 cursor-not-allowed pointer-events-none",
         className

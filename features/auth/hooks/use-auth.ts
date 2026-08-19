@@ -1,63 +1,89 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { LoginResponse } from "../types/auth-response.types";
 import { ApiResponse } from "@/types/api/api.response";
 import { AxiosError } from "axios";
 import showToast from "@/lib/toast/show.toast";
 import { routes } from "@/lib/constants/routes";
-import { useRef } from "react";
 import { LoginInput, loginSchema } from "../schema/login.schema";
 import { forgotPassword, login, logout, register, resetPassword } from "../api/auth.api";
 import { RegisterInput, registerSchema } from "../schema/register.schema";
 import { ForgotPasswordInput, forgotPasswordSchema } from "../schema/forgot-password.schema";
 import { ResetPasswordInput, resetPasswordSchema } from "../schema/reset-password.schema";
+import { USER_ROLE } from "@/lib/constants/user-role";
+import { useAuthStore } from "../store/authStore";
+import { useIdempotencyKey } from "@/hooks/useIdempotencyKey";
 
 export const useLogin = () => {
 
-    const router = useRouter();
+  const setAuth = useAuthStore((state) => state.setAuth);
 
-    const form = useForm<LoginInput>({
-        resolver: zodResolver(loginSchema),
-        defaultValues: {
-            email: "",
-            password: ""
-        }
-    })
+  const router = useRouter();
 
-    const mutation = useMutation<
+  const form = useForm<LoginInput>({
+      resolver: zodResolver(loginSchema),
+      defaultValues: {
+          email: "",
+          password: ""
+      }
+  })
+
+  const mutation = useMutation<
     ApiResponse<LoginResponse>,
     AxiosError<ApiResponse<never>>,
     LoginInput
-    >({
-        mutationFn: login,
-        onSuccess: (data) => {
-          // Show toast success
-          showToast({message: data.message, type: "success"})
-          // Reset the forms
-          form.reset()
-          // Redirect to dashboard after successfully logged in
-          router.push(routes.student.dashboard)
-        },
-        onError(error){
-          // Show toast error
-          showToast({message: error.response?.data.message ?? "Unathenticated", type: "error"})
-        }
-    })
+  >({
+    mutationFn: login,
+    onSuccess: (response) => {
 
-    const onSubmit = (data: LoginInput) => mutation.mutate(data);
+      if(!response.success) return;
 
-    return {
-        form,
-        handleSubmit: form.handleSubmit(onSubmit),
-        isPending: mutation.isPending,
-        error: form.formState.errors,
+      // Show toast success
+      showToast({message: response.message, type: "success"})
+
+      // Destructure the response data
+      const {id, email, role} = response.data;
+        
+      setAuth({
+        id: id,
+        email: email,
+        role: role,
+        profile: null
+      })
+
+      // Reset the forms
+      form.reset()
+      
+      const redirectRoute = role === USER_ROLE.ADMIN 
+        ? routes.admin.dashboard 
+        : routes.student.dashboard;
+
+      router.push(redirectRoute);
+    },
+    onError(error){
+      console.log(error.response?.data.message)
+      // Show toast error
+      showToast({message: error.response?.data.message ?? "Unauthenticated", type: "error"})
     }
+  })
+
+  const onSubmit = (data: LoginInput) => mutation.mutate(data);
+
+  return {
+      form,
+      handleSubmit: form.handleSubmit(onSubmit),
+      isPending: mutation.isPending,
+      error: form.formState.errors,
+  }
 
 }
 
 export const useRegister = () => {
+
+  const router = useRouter();
+
   const form = useForm<RegisterInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -66,26 +92,31 @@ export const useRegister = () => {
       email: "",
       password: "",
       confirm_password: "",
+      role: USER_ROLE.STUDENT
     },
   });
 
-  // One key for the current registration operation
-  // Normal re-renders the key will not change unless page refresh causes the component to mount again then only the key will change.
-  const idempotencyKey = useRef<string>(crypto.randomUUID())
+
+  const {key, regenerate} = useIdempotencyKey();
 
   const mutation = useMutation<
     ApiResponse<null>,
     AxiosError<ApiResponse<never>>,
     RegisterInput
   >({
-    mutationFn: (data) => register(data, idempotencyKey.current),
+    mutationFn: (data) => register(data, key.current),
     onSuccess: (response) => {
       // Show the toast success
       showToast({message: response.message, type: "success"});
-      // Generate new idempotency key on success
-      idempotencyKey.current = crypto.randomUUID()
+
+      // Prepare a new key for the next registration operation.
+      regenerate()
+
       // Reset the forms
       form.reset()
+
+      // Redirect to login after successfully registering an account
+      router.push(routes.public.login)
     },
     onError(error) {
       // Show the toast error
@@ -105,38 +136,48 @@ export const useRegister = () => {
 
 
 export const useLogout = () => {
+  const queryClient = useQueryClient();
+  const removeAuth = useAuthStore((state) => state.removeAuth);
 
-    const router = useRouter();
+  const router = useRouter();
 
-    const form = useForm({})
+  const form = useForm({})
 
-    const mutation = useMutation<
-    ApiResponse<null>,
-    AxiosError<ApiResponse<never>>
-    >({
-        mutationFn: logout,
-        onSuccess: (data) => {
-          // Show toast success
-          showToast({message: data.message, type: "success"});
-          // Reset the forms
-          form.reset()
-          // Redirect to login after successfully logged out
-          router.push(routes.public.login)
-        },
-        onError(error) {
-          // Show toast error
-          showToast({message: error.response?.data.message ?? "Unknown message", type: "error"})
-        },
-    })
+  const mutation = useMutation<
+  ApiResponse<null>,
+  AxiosError<ApiResponse<never>>
+  >({
+      mutationFn: logout,
+      onSuccess: (data) => {
+        // Show toast success
+        showToast({message: data.message, type: "success"});
 
-    const onSubmit = () => mutation.mutate();
+        // Remove client-side authentication state
+        removeAuth();
 
-    return {
-        form,
-        handleSubmit: form.handleSubmit(onSubmit),
-        isPending: mutation.isPending,
-        error: form.formState.errors
-    }
+        // Clear cached server state from the previous session
+        queryClient.clear();
+
+        // Reset the forms
+        form.reset()
+
+        // Redirect to login after successfully logged out
+        router.push(routes.public.login)
+      },
+      onError(error) {
+        // Show toast error
+        showToast({message: error.response?.data.message ?? "Unknown message", type: "error"})
+      },
+  })
+
+  const onSubmit = () => mutation.mutate();
+
+  return {
+      form,
+      handleSubmit: form.handleSubmit(onSubmit),
+      isPending: mutation.isPending,
+      error: form.formState.errors
+  }
 
 }
 
@@ -149,22 +190,21 @@ export const useForgotPassword = () => {
     }
   })
 
-
-  // One key for the current registration operation
-  // Normal re-renders the key will not change unless page refresh causes the component to mount again then only the key will change.
-  const idempotencyKey = useRef<string>(crypto.randomUUID())
+  const {key, regenerate} = useIdempotencyKey();
 
   const mutation = useMutation<
     ApiResponse<null>,
     AxiosError<ApiResponse<never>>,
     ForgotPasswordInput
   >({
-    mutationFn: async (data) => forgotPassword(data, idempotencyKey.current),
+    mutationFn: async (data) => forgotPassword(data, key.current),
     onSuccess: (data) => {
       // Show toast success
       showToast({message: data.message, type: "success"})
-      // Generate new idempotency key on success
-      idempotencyKey.current = crypto.randomUUID();
+
+      // Prepare a new key for the next registration operation.
+      regenerate()
+      
       // Reset the forms
       form.reset()
     },
@@ -199,21 +239,21 @@ export const useResetPassword = () => {
     }
   })
 
-  // One key for the current registration operation
-  // Normal re-renders the key will not change unless page refresh causes the component to mount again then only the key will change.
-  const idempotencyKey = useRef<string>(crypto.randomUUID())
+  const {key, regenerate} = useIdempotencyKey();
 
   const mutation = useMutation<
     ApiResponse<null>,
     AxiosError<ApiResponse<never>>,
     ResetPasswordInput
   >({
-    mutationFn: async (data) => resetPassword(data, idempotencyKey.current),
+    mutationFn: async (data) => resetPassword(data, key.current),
     onSuccess: (data) => {
       // Show toast success
       showToast({message: data.message, type: "success"})
-      // Generate new idempotency key on success
-      idempotencyKey.current = crypto.randomUUID();
+
+      // Prepare a new key for the next registration operation.
+      regenerate()
+
       // Reset the forms
       form.reset()
     },

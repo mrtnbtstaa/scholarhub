@@ -1,14 +1,8 @@
+import { serverApi } from "@/lib/axios/axios.server";
 import { ApiResponse } from "@/types/api/api.response";
 import { ServiceResponse } from "@/types/service/service.response";
 import axios, { AxiosRequestConfig } from "axios";
 import z from "zod";
-
-
-// Nextjs -> django
-const serverApi = axios.create({
-    baseURL: process.env.API_URL,
-    withCredentials: true
-})
 
 export const genericService = async <T = null, M = null> (
     schema: z.ZodType,
@@ -19,11 +13,14 @@ export const genericService = async <T = null, M = null> (
 
     const result = schema.safeParse(input)
 
-    // Zod validation
     if(!result.success){
+        console.log("Not success!");
+        const {fieldErrors, formErrors} = z.flattenError(result.error);
         return {
             success: false,
-            message: result.error.message,
+            errors: fieldErrors,
+            errorCode: "VALIDATION_ERRORS",
+            message: formErrors[0] ?? "Validation failed",
             status: 400,
         }
     }
@@ -37,20 +34,20 @@ export const genericService = async <T = null, M = null> (
 
         const apiData = response.data;
 
+        
         // Success response
         if(apiData.success){
             return {
-                success: true,
+                success: apiData.success,
                 message: apiData.message,
                 data: apiData.data,
                 meta: apiData.meta,
                 status: response.status,
             }
         }
-        console.error("ERROR FOUND!!!", apiData.error_code)
         // Error response
         return {
-            success: false,
+            success: apiData.success,
             message: apiData.message,
             errors: apiData.errors,
             errorCode: apiData.error_code ?? "UNKNOWN_ERROR",
@@ -59,7 +56,6 @@ export const genericService = async <T = null, M = null> (
         };
         
     }catch(error){
-        console.error("ERROR FOUND!!!", error)
         if(axios.isAxiosError<ApiResponse<never, M>>(error)){
             const errorResponse = error.response?.data;
             return {

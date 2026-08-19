@@ -3,7 +3,7 @@ import { routes } from "../constants/routes";
 
 // Browser -> NextJS
 export const axiosClient = axios.create({
-    baseURL: "/api/v1/", // /api/v1/
+    baseURL: "/api/", // /api/
     withCredentials: true,
 })
 

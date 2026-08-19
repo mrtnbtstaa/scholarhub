@@ -1,8 +1,10 @@
-import { BaseTimestampModel } from "./baseTimestampModel";
+import { Role } from "@/lib/constants/user-role";
 import { Profile } from "./profile";
 
 // Core User Interface (BaseUser)
-export interface BaseUser extends BaseTimestampModel {
+export interface BaseUser {
   id: string;
-  profile: Profile;   
+  role: Role;
+  email: string;
+  profile: Profile | null;   
 }
