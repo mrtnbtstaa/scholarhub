@@ -51,7 +51,7 @@ const LoginForm = () => {
             Forgot Password?
           </Navigate>
         </div>
-        <Button className="float-right w-full h-12">
+        <Button type="submit" className="float-right w-full h-12">
           Sign In
         </Button>
       </form>
