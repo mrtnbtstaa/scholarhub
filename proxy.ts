@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { routes } from './lib/constants/routes'
+import { routes } from './lib/constants/_routes'
 
 const protectedRoutes = [
   routes.student.dashboard,

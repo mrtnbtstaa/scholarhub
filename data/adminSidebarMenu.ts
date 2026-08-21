@@ -3,7 +3,7 @@ import { MdBookmark, MdDashboard, MdPerson, MdSettings } from "react-icons/md";
 import { PiCalendarFill } from "react-icons/pi";
 import { RiSearchAiFill } from "react-icons/ri";
 import { MenuProps } from "@/types/shared/menu.types";
-import { routes } from "@/lib/constants/routes";
+import { routes } from "@/lib/constants/_routes";
 
 export const ADMIN_SIDEBAR_MENUS: MenuProps[] = [
   {

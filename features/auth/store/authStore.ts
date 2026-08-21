@@ -1,6 +1,6 @@
 import { BaseUser } from "@/types/models/user";
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 interface AuthState {
   user: BaseUser | null;
@@ -24,18 +24,7 @@ export const useAuthStore = create<AuthState & AuthAction>()(
     }),
     {
       name: "scholarhub-auth-storage",
-      storage: {
-        getItem(name) {
-          const value = sessionStorage.getItem(name);
-          return value ? JSON.parse(value) : null;
-        },
-        setItem(name, value) {
-          sessionStorage.setItem(name, JSON.stringify(value));
-        },
-        removeItem(name) {
-          sessionStorage.removeItem(name);
-        },
-      },
+      storage: createJSONStorage(() => sessionStorage),
     },
   ),
 );

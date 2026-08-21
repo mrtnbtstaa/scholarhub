@@ -35,13 +35,7 @@ const LoginForm = () => {
             {...form.register("password")}
           />
         </FormField>
-        <div className="flex items-center justify-between mb-4">
-          <div className="inline-flex items-center gap-4 justify-center">
-            <Input type="checkbox" variants="secondary" className="size-4" />
-            <span className="text-sm tracking-wide text-secondary">
-              Remember me
-            </span>
-          </div>
+        <div className="flex items-end justify-end mb-4">
           <Navigate
             href="/forgot-password"
             className="text-xs"

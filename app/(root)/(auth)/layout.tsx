@@ -1,6 +1,7 @@
 "use client";
 
-import { routes } from "@/lib/constants/routes";
+import Heading from "@/components/shared/Heading/Heading";
+import { routes } from "@/lib/constants/_routes";
 import { cn } from "@/lib/helpers/cn";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -25,7 +26,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="bg-btn-primary p-6 md:p-12 flex flex-col justify-center w-full">
           <div className="inline-flex gap-2 items-center mt-4">
             <FaGraduationCap className="text-white/50 text-4xl" />
-            <h1 className="text-white font-semibold text-2xl">ScholarHub</h1>
+            <Heading className="text-white font-semibold text-2xl">ScholarHub</Heading>
           </div>
           <div>
             <p className="font-bold lg:text-4xl text-2xl text-white tracking-wide mt-4">
