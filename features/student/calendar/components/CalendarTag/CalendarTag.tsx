@@ -27,8 +27,8 @@ const CalendarTags = () => {
     <div className="flex flex-wrap items-center justify-center gap-6 mt-4">
       <Tag title="Scholarship Deadline" />
       <Tag variants="personal" title="Personal Goal" />
-      <Tag variants="document" title="Document Due" />
-      <Tag variants="interview" title="Interview" />
+      <Tag variants="document" title="Document Due Date" />
+      <Tag variants="interview" title="Others" />
     </div>
   );
 };

@@ -8,7 +8,7 @@ export const axiosClient = axios.create({
 })
 
 axiosClient.interceptors.request.use((config) => {
-    console.log("CLIENT API REQUEST:", config.url);
+    // console.log("CLIENT API REQUEST:", `${config.baseURL}${config.url}`);
     return config;
 });
 

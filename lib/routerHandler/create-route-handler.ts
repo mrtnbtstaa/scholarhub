@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
+type RouteParams = {
+    path?: string[]
+}
+
 export type HandlerContext = {
     request: NextRequest;
     isProd: boolean;
-    params: {path: string[]},
+    params: RouteParams,
     searchParams: URLSearchParams
 }
 
@@ -14,15 +18,36 @@ export type ActionHandler = (ctx: HandlerContext) => Promise<NextResponse>;
 export function createActionDispatcher(handlers: Record<string, ActionHandler>){
     return async function HTTPHandler(
         request: NextRequest,
-        {params}: {params: Promise<{path: string[]}>}
+        context: {params: Promise<RouteParams>}
     ){
         const isProd = process.env.NODE_ENV === "production";
-        const resolvedParams = await params;
-        // Extract the specific endpoint action (e.g., "register" or "login") from the route
-        const action = resolvedParams.path.at(-1);
+
+        const resolvedParams = context?.params ? await context.params : undefined;
+
+        // Filter out empty strings caused by trailing slashes
+        const pathSegments = resolvedParams?.path?.filter(Boolean) ?? []
+
+        // -----------------------------------------
+        // Determine route
+
+        // Catch all routes
+        // api/v1/auth/login/
+        // api/v1/auth/register/
+
+        // Single segment route
+        // api/v1/calendar/
+        // -----------------------------------------
+        
+        const routeKey = 
+            pathSegments.at(-1) ??
+            request.nextUrl.pathname
+            .split("/")
+            .filter(Boolean)
+            .at(-1) 
+
 
         // Validate the requested endpoint action exists in the handler map 
-        if(!action || !handlers[action]){
+        if(!routeKey || !handlers[routeKey]){
             return NextResponse.json(
                 {message: "Endpoint not found"},
                 {status: 404}
@@ -31,14 +56,14 @@ export function createActionDispatcher(handlers: Record<string, ActionHandler>){
 
         try{
             // Execute the mapped handler function
-            return await handlers[action]({
+            return await handlers[routeKey]({
                 request,
                 isProd,
-                params: resolvedParams,
+                params: resolvedParams as RouteParams,
                 searchParams: request.nextUrl.searchParams
             })
         }catch(error){
-            console.error(`[API Error - ${action}]`, error)
+            console.error(`[API Error - ${routeKey}]`, error)
             return NextResponse.json(
                 {message: "Internal server errror"},
                 {status: 500}

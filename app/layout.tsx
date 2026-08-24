@@ -34,7 +34,7 @@ export default function RootLayout({
       <body className={`antialiased ${inter.variable} ${jetbrainsMono.variable}`}>
         <ToastProvider />
         <QueryProvider>
-          {children}
+            {children}
         </QueryProvider>
       </body>
     </html>

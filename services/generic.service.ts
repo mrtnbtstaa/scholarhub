@@ -1,8 +1,58 @@
 import { serverApi } from "@/lib/axios/axios.server";
+import { routes } from "@/lib/constants/_routes";
 import { ApiResponse } from "@/types/api/api.response";
 import { ServiceResponse } from "@/types/service/service.response";
 import axios, { AxiosRequestConfig } from "axios";
+import { cookies } from "next/headers";
 import z from "zod";
+
+const whiteListed = [
+    routes.public.forgotPassword,
+    routes.public.login,
+    routes.public.register,
+    routes.public.resetPassword,
+]
+
+const buildServerRequestConfig = async (
+    config: AxiosRequestConfig,
+    data: unknown 
+): Promise<AxiosRequestConfig<unknown, unknown>> => {
+
+    const cookieStore = await cookies();
+
+    const accessToken = cookieStore.get("access_token")?.value;
+
+    const requestUrl = config.url ?? "";
+
+    const isPublicRoute = whiteListed.some((route) => 
+        requestUrl.startsWith(route)
+    )
+
+    const requestHeaders = new Headers();
+
+    // Copy existing headers
+    if(config.headers){
+        const existingHeaders = config.headers as Record<string, string>
+
+        Object.entries(existingHeaders).forEach(([key, value]) => {
+            requestHeaders.set(key, value)
+        })
+    }
+
+    // Automatically inject Authorization from the protected routes
+    if(!isPublicRoute && accessToken){
+        requestHeaders.set("Authorization", `Bearer ${accessToken}`);
+    }
+
+    const _config: AxiosRequestConfig = {
+        ...config,
+        headers: Object.fromEntries(requestHeaders.entries()),
+        data: data
+    }
+
+    return _config;
+
+}
 
 export const genericService = async <T = null, M = null> (
     schema: z.ZodType,
@@ -14,7 +64,6 @@ export const genericService = async <T = null, M = null> (
     const result = schema.safeParse(input)
 
     if(!result.success){
-        console.log("Not success!");
         const {fieldErrors, formErrors} = z.flattenError(result.error);
         return {
             success: false,
@@ -25,16 +74,14 @@ export const genericService = async <T = null, M = null> (
         }
     }
 
+    const requestConfig = await buildServerRequestConfig(config, result.data);
+
     try{
 
-        const response = await serverApi.request<ApiResponse<T, M>>({
-            ...config,
-            data: result.data
-        })
+        const response = await serverApi.request<ApiResponse<T, M>>(requestConfig)
 
         const apiData = response.data;
 
-        
         // Success response
         if(apiData.success){
             return {
