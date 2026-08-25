@@ -8,12 +8,16 @@ import { cn } from "@/lib/helpers/cn";
 import { CiCircleCheck } from "react-icons/ci";
 import CloseButton from "@/components/shared/CloseButton/CloseButton";
 import { useDisableScroll } from "@/hooks/useDisableScroll";
+import { useGetCalendarEvent, useUpdateCalendarEvent } from "../../hooks/use-events";
+import { formatDate, formatTime } from "@/lib/helpers/formatter";
+import { capitalize } from "@/lib/helpers/helper";
 
 const RightSidebar = () => {
   const { setSidebar } = useRightSidebarStore((state) => state.action);
   const toggleSideBar = useRightSidebarStore((state) => state.toggleSideBar);
-
   useDisableScroll(toggleSideBar);
+  const { data } = useGetCalendarEvent();
+  const {markEventAsCompleted, isPending} = useUpdateCalendarEvent();
 
   return (
     <div
@@ -28,30 +32,27 @@ const RightSidebar = () => {
         className="p-6 min-h-full w-96 top-0 right-0 bg-white absolute overflow-hidden flex flex-col justify-between"
       >
         <div>
-          <div className="flex items-center gap-2 justify-between">
-            <div className="px-4 py-1 rounded-full bg-[#fef8c2]">
-              <span className="text-[#966526] text-xs font-semibold tracking-widest">
-                INTERVIEW
-              </span>
-            </div>
+          <div className="flex items-center gap-2 justify-end">
             <CloseButton onClick={() => setSidebar(false)} />
           </div>
-          <div className="mt-8">
-            <h3 className="text-gray-600 font-semibold tracking-wider text-md">
-              Embassy Appt
-            </h3>
+          <div>
+            <div className="px-4 py-2 rounded-full bg-[#fef8c2] inline-block mb-2">
+              <h3 className="text-[#966526] text-xs font-semibold tracking-widest">
+                {data?.title}
+              </h3>
+            </div>
             <div className="flex items-start gap-2">
               <div className="flex items-center gap-1">
                 <IoMdCalendar className="text-gray-600" />
                 <p className="text-sm text-gray-600 tracking-wider">
-                  September 18, 2026
+                  {formatDate(data?.start)}
                 </p>
               </div>
               <span>•</span>
               <div className="flex items-center gap-1">
                 <IoTimer className="text-gray-600" />
                 <p className="text-sm text-gray-600 tracking-wider">
-                  10:30 AM{" "}
+                  {formatTime(data?.extendedProps?.time)}{" "}
                 </p>
               </div>
             </div>
@@ -61,9 +62,23 @@ const RightSidebar = () => {
               Status
             </h3>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#f2d36e]"></div>
-              <p className="text-[#844d0f] text-md tracking-wider leading-none font-semibold">
-                Pending Submission
+              <div
+                className={cn(
+                  "w-2 h-2 rounded-full",
+                  data?.extendedProps?.status === "pending"
+                    ? "bg-[#f2d36e]"
+                    : "bg-green-600",
+                )}
+              ></div>
+              <p
+                className={cn(
+                  "text-md tracking-wider leading-none font-semibold",
+                  data?.extendedProps?.status === "pending"
+                    ? "text-[#844d0f]"
+                    : "text-green-600",
+                )}
+              >
+                {capitalize(data?.extendedProps?.status)}
               </p>
             </div>
           </div>
@@ -72,18 +87,23 @@ const RightSidebar = () => {
               Notes
             </h3>
             <p className="text-sm tracking-wider text-gray-600 leading-5 font-normal">
-              Letter is required for the application. Please ensure all
-              documents are scanned correctly.
+              {data?.extendedProps?.description
+                ? data?.extendedProps?.description
+                : "No notes provided."}
             </p>
           </div>
         </div>
-        <Button
-          variants="custom"
-          className="p-3   bg-[#006c49] w-full text-white font-medium text-sm tracking-wider text-center"
-          suffixIcon={CiCircleCheck}
-        >
-          Mark as Completed
-        </Button>
+          <Button
+            disabled={data?.extendedProps?.status === "completed"}
+            onClick={markEventAsCompleted}
+            variants="primary"
+            className="p-3"
+            suffixIcon={CiCircleCheck}
+            type="submit"
+            isLoading={isPending}
+          >
+            Mark as Completed
+          </Button>
       </div>
     </div>
   );

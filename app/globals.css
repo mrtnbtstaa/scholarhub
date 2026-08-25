@@ -30,6 +30,7 @@
   }
 } */
 
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -39,4 +40,10 @@ body {
 .no-scroll{
   overflow: hidden;
   scrollbar-gutter: stable; /* Keeps layout from shifting */
+}
+
+.fc-event,
+.fc-event .fc-event-main {
+  background-color: transparent !important;
+  border: none !important;
 }
