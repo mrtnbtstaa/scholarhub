@@ -60,9 +60,8 @@ export const genericService = async <T = null, M = null> (
     config: AxiosRequestConfig,
 
 ): Promise<ServiceResponse<T, M>> => {
-  const result = schema.safeParse(input);
 
-    const result = schema.safeParse(input)
+  const result = schema.safeParse(input);
 
     if(!result.success){
         const {fieldErrors, formErrors} = z.flattenError(result.error);
@@ -117,30 +116,4 @@ export const genericService = async <T = null, M = null> (
         }
         throw error;
     }
-    // Error response
-    return {
-      success: apiData.success,
-      message: apiData.message,
-      errors: apiData.errors,
-      errorCode: apiData.error_code ?? "UNKNOWN_ERROR",
-      meta: apiData.meta,
-      status: response.status,
-    };
-  } catch (error) {
-    if (axios.isAxiosError<ApiResponse<never, M>>(error)) {
-      const errorResponse = error.response?.data;
-      return {
-        success: false,
-        message: errorResponse?.message ?? error.message,
-        errors: errorResponse?.success === false ? errorResponse.errors : {},
-        meta: errorResponse?.meta,
-        errorCode:
-          errorResponse?.success === false
-            ? errorResponse.error_code
-            : "UNKNOWN_CODE",
-        status: error.response?.status ?? 500,
-      };
-    }
-    throw error;
-  }
-};
+  } 
