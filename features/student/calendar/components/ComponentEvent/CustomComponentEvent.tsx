@@ -3,31 +3,30 @@ import { cn } from "@/lib/helpers/cn";
 
 interface ComponentEventProps {
   title: string;
-  type?: "document" | "interview" | "goal" | "deadline";
+  type?: "scholarship deadline" | "personal goal" | "document due date" | "others";
 }
 
 const CustomComponentEvent = ({
-  title, type = "document"
+  title, type = "scholarship deadline"
 }: ComponentEventProps) => {
-
 
   return (
     <div
       className={cn(
         "p-2 rounded-full border-l-3 text cursor-default",
-        type === "document" && "bg-[#fef8c2] border-[#eec33b]",
-        type === "interview" && "bg-[#f3e8ff] border-[#a954f7]",
-        type === "goal" && "bg-[#ddfde7] border-[#22c55e]",
-        type === "deadline" && "bg-[#dbeafe] border-[#3b82f6]",
+        type === "scholarship deadline" && "bg-[#fef8c2] border-[#eec33b]",
+        type === "personal goal" && "bg-[#f3e8ff] border-[#a954f7]",
+        type === "document due date" && "bg-[#ddfde7] border-[#22c55e]",
+        type === "others" && "bg-[#dbeafe] border-[#3b82f6]",
       )}
     >
       <h4
         className={cn(
           "truncate",
-          type === "document" && "text-[#956a70]",
-          type === "interview" && "text-[#783bac]",
-          type === "goal" && "text-[#2894ae]",
-          type === "deadline" && "text-[#3053b4]",
+          type === "scholarship deadline" && "text-[#956a70]",
+          type === "personal goal" && "text-[#783bac]",
+          type === "document due date" && "text-[#2894ae]",
+          type === "others" && "text-[#3053b4]",
         )}
       >
         {title}

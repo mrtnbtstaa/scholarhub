@@ -5,7 +5,7 @@ import CalendarTags from "../CalendarTag/CalendarTag";
 import CustomComponentEvent from "../ComponentEvent/CustomComponentEvent";
 import CalendarHeader from "../CalendarHeader/CalendarHeader";
 import { useRef, useState } from "react";
-import FullCalendar, { CalendarRef, EventInput } from "@fullcalendar/react";
+import FullCalendar, { CalendarRef } from "@fullcalendar/react";
 import themePlugin from "@fullcalendar/react/themes/monarch";
 import dayGridPlugin from "@fullcalendar/react/daygrid";
 import TimeGridPlugin from "@fullcalendar/react/timegrid";
@@ -13,33 +13,15 @@ import "@fullcalendar/react/skeleton.css";
 import "@fullcalendar/react/themes/monarch/theme.css";
 import "@fullcalendar/react/themes/monarch/palettes/purple.css";
 import { useRightSidebarStore } from "../../store/useRightSidebarStore";
-
-const sampleEvents: EventInput[] = [
-  {
-    id: "1",
-    title: "Sprint Planning",
-    start: "2026-07-20T10:00:00",
-    end: "2026-07-20T11:30:00",
-    extendedProps: { type: "deadline" },
-  },
-  {
-    id: "2",
-    title: "SDLC",
-    type: "interview",
-    start: "2026-07-25T10:00:00",
-    end: "2026-07-25T11:30:00",
-    extendedProps: { type: "document" },
-  },
-];
+import {  useListCalendarEvent } from "../../hooks/use-events";
 
 const Calendar = () => {
-  const { setSidebar } = useRightSidebarStore((state) => state.action);
 
+  const { setSidebar, setId } = useRightSidebarStore((state) => state.action);
   const calendarRef = useRef<CalendarRef>(null);
-  const [currentView, setCurrentView] = useState<
-    "dayGridMonth" | "timeGridWeek" | "timeGridDay"
-  >("dayGridMonth");
+  const [currentView, setCurrentView] = useState<"dayGridMonth" | "timeGridWeek" | "timeGridDay">("dayGridMonth");
   const [currentTitle, setCurrentTitle] = useState("");
+  const { listCalendarEvents, handlePreviousMonth, handleNextMonth } =  useListCalendarEvent();
 
   return (
     <Card as="section" className="mt-4 p-4">
@@ -48,11 +30,14 @@ const Calendar = () => {
         currentView={currentView}
         setCurrentView={setCurrentView}
         currentTitle={currentTitle}
+        handleNextMonth={handleNextMonth}
+        handlePreviousMonth={handlePreviousMonth}
       />
       <CalendarTags />
       <Card className="mt-4 p-4 w-full" variants="custom">
         <FullCalendar
           ref={calendarRef}
+          className="bg-transparent!"
           plugins={[themePlugin, dayGridPlugin, TimeGridPlugin]}
           initialView={currentView}
           headerToolbar={false}
@@ -66,19 +51,17 @@ const Calendar = () => {
             );
           }}
           datesSet={(dateInfo) => setCurrentTitle(dateInfo.view.title)}
-          events={sampleEvents}
+          events={listCalendarEvents}
           eventClick={(info) => {
+            setId(info.event.id)
             info.jsEvent.preventDefault();
             setSidebar(true);
           }}
           eventContent={(eventInfo) => {
-            const props = eventInfo.event.extendedProps as {
-              type?: "document" | "interview" | "goal" | "deadline";
-            };
             return (
               <CustomComponentEvent
                 title={eventInfo.event.title}
-                type={props.type}
+                type={eventInfo.event.extendedProps.type}
               />
             );
           }}

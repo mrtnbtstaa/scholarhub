@@ -2,7 +2,7 @@ import Checkbox from "@/components/ui/Checkbox/Checkbox";
 
 const ScholarshipCountrySelect = () => {
   return (
-    <div className="mt-4 flex flex-col items-start justify-start gap-2">
+    <div className="mt-4 flex flex-col items-start justify-start gap-2 ml-1">
       <h2 className="text-xs font-semibold tracking-wider text-gray-700">
         COUNTRY
       </h2>

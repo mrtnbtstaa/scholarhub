@@ -5,13 +5,14 @@ import { MdNotifications } from "react-icons/md";
 import MenuButton from "../Menu/MenuButton";
 import { useNotificationDropdownStore } from "@/store/useNotificationDropdownStore";
 import Notification from "@/features/notifications/Notification";
-import { useAuthStore } from "@/features/auth/store/authStore";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
-  const user = useAuthStore((state) => state.user);
-  console.log(`User: ${user?.email}`)
+
   const isNotificationOpen = useNotificationDropdownStore((state) => state.isNotificationOpen);
   const {toggleNotification} = useNotificationDropdownStore((state) => state.action);
+  
+  const {user, hasHydrated} = useAuth();
 
   return (
     <header className="bg-[#ffffff] flex items-center md:justify-end justify-between w-full md:p-4 p-2 border-b border-primary-border sticky top-0 z-200 mb-4">
@@ -34,10 +35,10 @@ const Header = () => {
           <div className="md:flex hidden items-center gap-2">
             <div>
               <h4 className="text-slate-900 text-sm tracking-wider whitespace-nowrap leading-none">
-                Alex Rivera
+                {!hasHydrated ? "Johndoe@gmail.com" : user?.email}
               </h4>
               <span className="text-xs tracking-wider text-gray-500 leading-none">
-                ADMIN
+                {!hasHydrated ? "Student": user?.role}
               </span>
             </div>
             <Avatar

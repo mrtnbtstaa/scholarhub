@@ -4,7 +4,8 @@ export function getInitials(word: string) : string {
 }
 
 // A string return type function that will capitalized the word (e.g., martin -> (Martin))
-export function capitalize(word: string) : string {
+export function capitalize(word: string) : string | null {
+    if(!word || word.length === 0) return null;
     return `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`
 }
 
