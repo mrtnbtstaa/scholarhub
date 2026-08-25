@@ -57,16 +57,7 @@ export const refresh = async (input: RefreshInput) : Promise<ServiceResponse<Ref
     )
 }
 
-export const logout = async (input: RefreshInput) : Promise<ServiceResponse<null>> => {
-    return genericService(
-        refreshSchema,
-        input,
-        {
-            method: "POST",
-            url: "v1/auth/logout/",
-        }
-    )
-}
+
 
 export const forgotPassword = async (input: ForgotPasswordInput, idempotencyKey: string | null) : Promise<ServiceResponse<null>> => {
     return genericService(
