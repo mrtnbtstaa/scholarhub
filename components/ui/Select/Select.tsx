@@ -8,6 +8,8 @@ interface SelectProps<T> extends ComponentPropsWithoutRef<"select"> {
   className?: string;
 }
 
+
+
 const Select = <T extends GenericSelect>({
   data,
   variants = "primary",
@@ -19,12 +21,9 @@ const Select = <T extends GenericSelect>({
       {...props}
       className={cn(
         "py-3 px-2 w-full",
-        variants === "primary" &&
-          cn(
-            "border border-[#c5c7cf] focus-visible:border-secondary rounded-lg outline-none bg-[#fefffe]",
-            className,
-          ),
-        variants === "default" && cn("outline-none", className),
+        variants === "primary" && "border border-[#c5c7cf] focus-visible:border-secondary rounded-lg outline-none bg-[#fefffe]",
+        variants === "default" && "outline-none",
+        className
       )}
     >
       {data &&

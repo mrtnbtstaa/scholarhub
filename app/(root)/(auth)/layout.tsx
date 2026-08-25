@@ -1,15 +1,32 @@
+"use client";
+
+import Heading from "@/components/shared/Heading/Heading";
+import { routes } from "@/lib/constants/_routes";
+import { cn } from "@/lib/helpers/cn";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
 
+const _routes = [
+  routes.public.forgotPassword,
+  routes.public.resetPassword
+]
+
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
+  const path = usePathname();
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between min-h-screen">
-      <div className="md:w-1/2 md:flex flex-col w-full h-screen md:h-disabled min-h-screen md:min-h-0 hidden">
+    <div className={
+      cn(
+        "flex flex-col md:flex-row items-center justify-between",
+        // min-h-screen
+      )
+    }>
+      {!_routes.includes(path) && <div className="md:w-1/2 md:flex flex-col w-full h-screen md:h-disabled min-h-screen md:min-h-0 hidden">
         <div className="bg-btn-primary p-6 md:p-12 flex flex-col justify-center w-full">
           <div className="inline-flex gap-2 items-center mt-4">
             <FaGraduationCap className="text-white/50 text-4xl" />
-            <h1 className="text-white font-semibold text-2xl">ScholarHub</h1>
+            <Heading className="text-white font-semibold text-2xl">ScholarHub</Heading>
           </div>
           <div>
             <p className="font-bold lg:text-4xl text-2xl text-white tracking-wide mt-4">
@@ -27,11 +44,11 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
             src={"/assets/hero.png"}
             fill
             loading="eager"
-            priority
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover aspect-square"
           />
         </div>
-      </div>
+      </div>}
       <div className="md:w-1/2 w-full h-screen">{children}</div>
     </div>
   );

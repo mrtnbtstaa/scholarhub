@@ -10,9 +10,8 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
   return (
     <Input
       {...props}
-      withIcon={false}
       type="checkbox"
-      variants="custom"
+      variant="custom"
       className={cn(
         className,
         "scale-115 accent-btn-primary utline-none border-none rounded-full appearance-none w-full",

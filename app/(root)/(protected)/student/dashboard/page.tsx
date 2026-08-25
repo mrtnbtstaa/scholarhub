@@ -1,6 +1,6 @@
 import DashboardPage from "@/features/student/dashboard/DashboardPage";
 
-const Page = () => {
+const Page = async () => {
     return <DashboardPage />
 }
 

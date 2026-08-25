@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button/Button";
 import { useState } from "react";
 import NotificationList from "./components/NotificationList";
 import { NoticationLabel } from "./types/notificationsData";
-import { capitalize } from "@/lib/helpers/utils";
+import { capitalize } from "@/lib/helpers/helper";
 
 
 const notificationBtns: NoticationLabel[] = [

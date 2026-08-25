@@ -18,7 +18,7 @@ export interface StudentDocument extends BaseTimestampModel {
   originalFileName: string;
   storageFileName: string;
   fileUrl: string;
-  fileSize: string;
+  fileSize: number;
   mimeType: string;
   status: "uploaded" | "pending" | "verified" | "rejected";
 }

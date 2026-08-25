@@ -2,9 +2,9 @@
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
 import { cn } from "@/lib/helpers/cn";
-import { routes } from "@/lib/constants/routes";
+import { routes } from "@/lib/constants/_routes";
 import { buildColumns } from "@/lib/table/columnBuilder";
-import { getInitials } from "@/lib/helpers/utils";
+import { getInitials } from "@/lib/helpers/helper";
 
 interface ApplicationTableData {
   id: string;
