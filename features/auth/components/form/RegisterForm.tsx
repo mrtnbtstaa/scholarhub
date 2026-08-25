@@ -4,18 +4,16 @@ import Button from "@/components/ui/Button/Button";
 import FormField from "@/components/ui/FormField/FormField";
 import Input from "@/components/ui/Input/Input";
 import Label from "@/components/ui/Label/Label";
-import { useState } from "react";
 import AuthFooter from "../AuthFooter";
-import { useRegister } from "../../hooks/use-register";
 import { ICONS } from "@/lib/constants/icons";
+import { useRegister } from "../../hooks/use-auth";
+import PasswordField from "@/components/shared/PasswordField/PasswordField";
 
 const RegisterForm = () => {
-  const [toggleVisibility, setToggleVisibility] = useState<boolean>(false);
-  const [toggleConfirmVisibility, setToggleConfirmVisibility] = useState<boolean>(false);
-  const { form, onSubmit, isPending, error } = useRegister();
+  const { form, handleSubmit, isPending, error } = useRegister();
   return (
     <>
-      <form method="POST" className="mt-4 w-full" onSubmit={onSubmit}>
+      <form method="POST" className="mt-4 w-full" onSubmit={handleSubmit}>
         <div className="flex items-center gap-4 w-full">
           <FormField className="flex-1" error={error.first_name}>
             <Label isRequired={true} htmlFor="firstName">Firstname</Label>
@@ -56,35 +54,17 @@ const RegisterForm = () => {
         </FormField>
         <FormField error={error.password}>
           <Label isRequired={true} htmlFor="password">Password</Label>
-          <Input
+          <PasswordField
             id="password"
-            type={toggleVisibility ? "text" : "password"}
-            placeholder="••••••••"
-            className="w-full"
-            prefixIcon={ICONS.MdLock}
-            suffixIcon={
-              toggleVisibility ? ICONS.BsEyeFill : ICONS.BsEyeSlashFill
-            }
-            SuffixOnClick={() => setToggleVisibility(!toggleVisibility)}
-            // required
+            placeholder="Enter your password"
             {...form.register("password")}
           />
         </FormField>
         <FormField error={error.confirm_password}>
           <Label isRequired={true} htmlFor="confirmPassword">Confirm Password</Label>
-          <Input
+          <PasswordField
             id="confirmPassword"
-            type={toggleConfirmVisibility ? "text" : "password"}
-            placeholder="••••••••"
-            className="w-full"
-            prefixIcon={ICONS.MdLock}
-            suffixIcon={
-              toggleConfirmVisibility ? ICONS.BsEyeFill : ICONS.BsEyeSlashFill
-            }
-            SuffixOnClick={() =>
-              setToggleConfirmVisibility(!toggleConfirmVisibility)
-            }
-            // required
+            placeholder="Confirm your password"
             {...form.register("confirm_password")}
           />
         </FormField>

@@ -1,18 +1,16 @@
-"use client";
-
 import SidebarMenu from "./SidebarMenu";
 import { cn } from "@/lib/helpers/cn";
-import { ADMIN_SIDEBAR_MENUS } from "../../../data/adminSidebarMenu";
-import { STUDENT_SIDEBAR_MENUS } from "../../../data/studentSidebarMenu";
 import Button from "@/components/ui/Button/Button";
 import Divider from "@/components/shared/Divider/Divider";
 import { MdLogout } from "react-icons/md";
 import BrandHeader from "@/components/shared/BrandHeader/BrandHeader";
-import { useLogout } from "@/features/auth/hooks/use-logout";
+import { useLogout } from "@/features/auth/hooks/use-auth";
+import { useAuthStore } from "@/features/auth/store/authStore";
 
-const Sidebar = ({ isAdmin }: { isAdmin?: boolean }) => {
-  const { logout, isPending } = useLogout()
-  
+const Sidebar = () => {
+  const user = useAuthStore((state) => state.user);
+  const isAdmin = user?.role === "admin";
+  const {handleSubmit, isPending} = useLogout();
   return (
     <aside
       className={cn(
@@ -24,16 +22,12 @@ const Sidebar = ({ isAdmin }: { isAdmin?: boolean }) => {
         aria-label="Main Navigation"
         className="flex flex-1 flex-col justify-between"
       >
-        <SidebarMenu
-          menus={isAdmin ? ADMIN_SIDEBAR_MENUS : STUDENT_SIDEBAR_MENUS}
-        />
+        <SidebarMenu/>
         <div className="m-2">
           <Divider />
-          <Button 
-            onClick={logout}
-            disabled={isPending}
-            prefixIcon={MdLogout} className="p-3 mt-2 w-full" variants="danger"
-          >Logout</Button>
+          <form onSubmit={handleSubmit} method="POST">
+            <Button isLoading={isPending} type="submit" prefixIcon={MdLogout} className="p-3 mt-2 w-full" variants="danger">Logout</Button>
+          </form>
         </div>
       </nav>
     </aside>

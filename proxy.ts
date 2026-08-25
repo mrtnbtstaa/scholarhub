@@ -1,12 +1,8 @@
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { routes } from './lib/constants/routes'
+import { routes } from './lib/constants/_routes'
 
-const publicRoutes = [
-  routes.public.login,
-  routes.public.register
-]
 const protectedRoutes = [
   routes.student.dashboard,
   routes.student.applications,
@@ -42,13 +38,9 @@ function isTokenExpired(token: string) : boolean {
 
 export async function proxy(request: NextRequest) {
 
-  console.log("PROXY RUNNING!")
-
   const path = request.nextUrl.pathname;
 
-  const isPublicRoutes = publicRoutes.includes(path)
-
-  const isProtectedRoutes = protectedRoutes.includes(path)
+  const isProtectedRoute = protectedRoutes.some((route) => path === route || path.startsWith(`${route}/`))
 
   const cookieStore = await cookies() 
 
@@ -59,20 +51,18 @@ export async function proxy(request: NextRequest) {
     const response = NextResponse.redirect(
       new URL(routes.public.login, request.nextUrl)
     )
+
     response.cookies.delete("access_token")
+    response.cookies.delete("refresh_token")
+
     return response
   }
 
-  // Protected routes but no access token found requires authentication
-  if(isProtectedRoutes && !accessToken){
+  // Protected routes requires authentication
+  if(isProtectedRoute && !accessToken){
     return NextResponse.redirect(new URL(routes.public.login, request.nextUrl))
   }
 
-  // Public routes and has access token automatically redirect to protected routes 
-  if(isPublicRoutes && accessToken){
-    console.log("Inside public routes")
-    return NextResponse.redirect(new URL(routes.student.dashboard, request.nextUrl))
-  }
 
   return NextResponse.next()
 }

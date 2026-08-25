@@ -2,7 +2,7 @@ import Divider from "@/components/shared/Divider/Divider";
 import Button from "@/components/ui/Button/Button";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import { useStepperStore } from "../store/useStepperStore";
-import { routes } from "@/lib/constants/routes";
+import { routes } from "@/lib/constants/_routes";
 
 const OnboardingFooter = ({ stepLength }: { stepLength: number }) => {
 

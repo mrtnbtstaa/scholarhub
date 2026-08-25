@@ -5,18 +5,16 @@ import FormField from "@/components/ui/FormField/FormField";
 import Input from "@/components/ui/Input/Input";
 import Label from "@/components/ui/Label/Label";
 import Navigate from "@/components/ui/Navigate/Navigate";
-import { useState } from "react";
 import { ICONS } from "@/lib/constants/icons";
 import AuthFooter from "../AuthFooter";
-import { useLogin } from "../../hooks/use-login";
+import { useLogin } from "../../hooks/use-auth";
+import PasswordField from "@/components/shared/PasswordField/PasswordField";
 
 const LoginForm = () => {
-
-  const [toggleVisibility, setToggleVisibility] = useState<boolean>(false);
-  const {form, onSubmit, isPending, error} = useLogin();
+  const {form, handleSubmit, isPending, error} = useLogin();
   return (
     <>
-      <form method="POST" onSubmit={onSubmit} className="mt-4 w-full">
+      <form method="POST" onSubmit={handleSubmit} className="mt-4 w-full">
         <FormField error={error.email}>
           <Label htmlFor="emailAddress">Email Address</Label>
           <Input
@@ -31,41 +29,29 @@ const LoginForm = () => {
         </FormField>
         <FormField error={error.password}>
           <Label htmlFor="password">Password</Label>
-          <Input
+          <PasswordField
             id="password"
-            type={toggleVisibility ? "text" : "password"}
-            placeholder="••••••••"
-            className="w-full"
-            prefixIcon={ICONS.MdLock}
-            suffixIcon={toggleVisibility ? ICONS.BsEyeFill : ICONS.BsEyeSlashFill}
-            SuffixOnClick={() => setToggleVisibility(!toggleVisibility)}
+            placeholder="Enter your password"
             {...form.register("password")}
-            // required
           />
         </FormField>
-        <div className="flex items-center justify-between mb-4">
-          <div className="inline-flex items-center gap-4 justify-center">
-            <Input type="checkbox" variants="secondary" className="size-4" />
-            <span className="text-sm tracking-wide text-secondary">
-              Remember me
-            </span>
-          </div>
+        <div className="flex items-end justify-end mb-4">
           <Navigate
             href="/forgot-password"
-            className="text-sm"
+            className="text-xs"
             variants="redirect"
           >
             Forgot Password?
           </Navigate>
         </div>
-        <Button disabled={isPending} type="submit" className="p-3 float-right w-full">
-          {isPending ? "Signing In"  : "Sign In"}
+        <Button isLoading={isPending} className="p-3 float-right w-full">
+          Sign In
         </Button>
       </form>
       <AuthFooter
         title="Don't have an account?"
         navigateTitle="Sign up"
-        href="/register"
+        href={"/register"}
       />
     </>
   );

@@ -60,9 +60,21 @@ export const registerSchema = z.object({
                 })
             }
 
+        }),
+    role: z
+        .string()
+        .trim()
+        .superRefine((role, ctx) => {
+            const validRole = ["admin", "student"];
+
+            if(!validRole.includes(role)){
+                ctx.addIssue({
+                    code: "custom",
+                    message: "Invalid role."
+                })
+            }
+
         })
-
-
 }).refine((data) => data.password === data.confirm_password, {
     message: "Passwords do not match.",
     path: ["confirm_password"]

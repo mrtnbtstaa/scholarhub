@@ -3,7 +3,7 @@
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import Badge from "@/components/ui/Badge/Badge";
 import Navigate from "@/components/ui/Navigate/Navigate";
-import { routes } from "@/lib/constants/routes";
+import { routes } from "@/lib/constants/_routes";
 import { useParams } from "next/navigation";
 
 const ScholarshipHeader = () => {

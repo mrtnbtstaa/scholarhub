@@ -1,5 +1,6 @@
 export const routes = {
   student: {
+    root: "/student",
     dashboard: "/student/dashboard",
     browseScholarships: "/student/browse-scholarships",
     savedScholarships: "/student/saved-scholarships",
@@ -10,6 +11,7 @@ export const routes = {
     settings: "/student/settings"
   },
   admin: {
+    root: "/admin",
     dashboard: "/admin/dashboard",
     scholarships: "/admin/scholarships",
     editScholarship: "/admin/scholarships/edit",
@@ -21,5 +23,7 @@ export const routes = {
   public:{
     login: "/login",
     register: "/register",
+    forgotPassword: "/forgot-password",
+    resetPassword: "/reset-password"
   }
 };

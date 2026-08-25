@@ -3,6 +3,7 @@ export type LoginResponse = {
     refresh_token: string;
     id: string;
     email: string;
+    role: "admin" | "student"
 }
 
 export type RefreshAndAccessTokenResponse = {

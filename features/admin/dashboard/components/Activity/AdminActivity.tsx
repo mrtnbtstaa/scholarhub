@@ -3,7 +3,7 @@
 import PaginatedContent from "@/components/shared/Pagination/PaginatedContent";
 import { cn } from "@/lib/helpers/cn";
 import { buildColumns } from "@/lib/table/columnBuilder";
-import { getInitials } from "@/lib/helpers/utils";
+import { getInitials } from "@/lib/helpers/helper";
 
 interface ActivityData {
   id: string;
