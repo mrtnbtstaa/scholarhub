@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "./get-current-user";
-import { routes } from "../constants/routes";
+import { routes } from "../constants/_routes";
 import { Role } from "../constants/user-role";
 
 const roleRoutes: Record<Role, string> = {

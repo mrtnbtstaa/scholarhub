@@ -4,7 +4,7 @@ import { MdArtTrack, MdNotifications, MdStar } from "react-icons/md";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import Button from "@/components/ui/Button/Button";
 import { useStepperStore } from "../store/useStepperStore";
-import { routes } from "@/lib/constants/routes";
+import { routes } from "@/lib/constants/_routes";
 
 const OnboardingWelcome = () => {
 

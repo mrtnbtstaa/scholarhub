@@ -28,17 +28,23 @@ const CalendarHeader = ({
   calendarRef,
   currentView,
   setCurrentView,
-  currentTitle
+  currentTitle,
+  handlePreviousMonth,
+  handleNextMonth,
 }: {
   calendarRef: RefObject<CalendarRef | null>;
   currentView: string;
   setCurrentView: (viewName: "dayGridMonth" | "timeGridWeek" | "timeGridDay") => void;
   currentTitle: string;
+  handlePreviousMonth: () => void;
+  handleNextMonth: () => void;
 }) => {
 
   const handleNavigate = (action: "prev" | "next" | "today") => {
     const calendarApi = calendarRef.current?.getApi();
     if (!calendarApi) return;
+    if(action === "next") handleNextMonth();
+    else if(action ===  "prev") handlePreviousMonth();
     calendarApi[action](); 
   };
 
@@ -55,7 +61,7 @@ const CalendarHeader = ({
     <header className="flex flex-wrap items-center md:justify-between justify-center gap-4">
       <div className="flex items-center gap-6">
         <Button
-          variants="none"
+          variants="custom"
           aria-label="Previous Calendar Button"
           onClick={() => handleNavigate("prev")}
         >
@@ -65,7 +71,7 @@ const CalendarHeader = ({
           <span className="text-lg tracking-wider text-gray-700">Today</span>
         </Button>
         <Button
-          variants="none"
+          variants="custom"
           aria-label="Next Calendar Button"
           onClick={() => handleNavigate("next")}
         >
@@ -78,7 +84,7 @@ const CalendarHeader = ({
           <Button
             onClick={() => handleViewChange(id)}
             key={name}
-            variants="none"
+            variants="custom"
             aria-label={`${name} Button`}
             className={cn(
               "p-2 tracking-wider text-md",

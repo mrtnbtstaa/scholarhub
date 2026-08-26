@@ -12,7 +12,7 @@ const DashboardPage = () => {
       <div className="mb-4">
         <PageHeader
           title="Dashboard"
-          description="Welcome back, Martin! 🌟
+          description="Welcome back,
           Your Fulbright dream is calling, and your scholarship is just around the corner—let’s go find it!"
         />
       </div>

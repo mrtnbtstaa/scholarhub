@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { routes } from './lib/constants/routes'
+import { routes } from './lib/constants/_routes'
 
 const protectedRoutes = [
   routes.student.dashboard,
@@ -38,33 +38,33 @@ function isTokenExpired(token: string) : boolean {
 
 export async function proxy(request: NextRequest) {
 
-  const path = request.nextUrl.pathname;
+  // const path = request.nextUrl.pathname;
 
-  const isProtectedRoute = protectedRoutes.some((route) => path === route || path.startsWith(`${route}/`))
+  // const isProtectedRoute = protectedRoutes.some((route) => path === route || path.startsWith(`${route}/`))
 
-  const cookieStore = await cookies() 
+  // const cookieStore = await cookies() 
 
-  const accessToken = cookieStore.get("access_token")?.value;
+  // const accessToken = cookieStore.get("access_token")?.value;
 
-  // Access token exists but has expired
-  if(accessToken && isTokenExpired(accessToken)){
-    const response = NextResponse.redirect(
-      new URL(routes.public.login, request.nextUrl)
-    )
+  // // Access token exists but has expired
+  // if(accessToken && isTokenExpired(accessToken)){
+  //   const response = NextResponse.redirect(
+  //     new URL(routes.public.login, request.nextUrl)
+  //   )
 
-    response.cookies.delete("access_token")
-    response.cookies.delete("refresh_token")
+  //   response.cookies.delete("access_token")
+  //   response.cookies.delete("refresh_token")
 
-    return response
-  }
+  //   return response
+  // }
 
-  // Protected routes requires authentication
-  if(isProtectedRoute && !accessToken){
-    return NextResponse.redirect(new URL(routes.public.login, request.nextUrl))
-  }
+  // // Protected routes requires authentication
+  // if(isProtectedRoute && !accessToken){
+  //   return NextResponse.redirect(new URL(routes.public.login, request.nextUrl))
+  // }
 
 
-  return NextResponse.next()
+  // return NextResponse.next()
 }
   
 export const config = {

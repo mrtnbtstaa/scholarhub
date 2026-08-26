@@ -6,7 +6,7 @@ import { LoginResponse } from "../types/auth-response.types";
 import { ApiResponse } from "@/types/api/api.response";
 import { AxiosError } from "axios";
 import showToast from "@/lib/toast/show.toast";
-import { routes } from "@/lib/constants/routes";
+import { routes } from "@/lib/constants/_routes";
 import { LoginInput, loginSchema } from "../schema/login.schema";
 import { forgotPassword, login, logout, register, resetPassword } from "../api/auth.api";
 import { RegisterInput, registerSchema } from "../schema/register.schema";
@@ -38,14 +38,17 @@ export const useLogin = () => {
     mutationFn: login,
     onSuccess: (response) => {
 
-      if(!response.success) return;
+      if(!response.success){
+        console.log("Not success!");
+        return;
+      }
 
       // Show toast success
       showToast({message: response.message, type: "success"})
 
       // Destructure the response data
       const {id, email, role} = response.data;
-        
+
       setAuth({
         id: id,
         email: email,
@@ -66,7 +69,10 @@ export const useLogin = () => {
       console.log(error.response?.data.message)
       // Show toast error
       showToast({message: error.response?.data.message ?? "Unauthenticated", type: "error"})
-    }
+    },
+    onSettled() {
+      console.log("Use auth store: ", useAuthStore.getState().user)
+    },
   })
 
   const onSubmit = (data: LoginInput) => mutation.mutate(data);
