@@ -24,7 +24,7 @@ const variantStyles: Record<
   NonNullable<NavigateProps["variants"]>,
   string
 > = {
-  primary: "bg-btn-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md",
+  primary: "text-sidebar-foreground hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out tracking-wide font-semibold rounded-md text-md",
   redirect: "text-secondary tracking-wide font-medium text-md",
   sidebar: "",
   default: "text-gray-600 tracking-wide text-md font-semibold",
@@ -33,8 +33,8 @@ const variantStyles: Record<
 };
 
 const sidebarStyles = {
-  active: "tracking-wider font-medium bg-btn-primary w-full p-3 text-white rounded-lg",
-  inactive: "ml-2",
+  active: "tracking-wider font-semibold text-sidebar-accent-foreground bg-sidebar-accent w-full p-3 rounded-lg",
+  inactive: "ml-2 text-muted-foreground",
 };
 
 const Navigate = ({
@@ -60,7 +60,7 @@ const Navigate = ({
       <SuffixIcon
         className={cn(
           "text-2xl",
-          isActive ? "text-foreground" : "text-muted-foreground"
+          isActive ? "text-sidebar-foreground" : "text-muted-foreground"
         )}
       />
       {children}
@@ -69,7 +69,7 @@ const Navigate = ({
     <div className="inline-flex items-center gap-2">
       {children}
       <PrefixIcon
-        className={cn("text-2xl text-white", prefixClassName)}
+        className={cn("text-2xl text-sidebar-foreground", prefixClassName)}
       />
     </div>
   ) : (

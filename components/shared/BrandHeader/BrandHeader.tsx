@@ -16,7 +16,7 @@ const BrandHeader = ({
       )}
     >
       <div className="bg-btn-primary p-2 rounded-lg" aria-hidden="true">
-        <FaGraduationCap className={cn("text-white md:text-4xl text-2xl")} />
+        <FaGraduationCap className={cn("md:text-4xl text-2xl")} />
       </div>
       <div>
         <p className="tracking-wider lg:text-2xl md:text-lg font-semibold leading-none">
