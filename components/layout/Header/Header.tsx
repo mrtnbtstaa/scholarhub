@@ -15,7 +15,7 @@ const Header = () => {
   const {user, hasHydrated} = useAuth();
 
   return (
-    <header className="bg-[#ffffff] flex items-center md:justify-end justify-between w-full md:p-4 p-2 border-b border-primary-border sticky top-0 z-200 mb-4">
+    <header className="bg-background flex items-center md:justify-end justify-between w-full md:p-4 p-2 border-b border-primary-border sticky top-0 z-200 mb-4">
       <BrandHeader className="md:hidden flex" isAdmin={true} />
       <div className="flex items-center">
         <div className="flex items-center md:gap-8 gap-4">
@@ -26,7 +26,7 @@ const Header = () => {
           >
             <div className="relative inline-flex items-center justify-center p-2">
               <MdNotifications size={24} />
-              <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-btn-primary text-xs text-white font-medium">
+              <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-btn-primary text-xs font-medium">
                 24
               </span>
             </div>
@@ -34,10 +34,10 @@ const Header = () => {
           <span className="h-8 w-0 border-l border-gray-300"></span>
           <div className="md:flex hidden items-center gap-2">
             <div>
-              <h4 className="text-slate-900 text-sm tracking-wider whitespace-nowrap leading-none">
+              <h4 className="text-sm tracking-wider whitespace-nowrap leading-none">
                 {!hasHydrated ? "Johndoe@gmail.com" : user?.email}
               </h4>
-              <span className="text-xs tracking-wider text-gray-500 leading-none">
+              <span className="text-xs tracking-wider text-muted-foreground leading-none">
                 {!hasHydrated ? "Student": user?.role}
               </span>
             </div>
