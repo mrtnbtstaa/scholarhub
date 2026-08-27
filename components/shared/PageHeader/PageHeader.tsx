@@ -12,7 +12,7 @@ const PageHeader = ({
 }) => {
   return (
     <Component className="mb-2">
-      <Heading className="font-bold tracking-wider lg:text-3xl text-2xl leading-none text-muted-foreground mb-2">
+      <Heading className="font-semibold tracking-wider lg:text-xl text-2xl leading-none mb-2">
         {title}
       </Heading>
       {description && (

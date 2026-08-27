@@ -1,11 +1,20 @@
-import Card from "@/components/shared/Card/Card";
-import Checkbox from "@/components/ui/Checkbox/Checkbox";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const ApplicationPrioritiesItem = () => {
   return (
-    <Card className="p-4 flex items-center gap-6">
-      <Checkbox />
-      <div className="flex items-center w-full">
+    <Card className="relative transition-colors duration-200 has-[input[type=checkbox]:checked]:ring-2 has-[input[type=checkbox]:checked]:ring-primary">
+      <CardHeader className="">
+        <div className="flex justify-between px-3 pt-1 gap-2 absolute inset-x-0 mx-auto top-2 w-full">
+          <Checkbox className="cursor-pointer" />
+          <div className="bg-[#f8e9e9] rounded-full">
+            <span className="text-[#db641a] p-2 px-4 md:text-md text-sm tracking-wide">
+              High
+            </span>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="flex w-full">
         <div>
           <h2 className="font-semibold lg:text-lg md:text-md text-sm tracking-wide leading-none">
             MEXT Personal Statement
@@ -14,12 +23,7 @@ const ApplicationPrioritiesItem = () => {
             Drafting - 2 days left
           </p>
         </div>
-        <div className="p-2 bg-[#f8e9e9] rounded">
-          <span className="text-[#db641a] md:text-md text-sm tracking-wide font-semibold">
-            High
-          </span>
-        </div>
-      </div>
+      </CardContent>
     </Card>
   );
 };

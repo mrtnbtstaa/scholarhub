@@ -33,8 +33,8 @@ const variantStyles: Record<
 };
 
 const sidebarStyles = {
-  active: "tracking-wider font-semibold text-sidebar-accent-foreground bg-sidebar-accent w-full p-3 rounded-lg",
-  inactive: "ml-2 text-muted-foreground",
+  active: "tracking-wider font-medium text-sidebar-primary-foreground bg-sidebar-primary w-full rounded-lg",
+  inactive: "text-muted-foreground hover:bg-sidebar-accent",
 };
 
 const Navigate = ({
@@ -59,8 +59,8 @@ const Navigate = ({
     <div className="inline-flex items-center gap-4">
       <SuffixIcon
         className={cn(
-          "text-2xl",
-          isActive ? "text-sidebar-foreground" : "text-muted-foreground"
+          "text-xl",
+          isActive ? "text-sidebar-primary-foreground" : "text-muted-foreground"
         )}
       />
       {children}
@@ -69,7 +69,7 @@ const Navigate = ({
     <div className="inline-flex items-center gap-2">
       {children}
       <PrefixIcon
-        className={cn("text-2xl text-sidebar-foreground", prefixClassName)}
+        className={cn("text-xl text-sidebar-foreground", prefixClassName)}
       />
     </div>
   ) : (
@@ -81,7 +81,7 @@ const Navigate = ({
       href={href}
       {...props}
       className={cn(
-        "leading-none",
+        "leading-none p-2 rounded-md",
         variantStyles[variants],
 
         isSidebar &&

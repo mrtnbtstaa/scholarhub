@@ -1,6 +1,6 @@
 import { ElementType } from "react";
-import Card from "../Card/Card";
 import { cn } from "@/lib/helpers/cn";
+import { Card } from "@/components/ui/card";
 
 type DashboardCardProps = {
   icon: ElementType;
@@ -44,7 +44,7 @@ const DashboardCard = ({
         </div>
       </div>
       <div className="flex flex-col items-start px-2 mt-4 mb-2">
-        <span className="text-secondary text-2xl font-bold tracking-wide">
+        <span className="text-muted-foreground text-2xl font-bold tracking-wide">
           {count}
         </span>
         <h2 className="text-gray-400 tracking-wider leading-none text-md">
