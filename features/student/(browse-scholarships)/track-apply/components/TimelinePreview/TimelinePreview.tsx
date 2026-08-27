@@ -7,7 +7,7 @@ import { GrDocument } from "react-icons/gr";
 const TimelinePreview = () => {
   return (
     <Card className="p-4 w-full">
-      <h3 className="lg:text-2xl md:text-lg text-md font-semibold tracking-widest text-secondary">
+      <h3 className="lg:text-2xl md:text-lg text-md font-semibold tracking-widest text-primary">
         Timeline Preview
       </h3>
       <div className="mt-4 flex flex-col items-start gap-6 relative z-100">

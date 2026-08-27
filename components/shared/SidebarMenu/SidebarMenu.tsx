@@ -25,7 +25,7 @@ const SidebarMenu = ({
             onClick={() => setActiveMenu(title)}
             className={cn(
               "p-4 w-full",
-              isActive ? "bg-secondary text-white" : "text-secondary",
+              isActive ? "bg-secondary text-white" : "text-primary",
             )}
             variants="custom"
             key={title}

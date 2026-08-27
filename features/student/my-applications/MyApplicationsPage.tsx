@@ -55,7 +55,7 @@ const columns = [
       const country = original.country;
       return (
         <div className="flex flex-col items-start">
-          <span className="text-secondary tracking-wider md:text-md text-sm font-medium">
+          <span className="text-primary tracking-wider md:text-md text-sm font-medium">
             {scholarship}
           </span>
           <div className="flex items-center gap-2">
@@ -78,7 +78,7 @@ const columns = [
       const deadline = info.getValue();
       return (
         <div className="flex flex-col items-start">
-          <span className="text-secondary md:text-md text-sm tracking-wider font-normal">
+          <span className="text-primary md:text-md text-sm tracking-wider font-normal">
             {deadline}
           </span>
           <span className="text-red-600 tracking-wider text-xs font-semibold">
@@ -127,7 +127,7 @@ const columns = [
             cn(
               "text-xs tracking-wide font-semibold whitespace-nowrap",
               status === "Submitted" && "text-white",
-              status === "Under Review" && "text-secondary",
+              status === "Under Review" && "text-primary",
               status === "Not Started" && "text-[#75849e]"
             )
           }>{status}</span>

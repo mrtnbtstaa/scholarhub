@@ -30,14 +30,14 @@ const PaginatedTable = <T extends Id>({
     >
       {header && (
         <header className="flex items-center justify-between p-4">
-          <h3 className="md:text-lg md:text-md text-sm text-secondary tracking-widest font-semibold">
+          <h3 className="md:text-lg md:text-md text-sm text-primary tracking-widest font-semibold">
             {header.title}
           </h3>
           {header.href && (
             <Navigate
               href={header.href}
               variants="custom"
-              className="text-secondary whitespace-nowrap font-semibold tracking-wider md:text-md text-sm"
+              className="text-primary whitespace-nowrap font-semibold tracking-wider md:text-md text-sm"
             >
               {header.actionTitle}
             </Navigate>

@@ -20,7 +20,7 @@ const chartData = {
 const StatusOverview = () => {
   return (
     <Card as="section" className="p-4 w-full h-full">
-      <h2 className="text-secondary text-lg tracking-wider leading-none font-semibold mb-4">
+      <h2 className="text-primary text-lg tracking-wider leading-none font-semibold mb-4">
         Application Status Overview
       </h2>
       <Doughnut data={chartData} />

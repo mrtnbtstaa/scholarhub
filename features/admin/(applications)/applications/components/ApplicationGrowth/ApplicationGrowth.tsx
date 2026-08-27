@@ -35,7 +35,7 @@ const ApplicationGrowth = () => {
   };
   return (
     <Card className="p-6">
-      <h3 className="text-secondary tracking-wider text-md mb-4">
+      <h3 className="text-primary tracking-wider text-md mb-4">
         APPLICATION GROWTH TRENDS
       </h3>
       <BarChart

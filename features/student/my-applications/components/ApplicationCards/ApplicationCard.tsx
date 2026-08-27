@@ -47,7 +47,7 @@ const ApplicationCard = ({
       >
         <Icon
           className={cn(
-            variants === "total" && "text-secondary",
+            variants === "total" && "text-primary",
             variants === "preparing" && "text-[#42474f]",
             variants === "submitted" && "text-[#42474f]",
             variants === "reviewing" && "text-[#42474f]",
@@ -58,7 +58,7 @@ const ApplicationCard = ({
       </div>
       <div className="mt-4">
         <h3 className="font-normal text-lg tracking-wider text-gray-600">{title}</h3>
-        <span className="text-lg tracking-wider text-secondary font-medium">{count}</span>
+        <span className="text-lg tracking-wider text-primary font-medium">{count}</span>
       </div>
     </Card>
   );

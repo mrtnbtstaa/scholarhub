@@ -11,7 +11,7 @@ const InfoCard = ({title, subTitle}: InfoProps) => {
       <h2 className="text-sm font-semibold text-gray-700 tracking-wide">
         {title}
       </h2>
-      <h3 className="text-sm text-secondary tracking-wider font-semibold">
+      <h3 className="text-sm text-primary tracking-wider font-semibold">
         {subTitle}
       </h3>
     </Card>

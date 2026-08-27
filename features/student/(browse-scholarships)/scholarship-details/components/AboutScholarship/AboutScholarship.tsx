@@ -3,7 +3,7 @@ import Card from "@/components/shared/Card/Card";
 const AboutScholarship = () => {
   return (
     <Card className="p-4 mt-8" as="section">
-      <h2 className="text-secondary text-2xl tracking-wider font-semibold mb-3">
+      <h2 className="text-primary text-2xl tracking-wider font-semibold mb-3">
         About the Scholarship
       </h2>
       <div className="flex flex-col items-start gap-3 md:w-[70%] w-full">

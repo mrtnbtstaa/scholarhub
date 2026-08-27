@@ -41,7 +41,7 @@ const DocumentCard = ({
         />
       </div>
       <h3 className="text-sm tracking-wider text-gray-600">{title}</h3>
-      <span className="font-semibold text-secondary text-2xl tracking-wider leading-none">
+      <span className="font-semibold text-primary text-2xl tracking-wider leading-none">
         {count}
       </span>
       <p className="text-xs tracking-wider text-gray-400">{subDescription}</p>

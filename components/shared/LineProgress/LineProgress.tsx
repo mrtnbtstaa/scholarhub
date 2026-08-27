@@ -15,7 +15,7 @@ const LineProgress = ({ percentage, textPercentage, className }: ProgressProps) 
         className={cn("w-full h-2 rounded-full", className)}
         style={{ width: `${percentage}%` }}
       ></div>
-      {textPercentage && <span className="text-secondary text-sm tracking-wider leading-none">{textPercentage}%</span>}
+      {textPercentage && <span className="text-primary text-sm tracking-wider leading-none">{textPercentage}%</span>}
     </div>
   );
 };

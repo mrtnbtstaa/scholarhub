@@ -13,7 +13,7 @@ const SaveScholarshipItem = ({data}: {data: SaveScholarshipData}) => {
             {data.status} in 5 Days
           </span>
         </div>
-        <h3 className="text-secondary lg:text-2xl md:text-lg text-md tracking-wider mt-4">
+        <h3 className="text-primary lg:text-2xl md:text-lg text-md tracking-wider mt-4">
           {data.title}
         </h3>
         <div className="flex flex-col items-start gap-1 mt-2">

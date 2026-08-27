@@ -11,9 +11,9 @@ const OnboardingCard = ({icon: Icon, title, description}: OnboardingCardProps) =
   return (
     <Card className="border border-[#efeef2] flex flex-col items-center justify-center w-full p-3">
       <div className="p-2 bg-[#e4efff] rounded-full mb-2">
-        <Icon className="text-3xl text-secondary" />
+        <Icon className="text-3xl text-primary" />
       </div>
-      <h2 className="text-secondary font-semibold tracking-wider lg:text-lg text-md">
+      <h2 className="text-primary font-semibold tracking-wider lg:text-lg text-md">
         {title}
       </h2>
       <p className="text-sm text-gray-500 tracking-wide">

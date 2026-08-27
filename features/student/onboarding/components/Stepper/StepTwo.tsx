@@ -7,7 +7,7 @@ const StepTwo = () => {
   return (
     <div className="w-full p-4 flex flex-col items-center justify-center">
       <div className="mt-4 text-center">
-        <p className="text-4xl tracking-wide text-secondary font-semibold leading-none">
+        <p className="text-4xl tracking-wide text-primary font-semibold leading-none">
           Academic Background
         </p>
         <p className="text-gray-600 tracking-wide text-md">

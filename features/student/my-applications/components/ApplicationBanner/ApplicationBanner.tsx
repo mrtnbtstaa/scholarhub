@@ -8,8 +8,8 @@ const ApplicationBanner = () => {
         variants="custom"
       >
         <div className="flex md:items-center items-start gap-2">
-          <MdInfo className="text-secondary text-2xl" />
-          <p className="text-secondary text-md tracking-wider">
+          <MdInfo className="text-primary text-2xl" />
+          <p className="text-primary text-md tracking-wider">
             6 active applications. Two require immediate attention (MEXT,
             SINGA).
           </p>

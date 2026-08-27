@@ -23,7 +23,7 @@ const OnboardingWelcome = () => {
             loading="eager"
           />
           <div className="mt-8 text-center w-[75%]">
-            <p className="text-secondary font-semibold tracking-wide lg:text-4xl md:text-2xl text-lg">
+            <p className="text-primary font-semibold tracking-wide lg:text-4xl md:text-2xl text-lg">
               Welcome to ScholarHub, Martin! 🎉
             </p>
             <p className="text-gray-400 tracking-wide lg:text-md text-sm">

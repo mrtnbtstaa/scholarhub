@@ -33,7 +33,7 @@ const PreviewContent = ({
         {title && (
           <h3 className={
             cn(
-              "text-secondary font-semibold text-md tracking-wider",
+              "text-primary font-semibold text-md tracking-wider",
               !isCurrentPreview && "opacity-50"
             )
           }>

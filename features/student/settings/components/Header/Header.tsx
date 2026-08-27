@@ -17,7 +17,7 @@ const Header = ({
       <header className="flex items-center justify-between mb-2">
         <h3 className={
           cn(
-            "lg:text-2xl md:text-lg text-md text-secondary font-medium tracking-wider",
+            "lg:text-2xl md:text-lg text-md text-primary font-medium tracking-wider",
             className
           )
         }>

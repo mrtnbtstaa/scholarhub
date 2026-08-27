@@ -102,7 +102,7 @@ export const genericService = async <T = null, M = null> (
             status: response.status,
         };
         
-    }catch(error){
+    } catch(error){
         if(axios.isAxiosError<ApiResponse<never, M>>(error)){
             const errorResponse = error.response?.data;
             return {

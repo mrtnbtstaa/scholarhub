@@ -7,7 +7,7 @@ import Navigate from "@/components/ui/Navigate/Navigate";
 const OverviewCard = () => {
   return (
     <Card className="p-6 w-full">
-      <h3 className="text-sm tracking-wide text-secondary mb-4 font-semibold">
+      <h3 className="text-sm tracking-wide text-primary mb-4 font-semibold">
         TRACKER SUMMARY
       </h3>
       <OverviewContent title="Scholarship" rightContent="MEXT Undergraduate" />
@@ -25,7 +25,7 @@ const OverviewCard = () => {
         Save & Continue
       </Navigate>
       <Navigate
-        className="md:p-3 p-2 inline-block w-full text-center mt-2 text-secondary"
+        className="md:p-3 p-2 inline-block w-full text-center mt-2 text-primary"
         href="/browse-scholarships"
         variants="default"
       >

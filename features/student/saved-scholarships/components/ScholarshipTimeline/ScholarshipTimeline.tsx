@@ -26,8 +26,8 @@ const ScholarshipTimeline = () => {
     <Card className="p-6">
       {/* header  */}
       <div className="flex items-center gap-2">
-        <IoMdCalendar className="md:text-2xl text-lg text-secondary" />
-        <h3 className="text-secondary tracking-wider font-medium md:text-2xl text-lg">
+        <IoMdCalendar className="md:text-2xl text-lg text-primary" />
+        <h3 className="text-primary tracking-wider font-medium md:text-2xl text-lg">
           Deadline Timeline
         </h3>
       </div>

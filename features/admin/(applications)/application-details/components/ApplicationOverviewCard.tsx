@@ -43,7 +43,7 @@ const ApplicationOverviewCard = ({
         <div className="flex items-center justify-between gap-4">
           <div className="flex flex-wrap items-center justify-between w-full md:gap-4 gap-1">
             <div>
-              <h4 className="text-secondary tracking-wider text-md">{title}</h4>
+              <h4 className="text-primary tracking-wider text-md">{title}</h4>
               <p className="text-sm tracking-wider text-gray-800">{subtitle}</p>
             </div>
             {type === "student" ? (

@@ -29,7 +29,7 @@ const StudentGrowth = () => {
   };
   return (
     <Card className="p-6 mt-4">
-      <h3 className="text-secondary tracking-wider text-md mb-4">
+      <h3 className="text-primary tracking-wider text-md mb-4">
         Student Growth
       </h3>
       <BarChart datasetIdKey="id" data={chartData} />

@@ -17,7 +17,7 @@ const OverviewContent = ({
         <dt className="text-sm text-gray-600 tracking-wide font-normal">
           {title}
         </dt>
-        <dd className="text-secondary font-semibold tracking-wider md:text-md text-sm">
+        <dd className="text-primary font-semibold tracking-wider md:text-md text-sm">
           {rightContent}
         </dd>
       </dl>

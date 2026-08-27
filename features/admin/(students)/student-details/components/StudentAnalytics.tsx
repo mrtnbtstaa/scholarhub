@@ -43,7 +43,7 @@ const StudentAnalytics = () => {
           className="bg-[#f8f9ff] p-2 flex items-center justify-center flex-col"
         >
           <h4 className="text-md tracking-wider">Avg Session</h4>
-          <span className="text-2xl font-semibold tracking-wider text-secondary">
+          <span className="text-2xl font-semibold tracking-wider text-primary">
             13 min
           </span>
         </Card>
@@ -52,7 +52,7 @@ const StudentAnalytics = () => {
           className="bg-[#f8f9ff] p-2 flex items-center justify-center flex-col"
         >
           <h4 className="text-md tracking-wider">Items Viewed</h4>
-          <span className="text-2xl font-semibold tracking-wider text-secondary">
+          <span className="text-2xl font-semibold tracking-wider text-primary">
             241
           </span>
         </Card>
@@ -61,7 +61,7 @@ const StudentAnalytics = () => {
           className="bg-[#f8f9ff] p-2 flex items-center justify-center flex-col"
         >
           <h4 className="text-md tracking-wider">Total Searches</h4>
-          <span className="text-2xl font-semibold tracking-wider text-secondary">
+          <span className="text-2xl font-semibold tracking-wider text-primary">
             88
           </span>
         </Card>
@@ -70,7 +70,7 @@ const StudentAnalytics = () => {
           className="bg-[#f8f9ff] p-2 flex items-center justify-center flex-col"
         >
           <h4 className="text-md tracking-wider">Conversion</h4>
-          <span className="text-2xl font-semibold tracking-wider text-secondary">
+          <span className="text-2xl font-semibold tracking-wider text-primary">
             43%
           </span>
         </Card>

@@ -4,14 +4,14 @@ const getStatusConfig = (days: number) => {
   if (days <= 5) {
     return {
       dotColor: "bg-[#bb1b1a]",
-      textColor: "text-secondary",
+      textColor: "text-primary",
       badgeClass: "text-red-600 font-semibold",
     };
   } else if (days > 6 && days <= 100) {
     return {
       dotColor: "bg-secondary",
-      textColor: "text-secondary",
-      badgeClass: "text-secondary",
+      textColor: "text-primary",
+      badgeClass: "text-primary",
     };
   } else {
     return {

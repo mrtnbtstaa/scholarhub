@@ -38,7 +38,7 @@ const DoughnutDistribution = ({
         className
       )
     }>
-      <h3 className="text-secondary tracking-wider font-semibold text-md mb-4">
+      <h3 className="text-primary tracking-wider font-semibold text-md mb-4">
         {headerTitle}
       </h3>
       <div className="relative w-64 mx-auto">

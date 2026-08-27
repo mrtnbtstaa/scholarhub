@@ -9,7 +9,7 @@ interface PreferencesProps {
 const PreferencesContent = ({ title, items }: PreferencesProps) => {
   return (
     <div className="mt-4">
-      <h2 className="text-secondary tracking-wide font-semibold text-md">
+      <h2 className="text-primary tracking-wide font-semibold text-md">
         {title}
       </h2>
       <div className="grid md:grid-cols-3 grid-cols-3 grid-rows-1 gap-4 mt-2">

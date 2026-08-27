@@ -18,8 +18,8 @@ const TrackApplyPage = () => {
         description="Before continuing to the official scholarship website, add this scholarship to your personal application tracker. You'll be able to monitor progress, organize required documents, save notes, and receive deadline reminders."
       />
       <Banner>
-        <p className="tracking-wider text-md text-secondary">
-          <strong className="text-secondary">Info Banner:&nbsp;</strong>
+        <p className="tracking-wider text-md text-primary">
+          <strong className="text-primary">Info Banner:&nbsp;</strong>
           ScholarHub does not submit scholarship applications. Applications are
           completed on the official scholarship provider&apos;s website.
         </p>  
@@ -30,7 +30,7 @@ const TrackApplyPage = () => {
           <ApplicationStatus />
           <RequiredDocuments />
           <Card as="search" className="p-4 mt-4">
-            <h3 className="text-secondary text-2xl tracking-wider font-semibold">
+            <h3 className="text-primary text-2xl tracking-wider font-semibold">
               Personal Notes
             </h3>
             <TextArea placeholder="Request recommendation letter from Professor Santos before September 10." />

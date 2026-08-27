@@ -52,7 +52,7 @@ const columns = buildColumns<ActivityData>({
               {getInitials(value)}
             </span>
           </div>
-          <span className="text-md font-semibold text-secondary tracking-wider">
+          <span className="text-md font-semibold text-primary tracking-wider">
             {value}
           </span>
         </div>
