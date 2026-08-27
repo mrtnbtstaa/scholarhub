@@ -43,7 +43,7 @@ const data: RecentSholarshipsData[] = [
 const columns = buildColumns<RecentSholarshipsData>({
   scholarship: {
     cell: (value) => (
-      <h4 className="text-secondary font-semibold text-sm tracking-wider">
+      <h4 className="text-primary font-semibold text-sm tracking-wider">
         {value}
       </h4>
     ),

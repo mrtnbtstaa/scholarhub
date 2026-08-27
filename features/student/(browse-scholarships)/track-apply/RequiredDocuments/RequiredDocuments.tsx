@@ -5,7 +5,7 @@ import DocumentCheckbox from "./DocumentCheckbox";
 const RequiredDocuments = () => {
   return (
     <Card as="section" className="p-4 mt-4">
-      <h3 className="text-secondary text-2xl tracking-wider font-semibold">
+      <h3 className="text-primary text-2xl tracking-wider font-semibold">
         Required Documents
       </h3>
       <div className="mt-2">

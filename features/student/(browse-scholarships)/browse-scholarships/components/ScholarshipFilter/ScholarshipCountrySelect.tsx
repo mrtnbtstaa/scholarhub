@@ -8,25 +8,25 @@ const ScholarshipCountrySelect = () => {
       </h2>
       <div className="inline-flex items-center gap-4 leading-none">
         <Checkbox className="rounded-full" />
-        <h3 className="text-sm text-secondary tracking-wide leading-none">
+        <h3 className="text-sm text-primary tracking-wide leading-none">
           Japan
         </h3>
       </div>
       <div className="inline-flex items-center gap-4 leading-none">
         <Checkbox className="rounded-full" />
-        <h3 className="text-sm text-secondary tracking-wide leading-none whitespace-nowrap">
+        <h3 className="text-sm text-primary tracking-wide leading-none whitespace-nowrap">
           South Korea
         </h3>
       </div>
       <div className="inline-flex items-center gap-4 leading-none">
         <Checkbox className="rounded-full" />
-        <h3 className="text-sm text-secondary tracking-wide leading-none">
+        <h3 className="text-sm text-primary tracking-wide leading-none">
           USA
         </h3>
       </div>
       <div className="inline-flex items-center gap-4 leading-none">
         <Checkbox className="rounded-full" />
-        <h3 className="text-sm text-secondary tracking-wide leading-none">
+        <h3 className="text-sm text-primary tracking-wide leading-none">
           Germany
         </h3>
       </div>

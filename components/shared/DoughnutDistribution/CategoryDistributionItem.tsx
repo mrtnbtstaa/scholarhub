@@ -11,11 +11,11 @@ const CategoryDistributionItem = ({
     <div className="flex items-center justify-between w-full">
       <div className="flex items-center gap-2">
         <span className={`w-2 h-2 rounded-full ${color}`}></span>
-        <h4 className="text-sm font-normal text-secondary tracking-wider">
+        <h4 className="text-sm font-normal text-primary tracking-wider">
           {title}
         </h4>
       </div>
-      <span className="font-semibold text-sm tracking-wider text-secondary">
+      <span className="font-semibold text-sm tracking-wider text-primary">
         {percentage}%
       </span>
     </div>

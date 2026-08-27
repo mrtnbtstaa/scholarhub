@@ -8,9 +8,9 @@ const ScholarshipVerified = () => {
       variants="custom"
     >
       <div className="flex items-start gap-4">
-        <BsShieldCheck className="text-6xl text-secondary" />
+        <BsShieldCheck className="text-6xl text-primary" />
         <div className="mt-3">
-          <h3 className="text-secondary font-semibold text-lg tracking-wide">
+          <h3 className="text-primary font-semibold text-lg tracking-wide">
             ScholarHub Verified
           </h3>
           <p className="font-normal tracking-wider text-gray-700 font-sm">

@@ -9,7 +9,7 @@ interface BannerProps {
   iconColor?: string;
 }
 
-const Banner = ({ className, children, iconColor = "text-secondary" }: BannerProps) => {
+const Banner = ({ className, children, iconColor = "text-primary" }: BannerProps) => {
   return (
     <Card
       variants="custom"

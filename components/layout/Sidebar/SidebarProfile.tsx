@@ -21,7 +21,7 @@ const SidebarProfile = ({ isSidebarOpen }: { isSidebarOpen: boolean }) => {
         )}
         <div className="flex items-center justify-between w-full p-4">  
           <div className={cn(!isSidebarOpen ? "hidden" : "block")}>
-            <p className="text-sm tracking-wide text-secondary font-semibold whitespace-nowrap">
+            <p className="text-sm tracking-wide text-primary font-semibold whitespace-nowrap">
               Martin Bautista
             </p>
             <p className="text-sm tracking-wider font-medium text-gray-600 whitespace-nowrap">

@@ -19,7 +19,7 @@ const MyApplications = ({ status = "In Review" }: ApplicationProps) => {
           variants="custom"
           className="border border-[#c5c7cf] rounded p-1"
         >
-          <LuListFilter className="text-2xl text-secondary" />
+          <LuListFilter className="text-2xl text-primary" />
         </Button>
       </CardHeader>
       <div className="min-w-75 overflow-x-auto">

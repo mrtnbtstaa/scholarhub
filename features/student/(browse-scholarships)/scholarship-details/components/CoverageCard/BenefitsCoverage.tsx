@@ -9,7 +9,7 @@ import CoverageCard from "./CoverageCard";
 
 const BenefitsCoverage = () => (
   <div className="mt-8">
-    <h2 className="text-secondary text-2xl font-medium tracking-wider mb-4">
+    <h2 className="text-primary text-2xl font-medium tracking-wider mb-4">
       Benefits & Coverage
     </h2>
     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-rows-1 gap-4">

@@ -34,7 +34,7 @@ const Modal = ({
       <Card className="flex flex-col h-full items-start justify-center rounded-2xl bg-white md:w-150 w-100">
         {/* Modal Header */}
         <header className="flex items-center justify-between w-full p-4">
-          <h3 className="text-md text-secondary font-semibold tracking-wider">
+          <h3 className="text-md text-primary font-semibold tracking-wider">
             {modalTitle}
           </h3>
           <CloseButton onClick={() => setModalVisibility(false)} />

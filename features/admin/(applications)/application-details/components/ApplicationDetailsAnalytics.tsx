@@ -8,7 +8,7 @@ const ApplicationDetailsAnalytics = () => {
         <h4 className="text-xs font-semibold tracking-wider text-gray-700">
           PROGRESS
         </h4>
-        <span className="text-secondary text-2xl font-medium tracking-wider">
+        <span className="text-primary text-2xl font-medium tracking-wider">
           70%
         </span>
         <div className="mt-2">
@@ -33,10 +33,10 @@ const ApplicationDetailsAnalytics = () => {
         <h4 className="text-xs font-semibold tracking-wider text-gray-700">
           DOCUMENTS
         </h4>
-        <span className="text-secondary text-2xl font-semibold tracking-wider">
+        <span className="text-primary text-2xl font-semibold tracking-wider">
           3 / 6
         </span>
-        <span className="text-md tracking-wider text-secondary">
+        <span className="text-md tracking-wider text-primary">
           50% Completed
         </span>
       </Card>
@@ -44,10 +44,10 @@ const ApplicationDetailsAnalytics = () => {
         <h4 className="text-xs font-semibold tracking-wider text-gray-700">
           TASKS
         </h4>
-        <span className="text-secondary text-2xl font-semibold tracking-wider">
+        <span className="text-primary text-2xl font-semibold tracking-wider">
           2 / 5
         </span>
-        <span className="text-md tracking-wider text-secondary">3 Pending</span>
+        <span className="text-md tracking-wider text-primary">3 Pending</span>
       </Card>
     </div>
   );

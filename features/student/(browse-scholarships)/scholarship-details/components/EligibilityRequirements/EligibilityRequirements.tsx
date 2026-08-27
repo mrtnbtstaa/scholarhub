@@ -11,7 +11,7 @@ const EligibilityRequirements = () => {
     >
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="md:text-2xl text-lg text-secondary tracking-wider font-medium">
+          <h3 className="md:text-2xl text-lg text-primary tracking-wider font-medium">
             Eligibility Requirements
           </h3>
           <p className="text-gray-600 tracking-wider font-normal text-sm">

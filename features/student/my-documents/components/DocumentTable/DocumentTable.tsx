@@ -78,7 +78,7 @@ const column = [
     cell: (info) => {
       return (
         <div className="bg-[#e4efff] py-1 px-3 rounded-lg inline-block">
-          <span className="text-xs text-secondary font-semibold tracking-wider">
+          <span className="text-xs text-primary font-semibold tracking-wider">
             {info.getValue()}
           </span>
         </div>

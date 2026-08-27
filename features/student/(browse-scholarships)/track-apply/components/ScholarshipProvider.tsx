@@ -17,7 +17,7 @@ const ScholarshipProvider = () => {
           <FaGraduationCap className="text-3xl" />
         </div>
         <div>
-          <h3 className="font-semibold text-2xl text-secondary tracking-wider">
+          <h3 className="font-semibold text-2xl text-primary tracking-wider">
             MEXT Undergraduate Scholarship
           </h3>
           <p className="text-gray-600 tracking-widest text-md">
@@ -36,7 +36,7 @@ const ScholarshipProvider = () => {
           <span className="text-gray-600 font-semibold text-xs tracking-wide">
             DEADLINE
           </span>
-          <p className="text-secondary font-semibold text-md tracking-wide">
+          <p className="text-primary font-semibold text-md tracking-wide">
             September 30, 2026
           </p>
         </div>

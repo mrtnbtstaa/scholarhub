@@ -24,7 +24,7 @@ const OverviewCard = () => {
         Track & Apply
       </Navigate>
       <Navigate
-        className="md:p-3 p-2 inline-block w-full text-center mt-2 text-secondary"
+        className="md:p-3 p-2 inline-block w-full text-center mt-2 text-primary"
         href="/browse-scholarships"
         suffixIcon={MdBookmark}
         variants="outlined"

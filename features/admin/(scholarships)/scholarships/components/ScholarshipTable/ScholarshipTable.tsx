@@ -106,7 +106,7 @@ const columns = buildColumns<ScholarshipTableData>({
       return (
         <div className="flex flex-col items-start gap-1">
           <span className="text-xs tracking-wider text-gray-700">{row.id}</span>
-          <h4 className="text-secondary text-md font-semibold tracking-wider">
+          <h4 className="text-primary text-md font-semibold tracking-wider">
             {value}
           </h4>
         </div>

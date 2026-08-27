@@ -12,7 +12,7 @@ const StudentEngagement = () => {
           <span className="text-2xl font-semibold text-white">MB</span>
         </div>
         <div>
-          <h4 className="text-secondary font-medium text-md tracking-wider">
+          <h4 className="text-primary font-medium text-md tracking-wider">
             M. Bautista
           </h4>
           <p className="text-green-600 text-sm font-semibold">

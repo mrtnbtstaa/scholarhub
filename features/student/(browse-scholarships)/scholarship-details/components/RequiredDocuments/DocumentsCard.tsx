@@ -14,9 +14,9 @@ const DocumentsCard = ({
 }: RequiredDocumentProps) => {
   return (
     <Card className="p-4 flex flex-col items-center gap-2 justify-center">
-      <Icon className="text-4xl text-secondary mb-1" />
+      <Icon className="text-4xl text-primary mb-1" />
       <div className="text-center">
-        <h3 className="text-secondary text-md tracking-wide font-semibold mb-2">
+        <h3 className="text-primary text-md tracking-wide font-semibold mb-2">
           {title}
         </h3>
         <p className="text-xs tracking-wider text-gray-400 leading-none">

@@ -18,8 +18,8 @@ const Apply = () => {
         href={"/"}
         variants="custom"
         prefixIcon={LuExternalLink}
-        className="bg-[#fefffe] text-secondary p-4 rounded-lg inline-block mt-4 font-semibold w-full text-center"
-        prefixClassName="text-secondary"
+        className="bg-[#fefffe] text-primary p-4 rounded-lg inline-block mt-4 font-semibold w-full text-center"
+        prefixClassName="text-primary"
       >
         Official Website
       </Navigate>

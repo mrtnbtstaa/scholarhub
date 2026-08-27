@@ -11,7 +11,7 @@ const CardHeader = ({
 }: CardHeaderProps) => {
   return (
     <header className="flex items-center justify-between p-4 border-b border-[#c5c7cf]">
-      <h2 className="text-secondary tracking-wider md:text-lg text-md font-semibold">
+      <h2 className="text-primary tracking-wider md:text-lg text-md font-semibold">
         {headerTitle}
       </h2>
       {children}

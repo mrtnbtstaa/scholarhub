@@ -5,7 +5,7 @@ const NotificationCard = ({title, description, isActive = true}: {title: string,
     return (
         <Card className="p-4 w-full">
           <div className="flex items-center justify-between">
-            <h4 className="text-secondary md:text-lg text-md tracking-wider">{title}</h4>
+            <h4 className="text-primary md:text-lg text-md tracking-wider">{title}</h4>
             <Switcher isActive={isActive} />
           </div>
           <p className="text-sm tracking-wider leading-none text-gray-700">{description}</p>

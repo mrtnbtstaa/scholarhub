@@ -20,7 +20,7 @@ const UrgentContent = ({variants = "danger", title, description} : UrgentProps) 
         )
       }
     >
-      <h3 className="text-secondary text-lg tracking-wider font-medium">
+      <h3 className="text-primary text-lg tracking-wider font-medium">
         {title}
       </h3>
       <p className="text-sm text-gray-500 tracking-wider">

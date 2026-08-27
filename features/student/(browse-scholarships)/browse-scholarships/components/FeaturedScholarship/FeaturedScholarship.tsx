@@ -6,7 +6,7 @@ import Deadline from "@/components/shared/Deadline/Deadline";
 const FeaturedScholarship = () => {
   return (
     <Card as="section" className="flex mt-4 h-full items-start">
-      <div className="relative h-full w-full">
+      <div className="relative h-96 w-full">
         <Image
           alt="Featured Scholarship Image"
           src="/assets/featured-scholarships.jpg"
@@ -20,7 +20,7 @@ const FeaturedScholarship = () => {
       <div className="flex flex-col items-start p-8 gap-4">
         <div className="flex items-center gap-2">
           <div className="bg-secondary p-2 rounded-full">
-            <span className="text-white font-semibold text-sm tracking-wider">
+            <span className="text-foreground font-semibold text-sm tracking-wider">
               FEATURED
             </span>
           </div>
@@ -28,7 +28,7 @@ const FeaturedScholarship = () => {
             Sponsored by A*STAR
           </p>
         </div>
-        <p className="lg:text-4xl md:text-2xl text-lg text-secondary font-medium tracking-wider">
+        <p className="lg:text-4xl md:text-2xl text-lg text-primary font-medium tracking-wider">
           Singapore International Graduate Award (SINGA)
         </p>
         <p className="text-gray-500 tracking-wider text-md  w-full">

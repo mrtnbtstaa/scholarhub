@@ -17,13 +17,13 @@ const ApplicationStatus = () => {
 
   return (
     <Card as="section" className="p-4 mt-4">
-      <h3 className="text-secondary text-2xl tracking-wider font-semibold">
+      <h3 className="text-primary text-2xl tracking-wider font-semibold">
         Application Setup
       </h3>
       <div className="mt-4 flex items-center gap-4 w-full">
         <div className="w-full">
           <Label
-            className="text-md font-normal text-secondary"
+            className="text-md font-normal text-primary"
             htmlFor="Application status"
           >
             Application Status
@@ -32,7 +32,7 @@ const ApplicationStatus = () => {
         </div>
         <div className="w-full">
           <Label
-            className="text-md font-normal text-secondary"
+            className="text-md font-normal text-primary"
             htmlFor="Target Date"
           >
             Personal Target Date
@@ -42,7 +42,7 @@ const ApplicationStatus = () => {
       </div>
       <div className="mt-4">
         <Label
-          className="text-md font-normal text-secondary mb-2"
+          className="text-md font-normal text-primary mb-2"
           htmlFor="Priority Level"
         >
           Priority Level

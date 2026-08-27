@@ -39,7 +39,7 @@ const ProfilePage = () => {
         </div>
       </div>
       <Card className="p-4 mt-4">
-        <h3 className="font-semibold text-2xl tracking-wider text-secondary">
+        <h3 className="font-semibold text-2xl tracking-wider text-primary">
           Academic History
         </h3>
       </Card>

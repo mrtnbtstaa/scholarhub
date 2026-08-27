@@ -9,7 +9,7 @@ const PrepareExport = () => {
       <div className="bg-[#e8eaef] rounded-lg p-3 inline-block">
         <BiCloudDownload className="text-2xl" />
       </div>
-      <h4 className="text-secondary text-lg tracking-wider font-medium">
+      <h4 className="text-primary text-lg tracking-wider font-medium">
         Download My Data
       </h4>
       <p className="text-gray-600 text-md tracking-wider md:text-start text-center">
@@ -18,9 +18,9 @@ const PrepareExport = () => {
       </p>
       <Button
         variants="outlined"
-        className="border-none p-0 text-secondary font-medium tracking-wider"
+        className="border-none p-0 text-primary font-medium tracking-wider"
         prefixIcon={BsArrowRight}
-        iconClass="text-secondary"
+        iconClass="text-primary"
       >
         Prepare Export
       </Button>

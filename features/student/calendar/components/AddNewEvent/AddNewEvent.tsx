@@ -41,9 +41,8 @@ const AddNewEvent = () => {
       >
         <FormField className="mx-4" error={error.event_title}>
           <Label
-            isRequired={true}
-            className="text-sm text-secondary tracking-wider"
-            htmlFor="eventTitle"
+            className="text-sm text-primary tracking-wider"
+            htmlFor="event-title"
           >
             Event Title
           </Label>
@@ -58,8 +57,7 @@ const AddNewEvent = () => {
         <div className="flex items-center gap-4 w-full">
           <FormField className="w-full ml-4" error={error.event_date}>
             <Label
-              isRequired={true}
-              className="text-sm text-secondary tracking-wider"
+              className="text-sm text-primary tracking-wider"
               htmlFor="date"
             >
               Date
@@ -73,8 +71,7 @@ const AddNewEvent = () => {
           </FormField>
           <FormField className="w-full mr-4" error={error.event_time}>
             <Label
-              isRequired={true}
-              className="text-sm text-secondary tracking-wider"
+              className="text-sm text-primary tracking-wider"
               htmlFor="time"
             >
               Time

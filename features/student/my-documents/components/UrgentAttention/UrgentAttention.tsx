@@ -5,7 +5,7 @@ const UrgentAttention = () => {
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-secondary text-2xl font-medium tracking-wider">
+        <h3 className="text-primary text-2xl font-medium tracking-wider">
           Urgent Attention
         </h3>
         <div className="rounded-lg px-2 py-1 bg-[#fedbd6]">

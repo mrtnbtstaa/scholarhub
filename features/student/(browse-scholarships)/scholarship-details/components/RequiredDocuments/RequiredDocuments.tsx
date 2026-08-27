@@ -9,7 +9,7 @@ import { LuImage, LuThumbsUp } from "react-icons/lu";
 const RequiredDocuments = () => {
   return (
     <div className="mt-8">
-      <h2 className="text-secondary text-2xl font-medium tracking-wider mb-4">
+      <h2 className="text-primary text-2xl font-medium tracking-wider mb-4">
         Required Documents
       </h2>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-rows-1 gap-4">

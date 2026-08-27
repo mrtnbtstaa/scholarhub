@@ -11,10 +11,10 @@ const CoverageCard = ({ icon: Icon, title, description }: CoverageProps) => {
   return (
     <Card className="flex p-4 gap-4 items-start">
       <div className="bg-[#e4efff] p-3 rounded-lg">
-        <Icon className="text-3xl text-secondary" />
+        <Icon className="text-3xl text-primary" />
       </div>
       <div className="flex flex-col items-start">
-        <h2 className="text-secondary font-semibold text-lg tracking-wider">
+        <h2 className="text-primary font-semibold text-lg tracking-wider">
           {title}
         </h2>
         <p className="text-gray-700 font-normal tracking-wider">

@@ -25,15 +25,15 @@ const variantStyles: Record<
   string
 > = {
   primary: "bg-btn-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md",
-  redirect: "text-secondary tracking-wide font-medium text-md",
-  sidebar: "",
+  redirect: "text-primary tracking-wide font-medium text-md",
+  sidebar: "sidebar",
   default: "text-gray-600 tracking-wide text-md font-semibold",
   outlined: "font-semibold border border-btn-primary rounded-lg text-md",
   custom: "",
 };
 
 const sidebarStyles = {
-  active: "tracking-wider font-medium bg-btn-primary w-full p-3 text-white rounded-lg",
+  active: "tracking-wider font-medium bg-primary w-full p-3 text-sidebar-primary-foreground rounded-lg",
   inactive: "ml-2",
 };
 
@@ -56,11 +56,11 @@ const Navigate = ({
   const isSidebar = variants === "sidebar";
 
   const content = SuffixIcon ? (
-    <div className="inline-flex items-center gap-4">
+    <div className="inline-flex items-center gap-3">
       <SuffixIcon
         className={cn(
           "text-2xl",
-          isActive ? "text-white" : "text-black"
+          isActive ? "text-sidebar-primary-foreground" : "text-primary"
         )}
       />
       {children}

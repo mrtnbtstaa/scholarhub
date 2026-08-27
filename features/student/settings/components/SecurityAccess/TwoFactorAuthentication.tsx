@@ -9,7 +9,7 @@ const TwoFactorAuthentication = ({ isEnabled }: { isEnabled?: boolean }) => {
       className="p-4 mt-4 flex items-center gap-3 md:text-start text-center md:flex-row flex-col justify-between w-full border border-[#cfdcf0]"
     >
       <div>
-        <h4 className="text-md tracking-wider text-secondary">
+        <h4 className="text-md tracking-wider text-primary">
           Two-Factor Authentication
         </h4>
         <div className="flex items-center md:justify-start justify-center gap-2">
