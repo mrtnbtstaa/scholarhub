@@ -15,7 +15,7 @@ const Header = () => {
   const {user, hasHydrated} = useAuth();
 
   return (
-    <header className="bg-background flex items-center md:justify-end justify-between w-full md:p-4 p-2 border-b border-primary-border sticky top-0 z-200 mb-4">
+    <header className="bg-background flex items-center md:justify-end justify-between w-full md:p-4 p-2 border-b border-sidebar-border sticky top-0 z-200 mb-4">
       <BrandHeader className="md:hidden flex" isAdmin={true} />
       <div className="flex items-center">
         <div className="flex items-center md:gap-8 gap-4">

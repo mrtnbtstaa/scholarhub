@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("scrollbar-thin", "font-serif", robotoSlab.variable, publicSansHeading.variable)}
+      className={cn("scrollbar-thin", "font-serif", inter.variable, robotoSlab.variable, publicSansHeading.variable)}
     >
       <body className={`antialiased ${inter.variable} ${jetbrainsMono.variable}`}>
         <ToastProvider />
