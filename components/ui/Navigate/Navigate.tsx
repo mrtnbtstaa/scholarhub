@@ -60,7 +60,7 @@ const Navigate = ({
       <SuffixIcon
         className={cn(
           "text-2xl",
-          isActive ? "text-sidebar-primary-foreground" : "text-primary"
+          isActive ? "text-foreground" : "text-muted-foreground"
         )}
       />
       {children}
