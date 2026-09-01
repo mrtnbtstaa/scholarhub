@@ -1,6 +1,7 @@
 export const routes = {
   student: {
     root: "/student",
+    onboarding: "/onboarding",
     dashboard: "/student/dashboard",
     browseScholarships: "/student/browse-scholarships",
     savedScholarships: "/student/saved-scholarships",
