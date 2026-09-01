@@ -4,6 +4,7 @@ import { Inter, JetBrains_Mono, Roboto_Slab, Public_Sans } from "next/font/googl
 import { QueryProvider } from "@/providers/QueryProvider";
 import ToastProvider from "@/providers/ToastProvider";
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const publicSansHeading = Public_Sans({subsets:['latin'],variable:'--font-heading'});
 
@@ -37,10 +38,12 @@ export default function RootLayout({
       className={cn("scrollbar-thin", "font-serif", robotoSlab.variable, publicSansHeading.variable)}
     >
       <body className={`antialiased ${inter.variable} ${jetbrainsMono.variable}`}>
-        <ToastProvider />
-        <QueryProvider>
-            {children}
-        </QueryProvider>
+        <TooltipProvider>
+          <ToastProvider />
+            <QueryProvider>
+                {children}
+            </QueryProvider>
+        </TooltipProvider>
       </body>
     </html>
   );

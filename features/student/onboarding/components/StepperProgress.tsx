@@ -7,25 +7,35 @@ import { GiFinishLine } from "react-icons/gi";
 import LineProgress from "@/components/shared/LineProgress/LineProgress";
 import { useStepperStore } from "../store/useStepperStore";
 
-type StepperIcon = { stepperIcon: ElementType };
+type StepperIcon = { stepperIcon: ElementType, tooltip: string };
 const progressIcons: StepperIcon[] = [
-  { stepperIcon: MdPerson },
-  { stepperIcon: FaGraduationCap },
-  { stepperIcon: IoMdGlobe },
-  { stepperIcon: IoMdDocument },
-  { stepperIcon: GiFinishLine },
+  { stepperIcon: MdPerson,
+    tooltip: "Personal Information"
+   },
+  { stepperIcon: FaGraduationCap,
+    tooltip: "Academic Education"
+   },
+  { stepperIcon: IoMdGlobe,
+    tooltip: "Preferences"
+   },
+  { stepperIcon: IoMdDocument,
+    tooltip: "Documents"
+   },
+  { stepperIcon: GiFinishLine,
+    tooltip: "Finish"
+   },
 ];
 
 const StepperProgress = () => {
   const currentStep = useStepperStore((state) => state.currentStep);
-  const currentStepPrgoress = useStepperStore(
+  const currentStepProgress = useStepperStore(
     (state) => state.currentStepProgress,
   );
 
   return (
     <div className="mt-2 w-full p-2">
-      <LineProgress percentage={currentStepPrgoress} className="bg-btn-primary" />
-      <div className="flex items-center justify-between mt-4">
+      <LineProgress percentage={currentStepProgress} className="bg-primary" />
+      <div className="flex items-center justify-between mt-4 ">
         {progressIcons &&
           progressIcons.map((icon, index) => {
 
@@ -34,6 +44,8 @@ const StepperProgress = () => {
 
             return (
               <StepperIconProgress
+              className="absolute -top-10"
+              tooltip={icon.tooltip}
                 key={index}
                 icon={icon.stepperIcon}
                 currentStep={isActive || isCompleted}
