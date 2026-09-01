@@ -26,14 +26,20 @@ const OnboardingPage = () => {
   const ActiveStep = ONBOARDING_STEPS[currentStepper];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <Card className="mx-auto my-auto md:min-w-[50%] min-w-full h-fit flex flex-col items-center justify-center">
-        <OnboardingHeader />
-        {currentStepper != 0 && <StepperProgress />}
-        <div className="flex w-full">{ActiveStep && <ActiveStep />}</div>
-        {currentStepper !== 0 && (
-          <OnboardingFooter stepLength={ONBOARDING_STEPS.length} />
-        )}
+    <div className="h-screen flex flex-col items-center justify-center">
+      <Card className="border p-4 relative border-gray-100 shadow-gray-300 shadow-lg mx-auto  w-[55%] min-h-[90vh] flex flex-col items-center justify-between">
+         <div className="flex flex-col w-full">
+           <OnboardingHeader />
+            {currentStepper != 0 && <StepperProgress />}
+         </div>
+         <div className="flex w-full">
+            <div className="flex flex-col w-full">
+                <div className="flex w-full">{ActiveStep && <ActiveStep />}</div>
+            </div>
+         </div>
+          {currentStepper !== 0 && (
+            <OnboardingFooter stepLength={ONBOARDING_STEPS.length} />
+          )}
       </Card>
     </div>
   );
