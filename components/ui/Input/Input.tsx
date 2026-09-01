@@ -6,12 +6,13 @@ export interface InputProps extends ComponentPropsWithoutRef<"input"> {
   prefixIcon?: ElementType;
   suffixIcon?: ElementType;
   SuffixOnClick?: () => void;
-  variant?: "primary" | "secondary" | "custom";
+  variant?: "primary" | "secondary" | "tertiary" | "custom";
 }
 
 const variantStyles: Record<NonNullable<InputProps["variant"]>, string> = {
-  primary: "border border-primary-border bg-[#fefffe]",
-  secondary: "border border-gray-200 bg-gray-50",
+  primary: "border border-primary-border bg-[#fefffe] rounded-lg",
+  secondary: "border border-gray-200 bg-gray-50 rounded-lg",
+  tertiary: "border border-gray-300 bg-gray-50",
   custom: "",
 };
 
@@ -31,7 +32,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={cn(
-          "relative flex items-center w-full rounded-lg bg-transparent transition-colors focus-within:ring-2 focus-within:ring-primary-border",
+          "relative flex items-center w-full bg-transparent transition-colors",
           variantStyles[variant],
           disabled && "opacity-50 pointer-events-none",
           className,
@@ -46,7 +47,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           disabled={disabled}
           className={cn(
-            "w-full bg-transparent p-3 outline-none border-none text-base",
+            "w-full bg-transparent py-4 px-3 outline-none border-none text-base placeholder:text-neutral-400",
             PrefixIcon ? "pl-10" : "pl-3",
             SuffixIcon ? "pr-10" : "pr-3",
           )}
