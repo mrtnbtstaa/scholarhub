@@ -10,9 +10,13 @@ export const useFilterParam = (key: string, defaulValue?: string) => {
     const value = searchParams.get(key) ?? defaulValue;
 
     const setValue = useCallback(
-        (newValue: string) => {
+        (newValue: string | null) => {
             const params = new URLSearchParams(searchParams.toString());
-            params.set(key, newValue);
+            if(newValue === null || newValue === "") {
+                params.delete(key);
+            } else {
+                params.set(key, newValue);
+            }
             router.push(`${pathname}?${params.toString()}`, {scroll: false});
         },
         [key, pathname, router, searchParams]
