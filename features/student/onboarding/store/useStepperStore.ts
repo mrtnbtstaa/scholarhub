@@ -13,12 +13,13 @@ export const useStepperStore = create<StepperState>((set) => ({
   currentStepProgress: 0,
   action: {
     setCurrentStep: (value) => {
-      if (value > 0 && value <= 5) {
+      if (value >= 0 && value <= 6) {
         set({ currentStep: value });
       }
     },
+
     setStepProgress: (value) => {
-      if (value >= 0 && value <= 100) {
+      if (value >= 0 && value <= 125) {
         set({ currentStepProgress: value });
       }
     },
