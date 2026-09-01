@@ -24,7 +24,7 @@ const variantStyles: Record<
   NonNullable<NavigateProps["variants"]>,
   string
 > = {
-  primary: "bg-btn-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md",
+  primary: "bg-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md",
   redirect: "text-primary tracking-wide font-medium text-md",
   sidebar: "sidebar",
   default: "text-gray-600 tracking-wide text-md font-semibold",
@@ -83,6 +83,8 @@ const Navigate = ({
       className={cn(
         "leading-none",
         variantStyles[variants],
+        className
+        ,
 
         isSidebar &&
           (isActive
