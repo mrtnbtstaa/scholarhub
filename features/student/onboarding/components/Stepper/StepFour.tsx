@@ -10,26 +10,32 @@ const StepFour = () => {
           icon={LuFileText}
           title="Resume / CV"
           body="PDF, DOCX (Max 5MB)"
+          accept=".pdf,.doc,.docx"
         />
         <DocumentUpload
           icon={LuGraduationCap}
           title="Academic Transcript"
           body="Official or Unofficial"
+          accept=".pdf,.doc,.docx"
         />
         <DocumentUpload
           icon={LuQuote}
           title="Recommendation Letter"
-          body="PDF format preffered"
+          body="PDF format preferred"
+          accept=".pdf"
         />
         <DocumentUpload
           icon={LuSignature}
           title="Personal Statement"
           body="Essays or statements"
+          accept=".pdf,.doc,.docx"
         />
       </div>
       <div className="flex items-center justify-center gap-2 mt-8">
         <FaUpload className="text-md text-gray-400" />
-        <p className="text-gray-400 tracking-wide text-xs leading-none">DRAG FILES DIRECTLY ONTO THE CARDS</p>
+        <p className="text-gray-400 tracking-wide text-xs leading-none">
+          DRAG FILES DIRECTLY ONTO THE CARDS
+        </p>
       </div>
     </div>
   );
