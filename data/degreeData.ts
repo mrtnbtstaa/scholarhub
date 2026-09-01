@@ -3,7 +3,7 @@ import { GenericSelect } from "@/types/shared/select.types";
 export const DegreeData: GenericSelect[] = [
   {
     label: "Degree",
-    default: "Degree",
+    default: "degree",
   },
   {
     label: "Bachelors",
