@@ -1,12 +1,12 @@
 import Divider from "@/components/shared/Divider/Divider";
-import Button from "@/components/ui/Button/Button";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import { useStepperStore } from "../store/useStepperStore";
 import { routes } from "@/lib/constants/_routes";
+import { Button } from "@/components/ui/button";
 
 const OnboardingFooter = ({ stepLength }: { stepLength: number }) => {
 
-  const PERCENTAGE_TO_ADD = 20;
+  const PERCENTAGE_TO_ADD = 25;
   const currentStepper = useStepperStore((state) => state.currentStep);
   const currentStepProgress = useStepperStore((state) => state.currentStepProgress);
   const { setCurrentStep, setStepProgress } = useStepperStore((state) => state.action);
@@ -22,8 +22,7 @@ const OnboardingFooter = ({ stepLength }: { stepLength: number }) => {
             </Navigate>
           ) : (
             <Button
-              variants="custom"
-              className="p-2"
+              className="p-6 rounded-none!"
               aria-label="Previous Button"
               onClick={() => {
                 if (currentStepper > 0) {
@@ -36,7 +35,9 @@ const OnboardingFooter = ({ stepLength }: { stepLength: number }) => {
             </Button>
           )}
           <Button
-            className="p-2"
+          size="lg"
+          className="p-6 rounded-none!"
+          variant="default"
             aria-label="Next Button"
             onClick={() => {
               if (currentStepper <= stepLength - 2) {

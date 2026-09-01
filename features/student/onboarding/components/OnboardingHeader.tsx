@@ -9,15 +9,14 @@ const OnboardingHeader = () => {
   const currentStep = useStepperStore((state) => state.currentStep);
 
   return (
-    <div className={cn("flex items-center gap-2 p-2 mt-4 w-full",
-      currentStep === 0 ? "justify-center" : "justify-between"
+    <div className={cn("flex items-center gap-2 px-2 justify-between w-full",
     )}>
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 p-2 -ml-6 items-center">
         <div className="bg-btn-primary p-2 rounded-lg" aria-hidden="true">
-          <FaGraduationCap className="text-white text-4xl" />
+          <FaGraduationCap className="text-red text-5xl" />
         </div>
-        <div>
-          <p className="text-primary tracking-wider text-2xl font-semibold leading-none">
+        <div className="text-center">
+          <p className="text-primary  tracking-wider text-sm font-semibold leading-none">
             ScholarHub
           </p>
           <span className="text-xs tracking-wider text-primary leading-none whitespace-nowrap">

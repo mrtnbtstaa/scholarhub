@@ -58,16 +58,25 @@ const fieldInterestList: PreferencesListProps[] = [
 
 const StepThree = () => {
   return (
-    <div className="w-full p-4 flex flex-col items-center justify-center">
-      <PreferencesContent
-        title="WHERE WOULD YOU LIKE TO STUDY?"
-        items={countriesList}
-      />
-      <PreferencesContent title="FUNDING PRREFERENCES" items={fundingList} />
-      <PreferencesContent
-        title="FIELDS OF INTEREST"
-        items={fieldInterestList}
-      />
+    <div className="w-full flex flex-col gap-12">
+        <div className="w-full pb-3 border-b border-gray-300">
+              <PreferencesContent
+                title="WHERE WOULD YOU LIKE TO STUDY?"
+                items={countriesList}
+              />
+        </div>
+        <div className="w-full pb-3 border-b border-gray-300">
+              <PreferencesContent 
+                title="FUNDING PRREFERENCES" 
+                items={fundingList} 
+              />
+        </div>
+        <div className="w-full pb-3 border-b border-gray-300">
+            <PreferencesContent
+              title="FIELDS OF INTEREST"
+              items={fieldInterestList}
+            />
+        </div>
     </div>
   );
 };

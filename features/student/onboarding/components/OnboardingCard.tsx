@@ -9,10 +9,8 @@ interface OnboardingCardProps{
 
 const OnboardingCard = ({icon: Icon, title, description}: OnboardingCardProps) => {
   return (
-    <Card className="border border-[#efeef2] flex flex-col items-center justify-center w-full p-3">
-      <div className="p-2 bg-[#e4efff] rounded-full mb-2">
+    <Card className="border h-35 border-[#efeef2] hover:shadow-gray-300 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col items-center justify-center w-full px-8">
         <Icon className="text-3xl text-primary" />
-      </div>
       <h2 className="text-primary font-semibold tracking-wider lg:text-lg text-md">
         {title}
       </h2>
