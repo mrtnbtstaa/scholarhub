@@ -6,6 +6,7 @@ import {
   Roboto_Slab,
   Public_Sans,
   Manrope,
+  Kalam,
 } from "next/font/google";
 import { QueryProvider } from "@/providers/QueryProvider";
 import ToastProvider from "@/providers/ToastProvider";
@@ -34,6 +35,12 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const kalam = Kalam({
+  variable: "--font-kalam",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
@@ -60,6 +67,7 @@ export default function RootLayout({
         manrope.variable,
         robotoSlab.variable,
         publicSansHeading.variable,
+        kalam.variable,
       )}
     >
       <body

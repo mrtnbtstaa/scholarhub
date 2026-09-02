@@ -28,7 +28,7 @@ const LoginModal: FC<ModalComponentProps> = ({ onClose }) => {
 
   return (
     <Dialog open onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-sm">
+      <DialogContent className="max-w-[90vw]">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle>Log in</DialogTitle>

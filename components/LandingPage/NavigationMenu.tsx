@@ -58,7 +58,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 function NavigationMenuHeader() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>

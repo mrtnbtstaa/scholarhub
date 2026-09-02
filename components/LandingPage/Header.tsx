@@ -6,22 +6,21 @@ import { useModalActions } from "@/store/useModalStore";
 const Header = () => {
   const { openModal } = useModalActions();
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-background/80 backdrop-blur-md shadow-sm">
-      <div className="flex justify-between items-center w-full lg:px-6 px-10 max-w-7xl mx-auto h-full">
-        <span className="text-2xl font-manrope font-bold">ScholarHub</span>
+    <header className="w-screen fixed top-0 left-0 right-0 z-50 h-18 md:h-20 bg-background/80 backdrop-blur-md border-b border-muted">
+      <div className="flex justify-between items-center w-full px-4 lg:px-6 max-w-[100rem] mx-auto h-full">
+        <span className="text-lg md:text-2xl font-manrope font-extrabold">ScholarHub</span>
         <NavigationMenuHeader />
-        <div className="space-x-4">
+        <div className="space-x-4 flex">
           <Button
-            variant={"ghost"}
+            variant="ghost"
             onClick={() => openModal("login")}
-            className="px-8"
+            className="hidden md:flex md:px-6 md:py-6 md:text-lg"
           >
-            Login
+            Sign In
           </Button>
           <Button
-            variant={"ghost"}
             onClick={() => openModal("register")}
-            className="px-8"
+            className="md:text-lg md:px-6 md:py-6"
           >
             Register
           </Button>

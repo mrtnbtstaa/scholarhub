@@ -54,7 +54,7 @@ body {
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
     /*--radius: 0.925rem;*/
-    --radius: 0rem;
+    --radius: 0.4rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
     --sidebar-primary: oklch(0.205 0 0);
@@ -65,7 +65,9 @@ body {
     --sidebar-ring: oklch(0.708 0 0);
 
     --surface: #f8f9ff;
-    
+
+    /* Ink for the hand-drawn margin notes — a warm pen on a cool page. */
+    --ink: #c2410c;
 }
 
 .dark {
@@ -102,6 +104,9 @@ body {
     --sidebar-ring: oklch(0.556 0 0);
 
     --surface: oklch(1 0 0 / 10%);
+
+    /* Ink lifts to a lighter orange so it stays legible on a dark page. */
+    --ink: #fb923c;
 }
 
 @theme inline {
@@ -150,4 +155,94 @@ body {
     --radius-4xl: calc(var(--radius) * 2.6);
 
     --color-surface: var(--surface);
+    --color-ink: var(--ink);
+    --font-hand: var(--font-kalam);
+}
+
+@keyframes ink-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .ink-draw path {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: ink-draw 0.7s ease-out var(--ink-delay, 0s) forwards;
+    }
+
+    .ink-draw path + path {
+        animation-duration: 0.22s;
+        animation-delay: calc(var(--ink-delay, 0s) + 0.58s);
+    }
+
+    .ink-draw path + path + path {
+        animation-delay: calc(var(--ink-delay, 0s) + 0.68s);
+    }
+}
+
+.marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 4rem,
+        #000 calc(100% - 4rem),
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 4rem,
+        #000 calc(100% - 4rem),
+        transparent
+    );
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.marquee-group {
+    display: flex;
+    gap: 1rem;
+}
+
+@keyframes marquee-scroll {
+    to {
+        transform: translateX(calc(-50% - 0.5rem));
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .marquee-track {
+        animation: marquee-scroll 45s linear infinite;
+    }
+
+    /* Let people stop it to read a row, by pointer or by keyboard. */
+    .marquee:hover .marquee-track,
+    .marquee:focus-within .marquee-track {
+        animation-play-state: paused;
+    }
+}
+
+/* No motion: one set of rows the reader scrolls themselves. */
+@media (prefers-reduced-motion: reduce) {
+    .marquee {
+        overflow-x: auto;
+    }
+
+    .marquee-group[aria-hidden="true"] {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
