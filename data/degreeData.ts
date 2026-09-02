@@ -13,8 +13,4 @@ export const DegreeData: GenericSelect[] = [
     label: "Masters",
     value: "masters",
   },
-  {
-    label: "phD",
-    value: "phd",
-  },
 ];
