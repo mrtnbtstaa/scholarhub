@@ -1,43 +1,44 @@
+"use client";
+
 import Card from "@/components/shared/Card/Card";
 import CloseButton from "@/components/shared/CloseButton/CloseButton";
-import { cn } from "@/lib/helpers/cn";
 import { useDisableScroll } from "@/hooks/useDisableScroll";
-import { useModalStore } from "@/store/useModalStore";
 import { useId } from "react";
 
+/**
+ * Presentational shell for registry-driven modals: it is rendered only while
+ * its modal type is active, so being mounted means being open.
+ */
 const Modal = ({
   modalTitle,
+  onClose,
   children,
 }: {
   modalTitle: string;
-  ButtonLabel: string;
+  onClose: () => void;
   children: React.ReactNode;
 }) => {
-  const isModalOpen = useModalStore((state) => state.isModalOpen);
-  const { setModalVisibility } = useModalStore((state) => state.action);
   const titleId = useId();
 
-  useDisableScroll(isModalOpen);
-
-  if (!isModalOpen) return null;
+  useDisableScroll(true);
 
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      className={cn(
-        "bg-[#788897]/70 min-h-full w-full fixed left-0 top-0 z-1000 transition-transform duration-300 ease-in-out backdrop-blur-xs overflow-hidden items-center justify-center",
-        isModalOpen ? "flex" : "hidden",
-      )}
+      className="bg-[#788897]/70 min-h-full w-full fixed left-0 top-0 z-1000 transition-transform duration-300 ease-in-out backdrop-blur-xs overflow-hidden flex items-center justify-center"
     >
       <Card className="flex flex-col h-full items-start justify-center rounded-2xl bg-white md:w-150 w-100">
         {/* Modal Header */}
         <header className="flex items-center justify-between w-full p-4">
-          <h3 className="text-md text-secondary font-semibold tracking-wider">
+          <h3
+            id={titleId}
+            className="text-md text-secondary font-semibold tracking-wider"
+          >
             {modalTitle}
           </h3>
-          <CloseButton onClick={() => setModalVisibility(false)} />
+          <CloseButton onClick={onClose} />
         </header>
         {/* Modal Header */}
         {/* Modal Main Content */}

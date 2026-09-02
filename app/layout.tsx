@@ -1,16 +1,35 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, JetBrains_Mono, Roboto_Slab, Public_Sans } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono,
+  Roboto_Slab,
+  Public_Sans,
+  Manrope,
+} from "next/font/google";
 import { QueryProvider } from "@/providers/QueryProvider";
 import ToastProvider from "@/providers/ToastProvider";
 import { cn } from "@/lib/utils";
+import ModalProvider from "@/providers/ModalProvider";
 
-const publicSansHeading = Public_Sans({subsets:['latin'],variable:'--font-heading'});
+const publicSansHeading = Public_Sans({
+  subsets: ["latin"],
+  variable: "--public-sans",
+});
 
-const robotoSlab = Roboto_Slab({subsets:['latin'],variable:'--font-serif'});
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  variable: "--roboto-slab",
+});
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const manrope = Manrope({
+  variable: "--manrope",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
@@ -34,13 +53,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("scrollbar-thin", "font-serif", inter.variable, robotoSlab.variable, publicSansHeading.variable)}
+      className={cn(
+        "scrollbar-thin",
+        "font-serif",
+        inter.variable,
+        manrope.variable,
+        robotoSlab.variable,
+        publicSansHeading.variable,
+      )}
     >
-      <body className={`antialiased ${inter.variable} ${jetbrainsMono.variable}`}>
+      <body
+        className={`antialiased`}
+      >
         <ToastProvider />
         <QueryProvider>
-            {children}
-        </QueryProvider>
+          <ModalProvider/>
+          {children}</QueryProvider>
       </body>
     </html>
   );

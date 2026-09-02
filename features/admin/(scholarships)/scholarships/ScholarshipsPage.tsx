@@ -4,14 +4,12 @@ import ScholarshipAnalytics from "./components/ScholarshipAnalytics/ScholarshipA
 import StatusDistribution from "./components/StatusDistribution";
 import ApiImports from "./components/ApiImports";
 import QuickInsights from "./components/QuickInsights";
-import CreateScholarshipModal from "./components/CreateScholarshipModal";
 import ScholarshipFilter from "./components/ScholarshipFilter";
 import ScholarshipTable from "./components/ScholarshipTable/ScholarshipTable";
 
 const ScholarshipsPage = () => {
   return (
     <Main>
-      <CreateScholarshipModal />
       <ScholarshipHeader />
       <ScholarshipAnalytics />
       <div className="grid grid-cols-4 grid-rows-1 gap-4 flex-col-reverse">

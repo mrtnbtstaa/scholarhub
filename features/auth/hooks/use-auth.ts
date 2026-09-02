@@ -15,10 +15,13 @@ import { ResetPasswordInput, resetPasswordSchema } from "../schema/reset-passwor
 import { USER_ROLE } from "@/lib/constants/user-role";
 import { useAuthStore } from "../store/authStore";
 import { useIdempotencyKey } from "@/hooks/useIdempotencyKey";
+import { useModalActions, useModalType } from "@/store/useModalStore";
 
 export const useLogin = () => {
 
   const setAuth = useAuthStore((state) => state.setAuth);
+
+  const { closeModal } = useModalActions();
 
   const router = useRouter();
 
@@ -58,7 +61,10 @@ export const useLogin = () => {
 
       // Reset the forms
       form.reset()
-      
+
+      // Dismiss the login modal when logging in from the landing page
+      closeModal();
+
       const redirectRoute = role === USER_ROLE.ADMIN 
         ? routes.admin.dashboard 
         : routes.student.dashboard;
@@ -88,6 +94,8 @@ export const useLogin = () => {
 
 export const useRegister = () => {
 
+  const { closeModal } = useModalActions();
+
   const router = useRouter();
 
   const form = useForm<RegisterInput>({
@@ -104,6 +112,7 @@ export const useRegister = () => {
 
 
   const {key, regenerate} = useIdempotencyKey();
+  const { openModal } = useModalActions();
 
   const mutation = useMutation<
     ApiResponse<null>,
@@ -121,8 +130,12 @@ export const useRegister = () => {
       // Reset the forms
       form.reset()
 
+      // Dismiss the register modal when registering from the landing page
+      closeModal();
+
       // Redirect to login after successfully registering an account
-      router.push(routes.public.login)
+      openModal("login");
+      // router.push(routes.public.login)
     },
     onError(error) {
       // Show the toast error
