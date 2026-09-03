@@ -23,6 +23,7 @@ import {
   InkNote,
   InkUnderline,
 } from "@/components/LandingPage/HandDrawn";
+import { CustomInput } from "@/components/shared/CustomInput";
 
 const RegisterModal: FC<ModalComponentProps> = ({ onClose }) => {
   const { openModal } = useModalActions();
@@ -42,7 +43,10 @@ const RegisterModal: FC<ModalComponentProps> = ({ onClose }) => {
               <DialogTitle>
                 <span className="relative w-fit">
                   Create an account
-                  <InkArrow delay={2.45} className="stroke-4 size-20 -top-11 -right-15 absolute" />
+                  <InkArrow
+                    delay={2.45}
+                    className="stroke-4 size-20 -top-11 -right-15 absolute"
+                  />
                 </span>
               </DialogTitle>
 
@@ -71,15 +75,15 @@ const RegisterModal: FC<ModalComponentProps> = ({ onClose }) => {
             <FieldGroup className="">
               <div className="flex items-start divide-x divide-[var(--border)]  border-border border rounded-md">
                 <Field className="relative max-w-full">
-                  <Input
+                  <CustomInput
                     id="register-first-name"
                     type="text"
                     placeholder="First name"
                     autoComplete="given-name"
                     {...register("first_name")}
-                    className="relative border-none shadow-none"
+                    className="border-none rounded-r-none focus:border-none"
                   />
-                  <span className="absolute inset-0 outline bg-white w-fill  -translate-y-1/2 left-3 text-sm c/text-muted">First name</span>
+
                   {errors.first_name && (
                     <p className="text-sm text-destructive">
                       {errors.first_name.message}
@@ -87,13 +91,13 @@ const RegisterModal: FC<ModalComponentProps> = ({ onClose }) => {
                   )}
                 </Field>
                 <Field>
-                  <Input
+                  <CustomInput
                     id="register-last-name"
                     type="text"
                     placeholder="Last name"
                     autoComplete="family-name"
                     {...register("last_name")}
-                    className="border-none shadow-none"
+                    className="border-none rounded-l-none focus:border-none"
                   />
                   {errors.last_name && (
                     <p className="text-sm text-destructive">
@@ -109,6 +113,7 @@ const RegisterModal: FC<ModalComponentProps> = ({ onClose }) => {
                   placeholder="Email"
                   autoComplete="email"
                   {...register("email")}
+                  className="shadow-none"
                 />
                 {errors.email && (
                   <p className="text-sm text-destructive">
@@ -123,6 +128,7 @@ const RegisterModal: FC<ModalComponentProps> = ({ onClose }) => {
                   placeholder="Password"
                   autoComplete="new-password"
                   {...register("password")}
+                  className="shadow-none"
                 />
                 {errors.password && (
                   <p className="text-sm text-destructive">
@@ -137,6 +143,7 @@ const RegisterModal: FC<ModalComponentProps> = ({ onClose }) => {
                   placeholder="Confirm password"
                   autoComplete="new-password"
                   {...register("confirm_password")}
+                  className="shadow-none"
                 />
                 {errors.confirm_password && (
                   <p className="text-sm text-destructive">
