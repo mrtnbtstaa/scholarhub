@@ -122,9 +122,9 @@ const LandingPage = () => {
 
       <section
         aria-labelledby="active-scholarships"
-        className=" mx-auto pb-4"
+        className="border-primary/30 border p-4 rounded-[16px]"
       >
-        <div className="border-border border p-4">
+        <div className="">
           <h2
             id="active-scholarships"
             className="font-heading text-xl font-bold mb-8"
