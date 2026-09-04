@@ -16,13 +16,13 @@ const BrandHeader = ({
       )}
     >
       <div className="bg-btn-primary p-2 rounded-lg" aria-hidden="true">
-        <FaGraduationCap className={cn("text-white md:text-4xl text-2xl")} />
+        <FaGraduationCap className={cn("md:text-2xl text-xl")} />
       </div>
       <div>
-        <p className="text-secondary tracking-wider lg:text-2xl md:text-lg font-semibold leading-none">
+        <p className="tracking-wider lg:text-xl md:text-lg font-semibold leading-none">
           ScholarHub
         </p>
-        <span className="text-xs tracking-wider text-secondary leading-none whitespace-nowrap">
+        <span className="text-muted-foreground text-xs tracking-wider text-fore leading-none whitespace-nowrap">
           {isAdmin ? "ADMIN CONSOLE" : "STUDENT WORKSPACE"}
         </span>
       </div>

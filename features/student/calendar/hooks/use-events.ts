@@ -9,13 +9,13 @@ import showToast from "@/lib/toast/show.toast"
 import { useState } from "react"
 import { getMonthRange } from "../utils/calendar.utils"
 import { EventInput } from "@fullcalendar/react"
-import { useModalStore } from "@/store/useModalStore"
+import { useModalActions } from "@/store/useModalStore"
 import { IdInput } from "@/schema/id.schema"
 import { useRightSidebarStore } from "../store/useRightSidebarStore"
 
 export const useCreateCalendarEvent = () => {
 
-    const { setModalVisibility } = useModalStore((state) => state.action);
+    const { closeModal } = useModalActions();
     const queryClient = useQueryClient();
 
     const form = useForm<CalendarEventInput>({
@@ -43,7 +43,7 @@ export const useCreateCalendarEvent = () => {
             // Invalidate stale query
             queryClient.invalidateQueries({queryKey: ["calendar"]});
             // Hide the modal
-            setModalVisibility(false);
+            closeModal();
         },
         onError(error) {
             // Show toast error

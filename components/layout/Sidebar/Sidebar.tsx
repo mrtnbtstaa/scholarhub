@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 h-screen w-64 bg-[#fefffe] border-r border-primary-border md:flex hidden flex-col transition-all duration-200 ease-in-out z-300",
+        "fixed left-0 top-0 h-screen w-64 bg-sidebar border-r border-sidebar-border md:flex hidden flex-col transition-all duration-200 ease-in-out z-300",
       )}
     >
       <BrandHeader className="mt-2 ml-2" isAdmin={isAdmin} />

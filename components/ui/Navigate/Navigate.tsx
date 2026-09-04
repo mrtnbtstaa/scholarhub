@@ -24,7 +24,7 @@ const variantStyles: Record<
   NonNullable<NavigateProps["variants"]>,
   string
 > = {
-  primary: "bg-btn-primary hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out text-white tracking-wide font-semibold rounded-md text-md",
+  primary: "text-sidebar-foreground hover:bg-[#0f5ffd] transition-colors duration-75 ease-in-out tracking-wide font-semibold rounded-md text-md",
   redirect: "text-secondary tracking-wide font-medium text-md",
   sidebar: "",
   default: "text-gray-600 tracking-wide text-md font-semibold",
@@ -33,8 +33,8 @@ const variantStyles: Record<
 };
 
 const sidebarStyles = {
-  active: "tracking-wider font-medium bg-btn-primary w-full p-3 text-white rounded-lg",
-  inactive: "ml-2",
+  active: "tracking-wider font-medium text-sidebar-primary-foreground bg-sidebar-primary w-full rounded-lg",
+  inactive: "text-muted-foreground hover:bg-sidebar-accent",
 };
 
 const Navigate = ({
@@ -59,8 +59,8 @@ const Navigate = ({
     <div className="inline-flex items-center gap-4">
       <SuffixIcon
         className={cn(
-          "text-2xl",
-          isActive ? "text-white" : "text-black"
+          "text-xl",
+          isActive ? "text-sidebar-primary-foreground" : "text-muted-foreground"
         )}
       />
       {children}
@@ -69,7 +69,7 @@ const Navigate = ({
     <div className="inline-flex items-center gap-2">
       {children}
       <PrefixIcon
-        className={cn("text-2xl text-white", prefixClassName)}
+        className={cn("text-xl text-sidebar-foreground", prefixClassName)}
       />
     </div>
   ) : (
@@ -81,7 +81,7 @@ const Navigate = ({
       href={href}
       {...props}
       className={cn(
-        "leading-none",
+        "leading-none p-2 rounded-md",
         variantStyles[variants],
 
         isSidebar &&

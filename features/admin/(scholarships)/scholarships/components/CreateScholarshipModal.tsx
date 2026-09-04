@@ -6,7 +6,8 @@ import BasicInfoForm from "./form/BasicInfoForm";
 import Button from "@/components/ui/Button/Button";
 import EligibilityForm from "./form/EligibilityForm";
 import DetailsForm from "./form/DetailsForm";
-import { useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
+import { ModalComponentProps } from "@/types/shared/modal.types";
 import gsap from "gsap";
 import { cn } from "@/lib/helpers/cn";
 import { MdCheck } from "react-icons/md";
@@ -25,7 +26,7 @@ const stepperIndicators: StepperHeaderProps[] = [
 
 const stepperForms = [BasicInfoForm, EligibilityForm, DetailsForm];
 
-const CreateScholarshipModal = () => {
+const CreateScholarshipModal: FC<ModalComponentProps> = ({ onClose }) => {
   const [stepperIndex, setStepperIndex] = useState<number>(0);
   const formRef = useRef<HTMLDivElement>(null);
   const ActiveForm = stepperForms[stepperIndex];
@@ -39,7 +40,7 @@ const CreateScholarshipModal = () => {
   }, [stepperIndex])
 
   return (
-    <Modal modalTitle="Create New Scholarship" ButtonLabel="Next Step">
+    <Modal modalTitle="Create New Scholarship" onClose={onClose}>
       <Divider />
       <div className="flex items-center justify-center mt-4 px-4">
         <div className="flex items-center justify-between w-full">
