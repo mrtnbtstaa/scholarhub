@@ -7,7 +7,7 @@ const SidebarMenu = () => {
   const user = useAuthStore((state) => state.user);
   const menus = user?.role === "admin" ? ADMIN_SIDEBAR_MENUS : STUDENT_SIDEBAR_MENUS;
   return (
-    <div className="mt-8 flex flex-col gap-6 mx-4 transition-all duration-150">
+    <div className="mt-8 flex flex-col gap-2 mx-4 transition-all duration-150">
       {menus &&
         menus.map((menu) => (
           <Navigate

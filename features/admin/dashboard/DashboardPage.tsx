@@ -6,6 +6,7 @@ import StudentGrowth from "./components/StudentGrowth/StudentGrowth";
 import AdminActivity from "./components/Activity/AdminActivity";
 import Analytics from "./components/Analytics/Analytics";
 import DashboardHeader from "./components/DashboardHeader/DashboardHeader";
+import { Button } from "@/components/ui/button";
 
 const DashboardPage = () => {
   return (

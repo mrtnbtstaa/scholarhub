@@ -1,15 +1,38 @@
 import { create } from "zustand";
 
+export type ModalType =
+  | "login"
+  | "register"
+  | "create-event"
+  | "create-scholarship"
+  | "";
+
+export type ActiveModalType = Exclude<ModalType, "">;
+
 interface ModalState {
-  isModalOpen: boolean;
+  type: ModalType;
+  data?: Record<string, unknown>;
   action: {
-    setModalVisibility: (value: boolean) => void;
+    openModal: (type: ModalType, data?: Record<string, unknown>) => void;
+    closeModal: () => void;
   };
 }
 
 export const useModalStore = create<ModalState>((set) => ({
-  isModalOpen: false,
+  type: "",
+  data: undefined,
   action: {
-    setModalVisibility: (value) => set({ isModalOpen: value }),
+    openModal: (type, data) => set({ type, data }),
+    closeModal: () => set({ type: "", data: undefined }),
   },
 }));
+
+export const useModalActions = () => useModalStore((state) => state.action);
+
+export const useModalType = () => useModalStore((state) => state.type);
+
+export const useIsModalOpen = (type: ActiveModalType) =>
+  useModalStore((state) => state.type === type);
+
+export const useModalData = <T = Record<string, unknown>>() =>
+  useModalStore((state) => state.data as T | undefined);

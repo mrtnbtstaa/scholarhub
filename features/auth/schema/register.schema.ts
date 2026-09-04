@@ -31,12 +31,12 @@ export const registerSchema = z.object({
                 return;
             }
 
-            if(!PASSWORD_REGEX.test(password)){
-                ctx.addIssue({
-                    code: "custom",
-                    message: "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character."
-                })
-            }
+            // if(!PASSWORD_REGEX.test(password)){
+            //     ctx.addIssue({
+            //         code: "custom",
+            //         message: "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character."
+            //     })
+            // }
         }),
     confirm_password: z
         .string()
@@ -53,12 +53,12 @@ export const registerSchema = z.object({
                 return;
             }
 
-             if(!PASSWORD_REGEX.test(confirmPassword)){
-                ctx.addIssue({
-                    code: "custom",
-                    message: "Confirm Password must contain at least 8 characters, including uppercase, lowercase, number, and special character."
-                })
-            }
+            //  if(!PASSWORD_REGEX.test(confirmPassword)){
+            //     ctx.addIssue({
+            //         code: "custom",
+            //         message: "Confirm Password must contain at least 8 characters, including uppercase, lowercase, number, and special character."
+            //     })
+            // }
 
         }),
     role: z

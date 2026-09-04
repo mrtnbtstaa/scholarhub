@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/Button/Button";
+// import Button from "@/components/ui/Button/Button";
 import FormField from "@/components/ui/FormField/FormField";
 import Input from "@/components/ui/Input/Input";
 import Label from "@/components/ui/Label/Label";
@@ -9,6 +9,7 @@ import { ICONS } from "@/lib/constants/icons";
 import AuthFooter from "../AuthFooter";
 import { useLogin } from "../../hooks/use-auth";
 import PasswordField from "@/components/shared/PasswordField/PasswordField";
+import { Button } from "@/components/ui/button";
 
 const LoginForm = () => {
   const {form, handleSubmit, isPending, error} = useLogin();
@@ -44,7 +45,7 @@ const LoginForm = () => {
             Forgot Password?
           </Navigate>
         </div>
-        <Button isLoading={isPending} className="p-3 float-right w-full">
+        <Button type="submit" className="float-right w-full h-12">
           Sign In
         </Button>
       </form>

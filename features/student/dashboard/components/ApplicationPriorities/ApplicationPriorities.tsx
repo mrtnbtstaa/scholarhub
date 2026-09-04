@@ -1,12 +1,12 @@
-import Card from "@/components/shared/Card/Card";
-import CardHeader from "@/components/shared/CardHeader/CardHeader";
 import Navigate from "@/components/ui/Navigate/Navigate";
 import ApplicationPrioritiesItem from "./ApplicationPrioritiesItem";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 const ApplicationPriorities = () => {
   return (
-    <Card as="section" className="w-full">
-      <CardHeader headerTitle="Application Priorities">
+    <Card className="w-full">
+      <CardHeader className="flex justify-between">
+        <CardTitle>Application Priorities</CardTitle>
         <Navigate href="/" variants="default">
           View All
         </Navigate>

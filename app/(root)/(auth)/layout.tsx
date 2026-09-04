@@ -29,10 +29,10 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
             <Heading className="text-white font-semibold text-2xl">ScholarHub</Heading>
           </div>
           <div>
-            <p className="font-bold lg:text-4xl text-2xl text-white tracking-wide mt-4">
+            <p className="font-bold lg:text-4xl text-2xl tracking-wide mt-4">
               Empowering your academic future.
             </p>
-            <p className="font-medium text-sm lg:text-lg text-white/80 tracking-wide">
+            <p className="font-medium text-sm lg:text-lg text-foreground/80 tracking-wide">
               Join thousands of students securing their education through
               data-driven scholarship matching.
             </p>

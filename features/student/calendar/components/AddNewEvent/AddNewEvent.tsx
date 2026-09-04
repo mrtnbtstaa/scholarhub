@@ -6,7 +6,8 @@ import Label from "@/components/ui/Label/Label";
 import Select from "@/components/ui/Select/Select";
 import Modal from "@/components/shared/Modal/Modal";
 import Button from "@/components/ui/Button/Button";
-import { useModalStore } from "@/store/useModalStore";
+import { ModalComponentProps } from "@/types/shared/modal.types";
+import { FC } from "react";
 import TextArea from "@/components/ui/TextArea/TextArea";
 import { useCreateCalendarEvent } from "../../hooks/use-events";
 import { GenericSelect } from "@/types/shared/select.types";
@@ -30,11 +31,10 @@ export const eventStatus: GenericSelect[] = [
   },
 ];
 
-const AddNewEvent = () => {
+const AddNewEvent: FC<ModalComponentProps> = ({ onClose }) => {
   const { form, handleSubmit, isPending, error } = useCreateCalendarEvent();
-  const { setModalVisibility } = useModalStore((state) => state.action);
   return (
-    <Modal modalTitle="Add New Event" ButtonLabel="Save Event">
+    <Modal modalTitle="Add New Event" onClose={onClose}>
       <form
         onSubmit={handleSubmit}
         className="mt-4 w-full"
@@ -111,7 +111,7 @@ const AddNewEvent = () => {
             aria-label="Close Event Button"
             className="p-3 border w-full text-sm tracking-wider border-[#dfe1e4] rounded-lg"
             variants="custom"
-            onClick={() => setModalVisibility(false)}
+            onClick={onClose}
           >
             Cancel
           </Button>
