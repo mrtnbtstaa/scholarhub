@@ -1,6 +1,11 @@
 export type Gender = "male" | "female"  
-export type EducationLevel = "undergraduate" | "high_school" | "associate" | "bachelor" | "master" 
-
+export type EducationLevel =
+  | "high_school"
+  | "associate"
+  | "bachelor"
+  | "master"
+  | "doctorate"; 
+  
 export interface OnboardingDraft {
     // USER INFORMATION
     avatar?: File | null;
@@ -11,7 +16,7 @@ export interface OnboardingDraft {
     phone_number?:Number;
 
     // USER ACADEMIC
-    education_level?: string;
+    education_level?: EducationLevel;
     institution_name?: string;
     degree?: string;
     field_of_study?: string;

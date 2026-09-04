@@ -5,10 +5,10 @@ import SelectField from "@/components/shared/SelectField/SelectField";
 import { DegreeOptionsByLevel, EducationLevelData } from "@/data/educationLevelData";
 import { useOnboardingStore } from "@/store/useOnboardDraftStore";
 import { Label } from "@/components/ui/label";
+import { EducationLevel } from "@/types/onboarding/onboarding";
 
 const StepTwo = () => {
   const {draft, updateField} = useOnboardingStore()
-
   //get the selected education level from the onboardingstore
   const educationLevel = useOnboardingStore((state) => state.draft.education_level)
   //get the degree options based on the selected education level
@@ -24,7 +24,7 @@ const StepTwo = () => {
           Provide details about your current or most recent studies.
         </p>
       </div>
-      <form className="w-full">
+      <form  className="w-full">
         <div className="mt-8 w-full">
          <div className="flex gap-2">
             <FormField className="w-full">
@@ -34,7 +34,7 @@ const StepTwo = () => {
                 placeholder="Select Education Level"
                 onChange={(value) => 
                 {
-                  updateField("education_level", value as string); 
+                  updateField("education_level", value as EducationLevel ); 
                   updateField("degree", "");
                 }}
                 data={EducationLevelData}
@@ -56,14 +56,16 @@ const StepTwo = () => {
             <FormField className="w-full">
               <Label htmlFor="degree type">Degree Type</Label>
               {/* <Input variant="tertiary" type="text" placeholder="e.g. B.Sc" /> */}
-              <SelectField
-                className="w-full" 
-                variant="tertiary"
-                value={draft.degree ?? ""}
-                placeholder="Select Degree Type"
-                onChange={(value) => updateField("degree", value as string)}
-                data={degreeOptions}
-              />
+                <SelectField
+                  className="w-full"
+                  disabled={!educationLevel}
+                  variant="tertiary"
+                  value={draft.degree ?? ""}
+                  placeholder="Select Degree Type"
+                  onChange={(value) => updateField("degree", value as string)}
+                  data={degreeOptions}
+                />
+            
             </FormField>
             <FormField className="w-full">
               <Label htmlFor="Field of Study">Field of Study</Label>

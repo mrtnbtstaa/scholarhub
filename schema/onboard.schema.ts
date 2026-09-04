@@ -41,3 +41,5 @@ export const onboardSchema = z.object({
     recommendation_letter: z.file(),
     personal_statement: z.file(),
 })
+
+export type OnboardSchema = z.infer<typeof onboardSchema>
