@@ -11,7 +11,7 @@ import { useOnboardingStore } from "@/store/useOnboardDraftStore";
 import { Gender } from "@/types/onboarding/onboarding";
 import { Label } from "@/components/ui/label";
 const StepOne = () => {
-  const {draft, updateField} = useOnboardingStore()
+  const { draft, updateField } = useOnboardingStore()
   return (
     <div className="w-full p-4 flex flex-col items-center justify-center">
       <form>
@@ -38,8 +38,13 @@ const StepOne = () => {
               </FormField>
               <FormField className="w-full">
                 <Label htmlFor="gender">Gender</Label>
-                <SelectField variant="tertiary" placeholder="Select Gender" data={GenderData} value={draft.gender ?? ""} onChange={(value) => updateField("gender", value as string )} className="  leading-none w-full"/>
-        
+                <SelectField 
+                  variant="tertiary" 
+                  placeholder="Select Gender" 
+                  data={GenderData} 
+                  value={draft.gender ?? ""} 
+                  onChange={(value) => updateField("gender", value as string )}
+                  className="leading-none w-full"/>
               </FormField>
             </div>
             <div className="lg:flex grid grid-cols-1 grid-rows-1 w-full gap-2">

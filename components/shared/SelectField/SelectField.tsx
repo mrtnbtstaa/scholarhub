@@ -19,6 +19,7 @@ type SelectProps = {
   className?: string;
   size?: "sm" | "default";
   variant?: "primary" | "secondary" | "tertiary" | "custom";
+  disabled?: boolean;
 };
 
 const variantStyles: Record<NonNullable<SelectProps["variant"]>, string> = {
@@ -36,16 +37,28 @@ const SelectField = ({
   className,
   size = "default",
   variant = "primary",
+  disabled = false
 }: SelectProps) => {
-  const placeholderItem = data.find((item) => item.default);
+  
+  // find or look for a default value, if none the placeholder will take the default value pass in placeHolderText
+  const placeHolderItem = data.find((item) => item.default)
+  // 3 fallbacks for placeholder first, if no placeholder pass, it will be the label of the item if it has default value if none, default is select...
+  const placeHolderText = placeholder ?? placeHolderItem?.label  ?? "Select..."
+  // if no value, ignores it and and wont be rendered in ui
   const options = data.filter((item) => item.value !== undefined);
+
+  //
+  const renderSelectedLabel = (val: string) => {
+      if (!val) return placeHolderText;
+      return options.find((item) => String(item.value) === val)?.label ?? val;
+  }
 
   return (
     <ShadcnSelect  value={value} onValueChange={onChange}>
-      <SelectTrigger className={cn(`w-full, ${className}`, variantStyles[variant])} size={size}>
-        <SelectValue
-          placeholder={placeholder ?? placeholderItem?.default ?? "Select..."}
-        />
+      <SelectTrigger disabled={disabled} className={cn(`w-full, ${className}`, variantStyles[variant])} size={size}>
+        <SelectValue placeholder={placeHolderText}>
+            {renderSelectedLabel}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         {options.map((item) => (
